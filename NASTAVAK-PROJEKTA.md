@@ -53,9 +53,21 @@ Service Worker instalacija (`cache.addAll`) smjela je koristiti preglednikovu HT
 1. **Ikona je samo SVG** (`icons/icon.svg`) - radi na Androidu/Chromeu, ali za savršenu podršku na starijim iOS uređajima trebalo bi generirati i PNG verzije (192x192, 512x512) i dodati ih u `manifest.json`. Nisam to mogao napraviti jer sandbox u toj sesiji nije imao izvršno okruženje (Python/Pillow) za generiranje PNG-a - kod kuće to je lako riješiti.
 2. **Service Worker ne radi preko `file://`** - riješeno za stvarnu upotrebu preko GitHub Pages linka gore; `pokreni.bat` ostaje korisan za lokalni razvoj/testiranje.
 3. **Godina B nije unesena** - podaci idu samo do 22.11.2026. (kraj Godine A). Za nastavak nakon toga (od 29.11.2026., Godina B) treba dodati `data-godina-B.json` po istom obrascu i upisati je u `data-index.json`.
-4. **Reference i tekstovi čitanja - u tijeku** (od 20.7.2026.): svih 55 dana sada ima biblijsku referencu (sastavljeno iz poznatog rasporeda Lekcionara za godinu A, nije provjereno redak-po-redak protiv tiskanog misala - vrijedi provjeriti sitne razlike u podjeli stihova prije stvarnog čitanja u crkvi). Tekst (`tekst` polje) popunjen je iz Šarić (PD) prijevoda za 5 nedjelja: 2026-07-26, 2026-08-02, 2026-08-09, 2026-08-15, 2026-08-16. Ostalih 50 dana još čeka popunjavanje - nastaviti istim postupkom (dohvati odgovarajuća poglavlja s eBible.org/hrv, izdvoji navedene retke, upiši u `tekst`/`pripjev`). "Molitva vjernika" ostaje namjerno prazna (korisnikova odluka).
+4. **Reference i tekstovi čitanja - u tijeku** (od 20.7.2026.): svih 55 dana sada ima biblijsku referencu (sastavljeno iz poznatog rasporeda Lekcionara za godinu A, nije provjereno redak-po-redak protiv tiskanog misala - vrijedi provjeriti sitne razlike u podjeli stihova prije stvarnog čitanja u crkvi). Tekst (`tekst` polje) popunjen je iz Šarić (PD) prijevoda za 6 dana: 2025-11-30, 2026-07-26, 2026-08-02, 2026-08-09, 2026-08-15, 2026-08-16. Ostalih 49 dana još čeka popunjavanje - nastaviti istim postupkom (dohvati odgovarajuća poglavlja s eBible.org/hrv, izdvoji navedene retke, upiši u `tekst`/`pripjev`). "Molitva vjernika" ostaje namjerno prazna (korisnikova odluka).
 5. **Nije testirano na stvarnom mobitelu** - vrijedilo bi provjeriti instalaciju i offline rad na Androidu i iPhoneu.
 6. **Nema automatske validacije JSON-a** - `data-godina-*.json` datoteke pišu se ručno pa vrijedi provjeriti da su i dalje ispravan JSON nakon svakog unosa teksta (npr. `python -m json.tool data-godina-A.json`).
+
+## Sljedeći koraci (preporuke, 20.7.2026.)
+
+Redom po prioritetu:
+
+1. **Popuniti tekstove čitanja za preostalih 49 dana** - glavni posao. Raditi kronološki od prve nadolazeće nedjelje bez teksta (od 2026-08-23 nadalje), u serijama od 5-10 dana po sesiji. Postupak: dohvatiti odgovarajuća poglavlja Šarić (PD) prijevoda s eBible.org/hrv, izdvojiti retke prema referenci, upisati u `tekst`/`pripjev`. "Molitva vjernika" se i dalje namjerno preskače (ostaje prazna).
+2. **Nakon svakog unosa**: validirati JSON (`python -m json.tool data-godina-A.json`), bump `CACHE_NAME` u `service-worker.js` (sljedeći je v5), commit + push (git ISKLJUČIVO preko Windows PowerShell alata - vidi `GIT-UPUTE-ZA-CLAUDEA.md`).
+3. **Generirati PNG ikone** (192x192 i 512x512) iz `icons/icon.svg` u sandboxu (Python je dostupan) i dodati ih u `manifest.json`.
+4. **Čišćenje**: obrisati `testfile.txt` (brisanje preko PowerShella, ne bash!).
+5. **Testiranje na mobitelu** (korisnik): instalacija i offline rad na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/.
+
+Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash; službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda.
 
 ## Kako nastaviti kod kuće
 
