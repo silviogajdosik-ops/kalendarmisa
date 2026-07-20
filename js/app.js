@@ -24,6 +24,7 @@
   var svi_dani = [];
   var trenutniDan = null;
   var vjerovanjeIzbor = localStorage.getItem("vjerovanjeIzbor") || "dugo";
+  var temaIzbor = document.documentElement.getAttribute("data-tema") || "svijetla";
 
   var els = {
     daySelect: document.getElementById("daySelect"),
@@ -33,8 +34,27 @@
     colorDot: document.getElementById("colorDot"),
     massOrder: document.getElementById("massOrder"),
     offlineBadge: document.getElementById("offlineBadge"),
-    themeColorMeta: document.getElementById("themeColorMeta")
+    themeColorMeta: document.getElementById("themeColorMeta"),
+    temaToggle: document.getElementById("temaToggle")
   };
+
+  // ---------- Tema (svijetla/tamna) ----------
+
+  function primijeniIkonuTeme() {
+    if (!els.temaToggle) return;
+    els.temaToggle.textContent = temaIzbor === "tamna" ? "☀" : "🌙";
+    els.temaToggle.setAttribute(
+      "aria-label",
+      temaIzbor === "tamna" ? "Uključi svijetlu temu" : "Uključi tamnu temu"
+    );
+  }
+
+  function postaviTemu(nova) {
+    temaIzbor = nova;
+    document.documentElement.setAttribute("data-tema", temaIzbor);
+    localStorage.setItem("temaIzbor", temaIzbor);
+    primijeniIkonuTeme();
+  }
 
   // ---------- Pomoćne funkcije ----------
 
@@ -80,11 +100,26 @@
 
   // ---------- Učitavanje podataka ----------
 
+  // Podaci su razdvojeni po liturgijskim godinama (data-godina-A.json, ...-B.json, ...-C.json)
+  // radi lakšeg ručnog uređivanja. data-index.json popisuje koje datoteke trenutno postoje -
+  // kad se doda nova liturgijska godina, dovoljno je dodati njezinu datoteku u taj popis.
   function ucitajPodatke() {
-    return fetch("data.json")
+    return fetch("data-index.json")
       .then(function (r) { return r.json(); })
-      .then(function (json) {
-        svi_dani = (json.dani || []).slice().sort(function (a, b) {
+      .then(function (indeks) {
+        var datoteke = (indeks && indeks.datoteke) || [];
+        return Promise.all(
+          datoteke.map(function (ime) {
+            return fetch(ime).then(function (r) { return r.json(); });
+          })
+        );
+      })
+      .then(function (sviJsonovi) {
+        var spojeno = [];
+        sviJsonovi.forEach(function (json) {
+          spojeno = spojeno.concat(json.dani || []);
+        });
+        svi_dani = spojeno.sort(function (a, b) {
           return a.datum.localeCompare(b.datum);
         });
         return svi_dani;
@@ -312,6 +347,13 @@
   // ---------- Inicijalizacija ----------
 
   function init() {
+    primijeniIkonuTeme();
+    if (els.temaToggle) {
+      els.temaToggle.addEventListener("click", function () {
+        postaviTemu(temaIzbor === "tamna" ? "svijetla" : "tamna");
+      });
+    }
+
     ucitajPodatke().then(function () {
       popuniSelect();
       var zadani = odaberiZadaniDan();

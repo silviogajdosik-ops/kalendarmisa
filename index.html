@@ -11,13 +11,28 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/icon.svg">
 <link rel="stylesheet" href="css/style.css">
+<script>
+// Postavi temu (svijetla/tamna) prije prvog crtanja stranice, da nema "bljeska" krive teme.
+(function () {
+  try {
+    var t = localStorage.getItem("temaIzbor");
+    if (!t) {
+      t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "tamna" : "svijetla";
+    }
+    document.documentElement.setAttribute("data-tema", t);
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
 
 <header class="app-header">
   <div class="app-header__top">
     <h1>Kalendar misa</h1>
-    <span id="offlineBadge" class="offline-badge" hidden>Offline</span>
+    <div class="header-actions">
+      <button type="button" id="temaToggle" class="tema-toggle" aria-label="Promijeni temu">🌙</button>
+      <span id="offlineBadge" class="offline-badge" hidden>Offline</span>
+    </div>
   </div>
 
   <div class="day-picker">
@@ -40,7 +55,7 @@
 </main>
 
 <footer class="app-footer">
-  <p>Sadržaj se koristi kao osobni vodič uz sudjelovanje na svetoj misi. Tekstovi čitanja unose se ručno iz službenog liturgijskog izdanja.</p>
+  <p>Sadržaj se koristi kao osobni vodič uz sudjelovanje na svetoj misi. Tekstovi čitanja preuzeti su iz javno dostupnog (public domain) prijevoda Biblije Ivana Šarića (1942., <a href="https://ebible.org/hrv/copyright.htm" target="_blank" rel="noopener">eBible.org</a>) i NISU službeni liturgijski prijevod Hrvatske biskupske konferencije - navodi (reference) odgovaraju lekcionaru, ali riječi se mogu razlikovati od onoga što se čita na misi.</p>
 </footer>
 
 <script src="js/fixed-prayers.js"></script>

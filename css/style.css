@@ -23,6 +23,14 @@
   font-size: 17px;
 }
 
+:root[data-tema="tamna"] {
+  --tekst: #e9e7e4;
+  --tekst-suptilan: #a5a29d;
+  --pozadina: #201f23;
+  --pozadina-app: #131215;
+  --rub: #38363c;
+}
+
 * { box-sizing: border-box; }
 
 html, body {
@@ -33,6 +41,7 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
+  transition: background-color .2s ease, color .2s ease;
 }
 
 body {
@@ -72,6 +81,33 @@ h1, h2, h3 { margin: 0; }
   padding: 3px 10px;
   border-radius: 999px;
   font-size: 0.75rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tema-toggle {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tema-toggle:active {
+  background: rgba(255,255,255,0.32);
 }
 
 .day-picker {

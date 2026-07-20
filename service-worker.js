@@ -8,7 +8,7 @@
  * dobili novu verziju umjesto stare iz predmemorije.
  */
 
-const CACHE_NAME = "kalendar-misa-v1";
+const CACHE_NAME = "kalendar-misa-v2";
 
 const DATOTEKE_ZA_PREDMEMORIJU = [
   "./",
@@ -16,7 +16,8 @@ const DATOTEKE_ZA_PREDMEMORIJU = [
   "./css/style.css",
   "./js/app.js",
   "./js/fixed-prayers.js",
-  "./data.json",
+  "./data-index.json",
+  "./data-godina-A.json",
   "./manifest.json",
   "./icons/icon.svg"
 ];

@@ -13,25 +13,29 @@ Kalendar misa/
 ├── index.html            glavna stranica
 ├── manifest.json          PWA manifest
 ├── service-worker.js      offline predmemorija (cache-first)
-├── data.json               PROMJENJIVI dio: čitanja po danu (ovdje se lijepi tekst)
+├── data-index.json         popis data-godina-*.json datoteka koje app.js učitava i spaja
+├── data-godina-A.json      PROMJENJIVI dio: čitanja po danu za liturgijsku godinu A (ovdje se lijepi tekst)
 ├── pokreni.bat             pokretanje lokalnog servera na Windowsu (dvoklik)
 ├── README.md                opće upute (hosting, popunjavanje čitanja)
 ├── NASTAVAK-PROJEKTA.md     ova datoteka
+├── GIT-UPUTE-ZA-CLAUDEA.md  generičke upute za git/GitHub (reusable za buduće projekte)
 ├── css/style.css
 ├── js/
-│   ├── app.js               logika: učitavanje, accordion prikaz, date picker, boje
+│   ├── app.js               logika: učitavanje, accordion prikaz, date picker, boje, dark tema
 │   └── fixed-prayers.js     NEPROMJENJIVI dio: stalne molitve (hardkodirano)
 └── icons/icon.svg
 ```
 
 ## Ključne odluke (da se ne ponavljaju pitanja)
 
-- **Opseg podataka**: `data.json` sadrži SVE nedjelje + 4 zapovjedne svetkovine (Božić, Tijelovo, Velika Gospa, Svi Sveti) za cijelu liturgijsku godinu A, **30.11.2025. - 22.11.2026.** Datumi/nazivi su preuzeti izravno s liturgijskog kalendara Hrvatske biskupske konferencije (gcatholic.org), pa su provjereno točni.
-- **Autorska prava**: tekstovi čitanja (`citanja.*.tekst`) su namjerno prazni u svim danima osim jednog potpuno popunjenog primjera (1. nedjelja došašća, Godina A) - to je bio izričit zahtjev jer su hrvatski liturgijski tekstovi zaštićeni.
+- **Opseg podataka**: `data-godina-A.json` sadrži SVE nedjelje + 4 zapovjedne svetkovine (Božić, Tijelovo, Velika Gospa, Svi Sveti) za cijelu liturgijsku godinu A, **30.11.2025. - 22.11.2026.** Datumi/nazivi su preuzeti izravno s liturgijskog kalendara Hrvatske biskupske konferencije (gcatholic.org), pa su provjereno točni.
+- **Razdvajanje po godinama** (od 20.7.2026.): podaci su razdvojeni u `data-godina-A.json` (i buduće `-B.json`, `-C.json`), popisane u `data-index.json` koji `app.js` čita i spaja. Odluka nije bila nužna zbog veličine (čak i puna godina s tekstovima staje ispod ~300 KB), nego zbog urednosti/lakšeg ručnog uređivanja - korisnikov izričit zahtjev.
+- **Autorska prava / izvor teksta** (ažurirano 20.7.2026.): službeni liturgijski prijevod (HBK lekcionar) ostaje zaštićen i NE smije se automatski preuzimati. Umjesto toga, `citanja.*.tekst` polja popunjavaju se iz javno dostupnog (public domain) prijevoda Biblije Ivana Šarića (1942., izvor [eBible.org](https://ebible.org/hrv/copyright.htm)) - korisnikov izričit zahtjev nakon što sam mu objasnio razliku. To je jasno navedeno u podnožju appa i u `meta.napomenaAutorskaPrava` svake data-godina datoteke. "Molitva vjernika" (nakane) NIJE biblijski tekst nego pastoralno sastavljen - po korisnikovoj odluci to se za sada preskače (ostaje prazno), ne generira se automatski.
 - **Liturgijske boje**: automatski se mijenjaju po danu (ljubičasta/bijela/crvena/zelena) preko polja `boja` u `data.json` i CSS varijable `--akcent` u `app.js`.
 - **Auto-detekcija dana**: aplikacija pri otvaranju sama pronađe prvi datum ≥ danas i prikaže ga; korisnik može ručno odabrati bilo koji drugi dan iz padajućeg izbornika.
 - **Vjerovanje**: toggle dugo (Nicejsko-carigradsko) / kratko (Apostolsko), pamti se u `localStorage`.
-- **Struktura po danu** u `data.json`: `id, datum, naziv, vrijeme, boja, bojaNaziv, rang, zapovjedna, godinaCiklusa, citanja{prvo, psalam, drugo, evandelje}, molitvaVjernika[], napomena`. Detalji i primjer su u `README.md`.
+- **Dark tema** (od 20.7.2026.): gumb 🌙/☀ u zaglavlju, sprema izbor u `localStorage` (`temaIzbor`), prvi put prati `prefers-color-scheme` uređaja. CSS varijable pod `:root[data-tema="tamna"]` u `css/style.css`; inline skripta u `<head>` postavlja atribut prije prvog crtanja (bez bljeska krive teme).
+- **Struktura po danu** u `data-godina-*.json`: `id, datum, naziv, vrijeme, boja, bojaNaziv, rang, zapovjedna, godinaCiklusa, citanja{prvo, psalam, drugo, evandelje}, molitvaVjernika[], napomena`. Detalji i primjer su u `README.md`.
 
 ## Git i hosting (od 20.7.2026.)
 
@@ -43,11 +47,11 @@ Kalendar misa/
 ## Poznata ograničenja / stvari koje NISU riješene
 
 1. **Ikona je samo SVG** (`icons/icon.svg`) - radi na Androidu/Chromeu, ali za savršenu podršku na starijim iOS uređajima trebalo bi generirati i PNG verzije (192x192, 512x512) i dodati ih u `manifest.json`. Nisam to mogao napraviti jer sandbox u toj sesiji nije imao izvršno okruženje (Python/Pillow) za generiranje PNG-a - kod kuće to je lako riješiti.
-2. **Service Worker ne radi preko `file://`** - mora se poslužiti preko `http(s)://`. Zato postoji `pokreni.bat` (lokalno) i preporuka za stvarni hosting (Netlify Drop, GitHub Pages) u `README.md`.
-3. **Godina B nije unesena** - `data.json` ide samo do 22.11.2026. (kraj Godine A). Za nastavak nakon toga (od 29.11.2026., Godina B) treba dodati nove unose po istom obrascu.
-4. **Tekstovi čitanja nisu popunjeni** - to je glavni preostali posao, ručno lijepljenje iz službenog liturgijskog izdanja u polja `referenca` i `tekst` za svaki dan u `data.json`.
+2. **Service Worker ne radi preko `file://`** - riješeno za stvarnu upotrebu preko GitHub Pages linka gore; `pokreni.bat` ostaje korisan za lokalni razvoj/testiranje.
+3. **Godina B nije unesena** - podaci idu samo do 22.11.2026. (kraj Godine A). Za nastavak nakon toga (od 29.11.2026., Godina B) treba dodati `data-godina-B.json` po istom obrascu i upisati je u `data-index.json`.
+4. **Reference i tekstovi čitanja - u tijeku** (od 20.7.2026.): tek 1/55 dana ima ispravnu biblijsku referencu; ostatak treba istražiti (točan lekcionarski navod po danu) i popuniti tekstom iz Šarić (PD) prijevoda - vidi zadatke u tekućoj sesiji. "Molitva vjernika" ostaje namjerno prazna (korisnikova odluka).
 5. **Nije testirano na stvarnom mobitelu** - vrijedilo bi provjeriti instalaciju i offline rad na Androidu i iPhoneu.
-6. **Nema automatske validacije JSON-a** - `data.json` je pisan ručno pa vrijedi provjeriti da je i dalje ispravan JSON nakon svakog unosa teksta (npr. alatom kao jsonlint.com ili `python -m json.tool data.json`).
+6. **Nema automatske validacije JSON-a** - `data-godina-*.json` datoteke pišu se ručno pa vrijedi provjeriti da su i dalje ispravan JSON nakon svakog unosa teksta (npr. `python -m json.tool data-godina-A.json`).
 
 ## Kako nastaviti kod kuće
 

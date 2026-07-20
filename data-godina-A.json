@@ -3,7 +3,7 @@
     "opis": "Podaci za PWA 'Kalendar misa' - popis nedjelja i zapovjednih svetkovina za liturgijsku godinu A (30.11.2025. - 22.11.2026.) prema liturgijskom kalendaru Hrvatske biskupske konferencije.",
     "liturgijskaGodina": "A",
     "razdoblje": { "od": "2025-11-30", "do": "2026-11-22" },
-    "napomenaAutorskaPrava": "Tekstovi čitanja (polja 'tekst') namjerno su prazni jer su zaštićeni autorskim pravima. Korisnik ih treba ručno unijeti iz službenog liturgijskog izdanja (misal/lekcionar). Reference (biblijski navodi) popunjene su samo za primjer 1. nedjelje došašća.",
+    "napomenaAutorskaPrava": "Tekstovi čitanja (polja 'tekst') popunjavaju se iz javno dostupnog (public domain) prijevoda Biblije Ivana Šarića (1942., izvor: eBible.org, https://ebible.org/hrv/copyright.htm). To NIJE službeni liturgijski prijevod Hrvatske biskupske konferencije - riječi se mogu razlikovati od onoga što se čita na misi, iako reference (biblijski navodi) odgovaraju lekcionaru. Dok neki dani još nemaju popunjen tekst, aplikacija prikazuje 'Tekst još nije unesen'.",
     "zadnjeAzuriranje": "2026-07-20"
   },
   "dani": [
