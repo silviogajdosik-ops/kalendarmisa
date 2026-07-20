@@ -1,0 +1,16 @@
+{
+  "name": "Kalendar misa",
+  "short_name": "Kalendar misa",
+  "description": "Vodič za praćenje reda katoličke mise za nedjelje i zapovjedne svetkovine - radi offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4f3f1",
+  "theme_color": "#6a3fa0",
+  "lang": "hr",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

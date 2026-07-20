@@ -1,0 +1,302 @@
+:root {
+  --boja-ljubicasta: #6a3fa0;
+  --boja-ljubicasta-svijetla: #efe7f8;
+  --boja-bijela: #b6912a;
+  --boja-bijela-svijetla: #faf6e8;
+  --boja-crvena: #b5333a;
+  --boja-crvena-svijetla: #fbe9ea;
+  --boja-zelena: #2f7d4f;
+  --boja-zelena-svijetla: #e8f4ec;
+
+  --akcent: var(--boja-zelena);
+  --akcent-svijetla: var(--boja-zelena-svijetla);
+
+  --tekst: #222222;
+  --tekst-suptilan: #5a5a5a;
+  --pozadina: #ffffff;
+  --pozadina-app: #f4f3f1;
+  --rub: #e0ddd6;
+
+  --radijus: 12px;
+  --razmak: 16px;
+
+  font-size: 17px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--pozadina-app);
+  color: var(--tekst);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 { margin: 0; }
+
+/* ---------- Header ---------- */
+
+.app-header {
+  background: var(--akcent);
+  color: #fff;
+  padding: calc(var(--razmak) * 0.75) var(--razmak);
+  padding-top: calc(env(safe-area-inset-top, 0) + 12px);
+  transition: background-color .3s ease;
+}
+
+.app-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.app-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.offline-badge {
+  background: rgba(0,0,0,0.25);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.day-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.day-picker label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.day-picker select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: var(--radijus);
+  border: none;
+  background: rgba(255,255,255,0.95);
+  color: #222;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+}
+
+.day-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255,255,255,0.12);
+  border-radius: var(--radijus);
+  padding: 10px 12px;
+}
+
+.day-info__color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  margin-top: 5px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+
+.day-info__title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.day-info__date {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  text-transform: capitalize;
+}
+
+.day-info__meta {
+  font-size: 0.78rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* ---------- Main / accordion ---------- */
+
+.mass-order {
+  flex: 1;
+  padding: var(--razmak);
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.loading-msg {
+  text-align: center;
+  color: var(--tekst-suptilan);
+  padding: 40px 0;
+}
+
+details.section {
+  background: var(--pozadina);
+  border: 1px solid var(--rub);
+  border-radius: var(--radijus);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+details.section > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--akcent);
+  -webkit-tap-highlight-color: transparent;
+}
+
+details.section > summary::-webkit-details-marker { display: none; }
+
+details.section > summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--tekst-suptilan);
+  transition: transform .2s ease;
+}
+
+details.section[open] > summary::after {
+  content: "\2212";
+}
+
+.section__body {
+  padding: 0 16px 16px 16px;
+}
+
+/* Sub-items (readings, prayers) as nested details */
+
+details.item {
+  border-top: 1px solid var(--rub);
+  padding: 10px 0;
+}
+
+details.item:first-child { border-top: none; }
+
+details.item > summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--tekst);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+details.item > summary::-webkit-details-marker { display: none; }
+
+.item__ref {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--tekst-suptilan);
+  white-space: nowrap;
+}
+
+.item__body {
+  margin-top: 10px;
+  white-space: pre-line;
+  color: var(--tekst);
+}
+
+.item__body.empty {
+  color: var(--tekst-suptilan);
+  font-style: italic;
+  background: var(--akcent-svijetla);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.pripjev {
+  font-weight: 600;
+  color: var(--akcent);
+  margin-bottom: 6px;
+}
+
+.napomena-liturgijska {
+  font-size: 0.82rem;
+  color: var(--tekst-suptilan);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Vjerovanje toggle */
+
+.credo-toggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.credo-toggle button {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--rub);
+  background: var(--pozadina);
+  font-size: 0.85rem;
+  color: var(--tekst);
+  cursor: pointer;
+}
+
+.credo-toggle button.active {
+  background: var(--akcent);
+  border-color: var(--akcent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Molitva vjernika list */
+
+.molitva-lista {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.molitva-lista li {
+  margin-bottom: 8px;
+}
+
+/* Footer */
+
+.app-footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--tekst-suptilan);
+  padding: 14px 20px 24px;
+}
+
+@media (min-width: 600px) {
+  :root { font-size: 18px; }
+}

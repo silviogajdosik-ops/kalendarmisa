@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6a3fa0" id="themeColorMeta">
+<meta name="description" content="Vodič za praćenje reda katoličke mise za nedjelje i zapovjedne svetkovine - radi 100% offline.">
+<title>Kalendar misa</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header__top">
+    <h1>Kalendar misa</h1>
+    <span id="offlineBadge" class="offline-badge" hidden>Offline</span>
+  </div>
+
+  <div class="day-picker">
+    <label for="daySelect">Odaberi dan</label>
+    <select id="daySelect" aria-label="Odaberi nedjelju ili svetkovinu"></select>
+  </div>
+
+  <div class="day-info" id="dayInfo">
+    <span class="day-info__color-dot" id="colorDot" aria-hidden="true"></span>
+    <div class="day-info__text">
+      <div class="day-info__title" id="dayTitle">-</div>
+      <div class="day-info__date" id="dayDate">-</div>
+      <div class="day-info__meta" id="dayMeta">-</div>
+    </div>
+  </div>
+</header>
+
+<main id="massOrder" class="mass-order" aria-live="polite">
+  <p class="loading-msg" id="loadingMsg">Učitavanje...</p>
+</main>
+
+<footer class="app-footer">
+  <p>Sadržaj se koristi kao osobni vodič uz sudjelovanje na svetoj misi. Tekstovi čitanja unose se ručno iz službenog liturgijskog izdanja.</p>
+</footer>
+
+<script src="js/fixed-prayers.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7a4bb5"/>
+      <stop offset="100%" stop-color="#5a2f8f"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- kalendarska plocica -->
+  <rect x="126" y="150" width="260" height="230" rx="24" fill="#faf6ea"/>
+  <rect x="126" y="150" width="260" height="58" rx="24" fill="#b6912a"/>
+  <rect x="126" y="184" width="260" height="24" fill="#b6912a"/>
+  <rect x="168" y="126" width="20" height="56" rx="8" fill="#b6912a"/>
+  <rect x="324" y="126" width="20" height="56" rx="8" fill="#b6912a"/>
+  <!-- kriz -->
+  <rect x="242" y="228" width="28" height="132" rx="6" fill="#5a2f8f"/>
+  <rect x="200" y="262" width="112" height="28" rx="6" fill="#5a2f8f"/>
+</svg>
