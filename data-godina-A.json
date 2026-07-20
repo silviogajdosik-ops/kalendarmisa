@@ -2,7 +2,10 @@
   "meta": {
     "opis": "Podaci za PWA 'Kalendar misa' - popis nedjelja i zapovjednih svetkovina za liturgijsku godinu A (30.11.2025. - 22.11.2026.) prema liturgijskom kalendaru Hrvatske biskupske konferencije.",
     "liturgijskaGodina": "A",
-    "razdoblje": { "od": "2025-11-30", "do": "2026-11-22" },
+    "razdoblje": {
+      "od": "2025-11-30",
+      "do": "2026-11-22"
+    },
     "napomenaAutorskaPrava": "Tekstovi čitanja (polja 'tekst') popunjavaju se iz javno dostupnog (public domain) prijevoda Biblije Ivana Šarića (1942., izvor: eBible.org, https://ebible.org/hrv/copyright.htm). To NIJE službeni liturgijski prijevod Hrvatske biskupske konferencije - riječi se mogu razlikovati od onoga što se čita na misi, iako reference (biblijski navodi) odgovaraju lekcionaru. Dok neki dani još nemaju popunjen tekst, aplikacija prikazuje 'Tekst još nije unesen'.",
     "zadnjeAzuriranje": "2026-07-20"
   },
@@ -47,167 +50,1895 @@
       ],
       "napomena": "Ovo je potpuno popunjen primjer strukture (prema zahtjevu). Za sve ostale dane u nastavku popunjeni su samo osnovni podaci (datum, naziv, boja, rang...), a polja 'referenca' i 'tekst' su prazna i čekaju ručni unos."
     },
-    { "id": "2025-12-07", "datum": "2025-12-07", "naziv": "2. nedjelja došašća", "vrijeme": "dosasce", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2025-12-14", "datum": "2025-12-14", "naziv": "3. nedjelja došašća (Gaudete)", "vrijeme": "dosasce", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta (dopuštena ružičasta)", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2025-12-21", "datum": "2025-12-21", "naziv": "4. nedjelja došašća", "vrijeme": "dosasce", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2025-12-25", "datum": "2025-12-25", "naziv": "Božić - Rođenje Gospodinovo", "vrijeme": "bozicno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "svetkovina", "zapovjedna": true, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Zapovjedna svetkovina. Postoji misa na bdjenje, u noći, u zoru i na dan - ovdje je ostavljen jedan set čitanja (misa na dan), po potrebi dodajte dodatna polja za ostale mise." },
-    { "id": "2025-12-28", "datum": "2025-12-28", "naziv": "Sveta Obitelj Isusa, Marije i Josipa", "vrijeme": "bozicno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "blagdan", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-01-04", "datum": "2026-01-04", "naziv": "2. nedjelja po Božiću", "vrijeme": "bozicno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-01-11", "datum": "2026-01-11", "naziv": "Krštenje Gospodinovo", "vrijeme": "bozicno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "blagdan", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Završetak božićnog vremena." },
-    { "id": "2026-01-18", "datum": "2026-01-18", "naziv": "2. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-01-25", "datum": "2026-01-25", "naziv": "3. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-02-01", "datum": "2026-02-01", "naziv": "4. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-02-08", "datum": "2026-02-08", "naziv": "5. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-02-15", "datum": "2026-02-15", "naziv": "6. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-02-22", "datum": "2026-02-22", "naziv": "1. korizmena nedjelja", "vrijeme": "korizma", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Pepelnica je 18.2.2026. i označava početak korizme." },
-    { "id": "2026-03-01", "datum": "2026-03-01", "naziv": "2. korizmena nedjelja", "vrijeme": "korizma", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-03-08", "datum": "2026-03-08", "naziv": "3. korizmena nedjelja", "vrijeme": "korizma", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-03-15", "datum": "2026-03-15", "naziv": "4. korizmena nedjelja (Laetare)", "vrijeme": "korizma", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta (dopuštena ružičasta)", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-03-22", "datum": "2026-03-22", "naziv": "5. korizmena nedjelja", "vrijeme": "korizma", "boja": "ljubicasta", "bojaNaziv": "Ljubičasta", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-03-29", "datum": "2026-03-29", "naziv": "Cvjetnica - Nedjelja Muke Gospodnje", "vrijeme": "korizma", "boja": "crvena", "bojaNaziv": "Crvena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Uključuje blagoslov maslinovih grančica i čitanje Muke - dodajte posebno polje ako želite oba evanđelja (ulazak u Jeruzalem + Muka)." },
-    { "id": "2026-04-05", "datum": "2026-04-05", "naziv": "Uskrs - Nedjelja Uskrsnuća Gospodinova", "vrijeme": "vazmeno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "svetkovina", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Najveća svetkovina liturgijske godine." },
-    { "id": "2026-04-12", "datum": "2026-04-12", "naziv": "2. vazmena nedjelja (Božje milosrđe)", "vrijeme": "vazmeno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-04-19", "datum": "2026-04-19", "naziv": "3. vazmena nedjelja", "vrijeme": "vazmeno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-04-26", "datum": "2026-04-26", "naziv": "4. vazmena nedjelja", "vrijeme": "vazmeno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-05-03", "datum": "2026-05-03", "naziv": "5. vazmena nedjelja", "vrijeme": "vazmeno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-05-10", "datum": "2026-05-10", "naziv": "6. vazmena nedjelja", "vrijeme": "vazmeno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-05-17", "datum": "2026-05-17", "naziv": "7. vazmena nedjelja", "vrijeme": "vazmeno", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-05-24", "datum": "2026-05-24", "naziv": "Pedesetnica - Duhovi", "vrijeme": "vazmeno", "boja": "crvena", "bojaNaziv": "Crvena", "rang": "svetkovina", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Završetak vazmenog vremena." },
-    { "id": "2026-05-31", "datum": "2026-05-31", "naziv": "Presveto Trojstvo", "vrijeme": "krozGodinu", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "svetkovina", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-06-04", "datum": "2026-06-04", "naziv": "Tijelovo - Presveto Tijelo i Krv Kristova", "vrijeme": "krozGodinu", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "svetkovina", "zapovjedna": true, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Zapovjedna svetkovina. Slavi se u četvrtak, u Hrvatskoj neradni dan." },
-    { "id": "2026-06-07", "datum": "2026-06-07", "naziv": "10. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-06-14", "datum": "2026-06-14", "naziv": "11. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-06-21", "datum": "2026-06-21", "naziv": "12. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-06-28", "datum": "2026-06-28", "naziv": "13. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-07-05", "datum": "2026-07-05", "naziv": "14. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-07-12", "datum": "2026-07-12", "naziv": "15. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-07-19", "datum": "2026-07-19", "naziv": "16. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-07-26", "datum": "2026-07-26", "naziv": "17. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-08-02", "datum": "2026-08-02", "naziv": "18. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-08-09", "datum": "2026-08-09", "naziv": "19. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-08-15", "datum": "2026-08-15", "naziv": "Velika Gospa - Uznesenje Blažene Djevice Marije", "vrijeme": "krozGodinu", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "svetkovina", "zapovjedna": true, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Zapovjedna svetkovina. 2026. pada u subotu." },
-    { "id": "2026-08-16", "datum": "2026-08-16", "naziv": "20. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-08-23", "datum": "2026-08-23", "naziv": "21. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-08-30", "datum": "2026-08-30", "naziv": "22. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-09-06", "datum": "2026-09-06", "naziv": "23. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-09-13", "datum": "2026-09-13", "naziv": "24. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-09-20", "datum": "2026-09-20", "naziv": "25. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-09-27", "datum": "2026-09-27", "naziv": "26. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-10-04", "datum": "2026-10-04", "naziv": "27. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-10-11", "datum": "2026-10-11", "naziv": "28. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-10-18", "datum": "2026-10-18", "naziv": "29. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-10-25", "datum": "2026-10-25", "naziv": "30. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-11-01", "datum": "2026-11-01", "naziv": "Svi Sveti", "vrijeme": "krozGodinu", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "svetkovina", "zapovjedna": true, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Zapovjedna svetkovina. 2026. pada u nedjelju, pa zamjenjuje 31. nedjelju kroz godinu." },
-    { "id": "2026-11-08", "datum": "2026-11-08", "naziv": "32. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-11-15", "datum": "2026-11-15", "naziv": "33. nedjelja kroz godinu", "vrijeme": "krozGodinu", "boja": "zelena", "bojaNaziv": "Zelena", "rang": "nedjelja", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "" },
-    { "id": "2026-11-22", "datum": "2026-11-22", "naziv": "Isus Krist Kralj svega stvorenja", "vrijeme": "krozGodinu", "boja": "bijela", "bojaNaziv": "Bijela", "rang": "svetkovina", "zapovjedna": false, "godinaCiklusa": "A",
-      "citanja": { "prvo": { "referenca": "", "naslov": "", "tekst": "" }, "psalam": { "referenca": "", "pripjev": "", "tekst": "" }, "drugo": { "referenca": "", "naslov": "", "tekst": "" }, "evandelje": { "referenca": "", "naslov": "", "tekst": "" } },
-      "molitvaVjernika": [], "napomena": "Posljednja nedjelja liturgijske godine A. Sljedeća nedjelja (29.11.2026.) počinje Godina B - za taj datum treba dodati novi unos po istom obrascu." }
+    {
+      "id": "2025-12-07",
+      "datum": "2025-12-07",
+      "naziv": "2. nedjelja došašća",
+      "vrijeme": "dosasce",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 11, 1-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 72, 1-2.7-8.12-13.17",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 15, 4-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 3, 1-12",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2025-12-14",
+      "datum": "2025-12-14",
+      "naziv": "3. nedjelja došašća (Gaudete)",
+      "vrijeme": "dosasce",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta (dopuštena ružičasta)",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 35, 1-6a.10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 146, 6-7.8-9.9-10",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Jak 5, 7-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 11, 2-11",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2025-12-21",
+      "datum": "2025-12-21",
+      "naziv": "4. nedjelja došašća",
+      "vrijeme": "dosasce",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 7, 10-14",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 24, 1-2.3-4.5-6",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 1, 1-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 1, 18-24",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2025-12-25",
+      "datum": "2025-12-25",
+      "naziv": "Božić - Rođenje Gospodinovo",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 52, 7-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 98, 1.2-3.3-4.5-6",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Heb 1, 1-6",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 1, 1-18",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Zapovjedna svetkovina. Postoji misa na bdjenje, u noći, u zoru i na dan - ovdje je ostavljen jedan set čitanja (misa na dan), po potrebi dodajte dodatna polja za ostale mise."
+    },
+    {
+      "id": "2025-12-28",
+      "datum": "2025-12-28",
+      "naziv": "Sveta Obitelj Isusa, Marije i Josipa",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "blagdan",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Sir 3, 2-6.12-14",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 128, 1-2.3.4-5",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Kol 3, 12-21",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 2, 13-15.19-23",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-01-04",
+      "datum": "2026-01-04",
+      "naziv": "2. nedjelja po Božiću",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Sir 24, 1-2.8-12",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 147, 12-13.14-15.19-20",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Ef 1, 3-6.15-18",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 1, 1-18",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-01-11",
+      "datum": "2026-01-11",
+      "naziv": "Krštenje Gospodinovo",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "blagdan",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 42, 1-4.6-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 29, 1-2.3-4.3.9-10",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Dj 10, 34-38",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 3, 13-17",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Završetak božićnog vremena."
+    },
+    {
+      "id": "2026-01-18",
+      "datum": "2026-01-18",
+      "naziv": "2. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 49, 3.5-6",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 40, 2.4.7-8.8-9.10",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 1, 1-3",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 1, 29-34",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-01-25",
+      "datum": "2026-01-25",
+      "naziv": "3. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 8, 23b-9, 3",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 27, 1.4.13-14",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 1, 10-13.17",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 4, 12-23",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-02-01",
+      "datum": "2026-02-01",
+      "naziv": "4. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Sef 2, 3; 3, 12-13",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 146, 6-7.8-9.9-10",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 1, 26-31",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 5, 1-12a",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-02-08",
+      "datum": "2026-02-08",
+      "naziv": "5. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 58, 7-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 112, 4-5.6-7.8-9",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 2, 1-5",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 5, 13-16",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-02-15",
+      "datum": "2026-02-15",
+      "naziv": "6. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Sir 15, 15-20",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 119, 1-2.4-5.17-18.33-34",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 2, 6-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 5, 17-37",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-02-22",
+      "datum": "2026-02-22",
+      "naziv": "1. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Post 2, 7-9; 3, 1-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 51, 3-4.5-6.12-13.17",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 5, 12-19",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 4, 1-11",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Pepelnica je 18.2.2026. i označava početak korizme."
+    },
+    {
+      "id": "2026-03-01",
+      "datum": "2026-03-01",
+      "naziv": "2. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Post 12, 1-4a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 33, 4-5.18-19.20.22",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "2Tim 1, 8b-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 17, 1-9",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-03-08",
+      "datum": "2026-03-08",
+      "naziv": "3. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Izl 17, 3-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 95, 1-2.6-7.8-9",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 5, 1-2.5-8",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 4, 5-42",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-03-15",
+      "datum": "2026-03-15",
+      "naziv": "4. korizmena nedjelja (Laetare)",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta (dopuštena ružičasta)",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "1Sam 16, 1b.6-7.10-13a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 23, 1-3.3-4.5.6",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Ef 5, 8-14",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 9, 1-41",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-03-22",
+      "datum": "2026-03-22",
+      "naziv": "5. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Ez 37, 12-14",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 130, 1-2.3-4.5-6.7-8",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 8, 8-11",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 11, 1-45",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-03-29",
+      "datum": "2026-03-29",
+      "naziv": "Cvjetnica - Nedjelja Muke Gospodnje",
+      "vrijeme": "korizma",
+      "boja": "crvena",
+      "bojaNaziv": "Crvena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 50, 4-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 22, 8-9.17-18.19-20.23-24",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Fil 2, 6-11",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 26, 14 - 27, 66",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Uključuje blagoslov maslinovih grančica i čitanje Muke - dodajte posebno polje ako želite oba evanđelja (ulazak u Jeruzalem + Muka)."
+    },
+    {
+      "id": "2026-04-05",
+      "datum": "2026-04-05",
+      "naziv": "Uskrs - Nedjelja Uskrsnuća Gospodinova",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 10, 34a.37-43",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 118, 1-2.16-17.22-23",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Kol 3, 1-4",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 20, 1-9",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Najveća svetkovina liturgijske godine."
+    },
+    {
+      "id": "2026-04-12",
+      "datum": "2026-04-12",
+      "naziv": "2. vazmena nedjelja (Božje milosrđe)",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 2, 42-47",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 118, 2-4.13-15.22-24",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Pt 1, 3-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 20, 19-31",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-04-19",
+      "datum": "2026-04-19",
+      "naziv": "3. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 2, 14.22-33",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 16, 1-2.5.7-8.9-10.11",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Pt 1, 17-21",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Lk 24, 13-35",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-04-26",
+      "datum": "2026-04-26",
+      "naziv": "4. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 2, 14a.36-41",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 23, 1-3.3-4.5.6",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Pt 2, 20b-25",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 10, 1-10",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-05-03",
+      "datum": "2026-05-03",
+      "naziv": "5. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 6, 1-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 33, 1-2.4-5.18-19",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Pt 2, 4-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 14, 1-12",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-05-10",
+      "datum": "2026-05-10",
+      "naziv": "6. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 8, 5-8.14-17",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 66, 1-3.4-5.6-7.16.20",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Pt 3, 15-18",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 14, 15-21",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-05-17",
+      "datum": "2026-05-17",
+      "naziv": "7. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 1, 12-14",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 27, 1.4.7-8",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Pt 4, 13-16",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 17, 1-11a",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-05-24",
+      "datum": "2026-05-24",
+      "naziv": "Pedesetnica - Duhovi",
+      "vrijeme": "vazmeno",
+      "boja": "crvena",
+      "bojaNaziv": "Crvena",
+      "rang": "svetkovina",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Dj 2, 1-11",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 104, 1.24.29-30.31.34",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 12, 3b-7.12-13",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 20, 19-23",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Završetak vazmenog vremena."
+    },
+    {
+      "id": "2026-05-31",
+      "datum": "2026-05-31",
+      "naziv": "Presveto Trojstvo",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Izl 34, 4b-6.8-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Dn 3, 52.53.54.55.56",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "2Kor 13, 11-13",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 3, 16-18",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-06-04",
+      "datum": "2026-06-04",
+      "naziv": "Tijelovo - Presveto Tijelo i Krv Kristova",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Pnz 8, 2-3.14b-16a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 147, 12-13.14-15.19-20",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 10, 16-17",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Iv 6, 51-58",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Zapovjedna svetkovina. Slavi se u četvrtak, u Hrvatskoj neradni dan."
+    },
+    {
+      "id": "2026-06-07",
+      "datum": "2026-06-07",
+      "naziv": "10. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Hoš 6, 3-6",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 50, 1.8.12-13.14-15",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 4, 18-25",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 9, 9-13",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-06-14",
+      "datum": "2026-06-14",
+      "naziv": "11. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Izl 19, 2-6a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 100, 1-2.3.5",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 5, 6-11",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 9, 36 - 10, 8",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-06-21",
+      "datum": "2026-06-21",
+      "naziv": "12. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Jr 20, 10-13",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 69, 8-10.14.17.33-35",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 5, 12-15",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 10, 26-33",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-06-28",
+      "datum": "2026-06-28",
+      "naziv": "13. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "2Kr 4, 8-11.14-16a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 89, 2-3.16-17.18-19",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 6, 3-4.8-11",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 10, 37-42",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-07-05",
+      "datum": "2026-07-05",
+      "naziv": "14. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Zah 9, 9-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 145, 1-2.8-9.10-11.13-14",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 8, 9.11-13",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 11, 25-30",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-07-12",
+      "datum": "2026-07-12",
+      "naziv": "15. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 55, 10-11",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 65, 10.11.12-13.14",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 8, 18-23",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 13, 1-23",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-07-19",
+      "datum": "2026-07-19",
+      "naziv": "16. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Mudr 12, 13.16-19",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 86, 5-6.9-10.15-16",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 8, 26-27",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 13, 24-43",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-07-26",
+      "datum": "2026-07-26",
+      "naziv": "17. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "1Kr 3, 5.7-12",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 119, 57.72.76-77.127-128.129-130",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 8, 28-30",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 13, 44-52",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-08-02",
+      "datum": "2026-08-02",
+      "naziv": "18. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 55, 1-3",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 145, 8-9.15-16.17-18",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 8, 35.37-39",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 14, 13-21",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-08-09",
+      "datum": "2026-08-09",
+      "naziv": "19. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "1Kr 19, 9a.11-13a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 85, 9.10.11-12.13-14",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 9, 1-5",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 14, 22-33",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-08-15",
+      "datum": "2026-08-15",
+      "naziv": "Velika Gospa - Uznesenje Blažene Djevice Marije",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Otk 11, 19a; 12, 1-6a.10ab",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 45, 10.11.12.16",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 15, 20-27",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Lk 1, 39-56",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Zapovjedna svetkovina. 2026. pada u subotu."
+    },
+    {
+      "id": "2026-08-16",
+      "datum": "2026-08-16",
+      "naziv": "20. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 56, 1.6-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 67, 2-3.5.6.8",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 11, 13-15.29-32",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 15, 21-28",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-08-23",
+      "datum": "2026-08-23",
+      "naziv": "21. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 22, 19-23",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 138, 1-2.2-3.6.8",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 11, 33-36",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 16, 13-20",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-08-30",
+      "datum": "2026-08-30",
+      "naziv": "22. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Jr 20, 7-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 63, 2.3-4.5-6.8-9",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 12, 1-2",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 16, 21-27",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-09-06",
+      "datum": "2026-09-06",
+      "naziv": "23. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Ez 33, 7-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 95, 1-2.6-7.8-9",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 13, 8-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 18, 15-20",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-09-13",
+      "datum": "2026-09-13",
+      "naziv": "24. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Sir 27, 30 - 28, 7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 103, 1-2.3-4.9-10.11-12",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Rim 14, 7-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 18, 21-35",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-09-20",
+      "datum": "2026-09-20",
+      "naziv": "25. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 55, 6-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 145, 2-3.8-9.17-18",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Fil 1, 20c-24.27a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 20, 1-16a",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-09-27",
+      "datum": "2026-09-27",
+      "naziv": "26. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Ez 18, 25-28",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 25, 4-5.6-7.8-9",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Fil 2, 1-11",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 21, 28-32",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-10-04",
+      "datum": "2026-10-04",
+      "naziv": "27. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 5, 1-7",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 80, 9.12.13-14.15-16.19-20",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Fil 4, 6-9",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 21, 33-43",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-10-11",
+      "datum": "2026-10-11",
+      "naziv": "28. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 25, 6-10a",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 23, 1-3.3-4.5.6",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "Fil 4, 12-14.19-20",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 22, 1-14",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-10-18",
+      "datum": "2026-10-18",
+      "naziv": "29. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Iz 45, 1.4-6",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 96, 1.3.4-5.7-8.9-10",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Sol 1, 1-5b",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 22, 15-21",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-10-25",
+      "datum": "2026-10-25",
+      "naziv": "30. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Izl 22, 20-26",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 18, 2-3.3-4.47.51",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Sol 1, 5c-10",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 22, 34-40",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-11-01",
+      "datum": "2026-11-01",
+      "naziv": "Svi Sveti",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Otk 7, 2-4.9-14",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 24, 1-2.3-4.5-6",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Iv 3, 1-3",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 5, 1-12a",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Zapovjedna svetkovina. 2026. pada u nedjelju, pa zamjenjuje 31. nedjelju kroz godinu."
+    },
+    {
+      "id": "2026-11-08",
+      "datum": "2026-11-08",
+      "naziv": "32. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Mudr 6, 12-16",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 63, 2.3-4.5-6.7-8",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Sol 4, 13-18",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 25, 1-13",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-11-15",
+      "datum": "2026-11-15",
+      "naziv": "33. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Izr 31, 10-13.19-20.30-31",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 128, 1-2.3.4-5",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Sol 5, 1-6",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 25, 14-30",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2026-11-22",
+      "datum": "2026-11-22",
+      "naziv": "Isus Krist Kralj svega stvorenja",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": false,
+      "godinaCiklusa": "A",
+      "citanja": {
+        "prvo": {
+          "referenca": "Ez 34, 11-12.15-17",
+          "naslov": "",
+          "tekst": ""
+        },
+        "psalam": {
+          "referenca": "Ps 23, 1-2.2-3.5.6",
+          "pripjev": "",
+          "tekst": ""
+        },
+        "drugo": {
+          "referenca": "1Kor 15, 20-26.28",
+          "naslov": "",
+          "tekst": ""
+        },
+        "evandelje": {
+          "referenca": "Mt 25, 31-46",
+          "naslov": "",
+          "tekst": ""
+        }
+      },
+      "molitvaVjernika": [],
+      "napomena": "Posljednja nedjelja liturgijske godine A. Sljedeća nedjelja (29.11.2026.) počinje Godina B - za taj datum treba dodati novi unos po istom obrascu."
+    }
   ]
 }
