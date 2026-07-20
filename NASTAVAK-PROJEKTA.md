@@ -44,6 +44,10 @@ Kalendar misa/
 - Git credential (GitHub token) spremljen je u Windows Credential Manager preko `git-credential-manager`, tako da `git push`/`git pull` iz ove mape rade bez ponovnog unosa lozinke/tokena.
 - Napomena: git operacije treba raditi iz stvarne Windows mape (kako je opisano gore), ne kroz Cowork-ov sandbox most prema mapi - taj most ne podržava git-ove zaključane/privremene datoteke pa git tamo ne radi ispravno.
 
+## Otkriven i ispravljen bug (20.7.2026.)
+
+Service Worker instalacija (`cache.addAll`) smjela je koristiti preglednikovu HTTP predmemoriju, pa bi pri prvoj instalaciji mogla "zamrznuti" zastarjelu verziju neke datoteke (npr. `data-godina-A.json`) ako ju je korisnik nedavno već dohvatio (čak i obično posjetom stranici prije instalacije PWA). Otkriveno testiranjem preko Chroma - dark tema i reference su se ažurirale, ali tekst čitanja je ostao star unatoč bump-u verzije, jer je `cache.addAll` ponovno pokupio isti (zastarjeli) HTTP-predmemorirani odgovor. Popravljeno u `service-worker.js`: svaka datoteka se sada ručno dohvaća s `{ cache: "reload" }` koji zaobilazi HTTP predmemoriju. CACHE_NAME je zbog toga na v4.
+
 ## Poznata ograničenja / stvari koje NISU riješene
 
 1. **Ikona je samo SVG** (`icons/icon.svg`) - radi na Androidu/Chromeu, ali za savršenu podršku na starijim iOS uređajima trebalo bi generirati i PNG verzije (192x192, 512x512) i dodati ih u `manifest.json`. Nisam to mogao napraviti jer sandbox u toj sesiji nije imao izvršno okruženje (Python/Pillow) za generiranje PNG-a - kod kuće to je lako riješiti.

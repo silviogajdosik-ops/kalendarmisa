@@ -8,7 +8,7 @@
  * dobili novu verziju umjesto stare iz predmemorije.
  */
 
-const CACHE_NAME = "kalendar-misa-v3";
+const CACHE_NAME = "kalendar-misa-v4";
 
 const DATOTEKE_ZA_PREDMEMORIJU = [
   "./",
@@ -25,7 +25,18 @@ const DATOTEKE_ZA_PREDMEMORIJU = [
 self.addEventListener("install", function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll(DATOTEKE_ZA_PREDMEMORIJU);
+      // NAPOMENA: namjerno NE koristimo cache.addAll() jer on smije koristiti
+      // preglednikovu HTTP predmemoriju, pa bi instalacija mogla "zamrznuti"
+      // zastarjelu verziju (npr. data-godina-A.json) ako je korisnik tu datoteku
+      // nedavno već dohvatio. Zato svaku datoteku dohvaćamo ručno s { cache: "reload" }
+      // koje zaobilazi HTTP predmemoriju i jamči svježi mrežni dohvat pri instalaciji.
+      return Promise.all(
+        DATOTEKE_ZA_PREDMEMORIJU.map(function (url) {
+          return fetch(url, { cache: "reload" }).then(function (odgovor) {
+            return cache.put(url, odgovor);
+          });
+        })
+      );
     }).then(function () {
       return self.skipWaiting();
     })
