@@ -248,7 +248,7 @@
       '<button type="button" data-credo="dugo" class="' + (vjerovanjeIzbor === "dugo" ? "active" : "") + '">Dugo (Nicejsko-carigradsko)</button>' +
       '<button type="button" data-credo="kratko" class="' + (vjerovanjeIzbor === "kratko" ? "active" : "") + '">Kratko (Apostolsko)</button>' +
       "</div>" +
-      '<div class="item__body">' + escapeHtml(credoTekst) + "</div></details>" +
+      '<div class="item__body" id="credoTekst">' + escapeHtml(credoTekst) + "</div></details>" +
 
       '<details class="item"><summary>Molitva vjernika</summary>' + molitveVjernikaHtml + "</details>";
   }
@@ -324,11 +324,26 @@
     }
 
     // Vjerovanje toggle - delegacija dogadaja
+    // NAPOMENA: ne zovemo prikaziDan() ponovno ovdje jer bi to iznova izgradilo
+    // cijeli massOrder.innerHTML i time zatvorilo (saželo) sve otvorene <details>
+    // harmonike na stranici. Umjesto toga samo ažuriramo tekst vjerovanja i
+    // aktivni gumb na mjestu (in place), bez dirati ostatak DOM-a.
     els.massOrder.querySelectorAll("[data-credo]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         vjerovanjeIzbor = btn.getAttribute("data-credo");
         localStorage.setItem("vjerovanjeIzbor", vjerovanjeIzbor);
-        prikaziDan(trenutniDan);
+
+        els.massOrder.querySelectorAll("[data-credo]").forEach(function (b) {
+          b.classList.toggle("active", b.getAttribute("data-credo") === vjerovanjeIzbor);
+        });
+
+        var credoDiv = document.getElementById("credoTekst");
+        if (credoDiv) {
+          var noviTekst = vjerovanjeIzbor === "kratko"
+            ? STALNE_MOLITVE.vjerovanjeKratko.tekst
+            : STALNE_MOLITVE.vjerovanjeDugo.tekst;
+          credoDiv.textContent = noviTekst;
+        }
       });
     });
   }
@@ -385,6 +400,18 @@
       navigator.serviceWorker.register("service-worker.js").catch(function (err) {
         console.warn("Service worker registracija nije uspjela:", err);
       });
+    });
+
+    // Kad nova verzija service workera preuzme kontrolu (nakon što smo
+    // povećali CACHE_NAME), automatski jednom osvježi stranicu. Bez ovoga
+    // korisnik može ostati "zaglavljen" na staroj predmemoriranoj verziji
+    // index.html (npr. sa starim viewport meta postavkama) sve dok ručno
+    // ne zatvori i ponovno otvori aplikaciju.
+    var vecOsvjezeno = false;
+    navigator.serviceWorker.addEventListener("controllerchange", function () {
+      if (vecOsvjezeno) return;
+      vecOsvjezeno = true;
+      window.location.reload();
     });
   }
 })();

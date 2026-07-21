@@ -60,7 +60,7 @@ const STALNE_MOLITVE = {
 
   otajstvoVjere: {
     naslov: "Otajstvo vjere",
-    tekst: "Naviještamo smrt tvoju, Gospodine, i ispovijedamo uskrsnuće tvoje, dok ne dođeš u slavi."
+    tekst: "Tvoju smrt, Gospodine, naviještamo, tvoje uskrsnuće slavimo, tvoj slavni dolazak iščekujemo."
   },
 
   oceNas: {
