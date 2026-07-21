@@ -3,6 +3,16 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.4.0 - 21.7.2026.
+
+Reorganiziran odabir dana - stari `<select>` sa 110+ ravnih stavki (nepregledan čak i s optgroup grupiranjem iz 1.3.0) zamijenjen je novim dizajnom:
+
+- **Uklonjen nativni `<select>`**: umjesto njega, uz day-info traku sada stoje veliki gumbi ◀ / ▶ (44×44 px, SVG ikone) za prethodni/sljedeći dan - rade isto što i swipe, ali su vidljivi i otkriveni starijim korisnicima koji geste ne isprobavaju sami. Gumb "Danas" ostaje na istom mjestu.
+- **Novi izbornik dana (bottom-sheet modal)**: dodir na day-info traku (sad je to gumb s ▾ ikonom) otvara izbornik preko ~90% ekrana. Stavke su grupirane po mjesecima (npr. "Kolovoz 2026.") s liturgijskom bojom (točkica) i nazivom svetkovine uz svaki dan. Prošli dani su sklopljeni iza jedne stavke "Prikaži prošle dane (N)" na vrhu - zadano se vidi samo od danas nadalje, čime popis pada s 110+ na ~50-ak stavki. Pri otvaranju se izbornik automatski skrola na današnji/prvi nadolazeći dan (vizualno istaknut), a trenutno prikazani dan ima kvačicu.
+- **Pristupačnost izbornika**: `role="dialog"`, `aria-modal="true"`, fokus-trap (Tab kruži unutar panela), zatvaranje na X, Escape ili dodir izvan panela (na tamnu pozadinu iznad sheeta), fokus se nakon zatvaranja vraća na day-info gumb. Animacija otvaranja/zatvaranja poštuje `prefers-reduced-motion`.
+- Sve postojeće funkcije provjerene i i dalje rade: swipe lijevo/desno, gumb "Danas", banner isteka podataka, oznaka "DANAS"/"za N dana" u day-info traci.
+- Bez vanjskih biblioteka - čisti HTML/CSS/JS, radi offline, u obje teme i sa svim veličinama fonta (relativne jedinice, CSS varijable).
+
 ## 1.3.0 - 21.7.2026.
 
 UX poboljšanja nakon pregleda uživo objavljene verzije:

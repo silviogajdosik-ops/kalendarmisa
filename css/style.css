@@ -207,37 +207,35 @@ h1, h2, h3 { margin: 0; }
   margin-bottom: 12px;
 }
 
-.day-picker label {
-  font-size: 0.8rem;
-  opacity: 0.9;
-}
-
 .day-picker__row {
   display: flex;
   gap: 8px;
-  align-items: stretch;
+  align-items: center;
 }
 
-.day-picker select {
-  flex: 1;
-  width: 100%;
-  min-width: 0;
-  padding: 12px 14px;
-  font-size: 1rem;
-  border-radius: var(--radijus);
+.nav-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   border: none;
-  background: rgba(255,255,255,0.95);
-  color: #222;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-btn:active {
+  background: rgba(255,255,255,0.32);
 }
 
 .danas-btn {
-  flex-shrink: 0;
+  flex: 1;
+  min-width: 0;
+  height: 44px;
   padding: 0 16px;
   border-radius: var(--radijus);
   border: none;
@@ -258,9 +256,31 @@ h1, h2, h3 { margin: 0; }
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  width: 100%;
+  margin: 0;
   background: rgba(255,255,255,0.12);
+  border: none;
   border-radius: var(--radijus);
   padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day-info:active {
+  background: rgba(255,255,255,0.18);
+}
+
+.day-info__chevron {
+  flex-shrink: 0;
+  align-self: center;
+  opacity: 0.85;
+  margin-left: auto;
+  display: flex;
 }
 
 .day-info__color-dot {
@@ -271,6 +291,11 @@ h1, h2, h3 { margin: 0; }
   margin-top: 5px;
   flex-shrink: 0;
   box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+
+.day-info__text {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .day-info__title-row {
@@ -497,6 +522,195 @@ details.item > summary::-webkit-details-marker { display: none; }
 
 @media (min-width: 600px) {
   :root { font-size: 18px; }
+}
+
+/* ---------- Izbornik dana (modal / bottom-sheet) ---------- */
+
+body.modal-otvoren {
+  overflow: hidden;
+}
+
+.day-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.day-modal-backdrop[hidden] {
+  display: none;
+}
+
+.day-modal-backdrop.otvoren {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.day-modal {
+  width: 100%;
+  max-width: 720px;
+  height: 90vh;
+  height: 90dvh;
+  max-height: 90vh;
+  background: var(--pozadina-app);
+  border-radius: 18px 18px 0 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform .28s ease;
+  box-shadow: 0 -6px 28px rgba(0,0,0,0.3);
+}
+
+.day-modal-backdrop.otvoren .day-modal {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day-modal-backdrop,
+  .day-modal {
+    transition: none;
+  }
+}
+
+.day-modal__grabber {
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--rub);
+  margin: 10px auto 0;
+  flex-shrink: 0;
+}
+
+.day-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px var(--razmak) 14px;
+  border-bottom: 1px solid var(--rub);
+  flex-shrink: 0;
+}
+
+.day-modal__header h2 {
+  font-size: 1.1rem;
+  color: var(--tekst);
+}
+
+.day-modal__close {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--akcent-svijetla);
+  color: var(--akcent-tekst);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day-modal__list {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px var(--razmak) calc(env(safe-area-inset-bottom, 0) + 16px);
+}
+
+.day-modal__past-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 10px;
+  margin-top: 4px;
+  border: none;
+  border-bottom: 1px solid var(--rub);
+  background: none;
+  color: var(--tekst-suptilan);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day-modal__month {
+  position: sticky;
+  top: 0;
+  background: var(--pozadina-app);
+  padding: 14px 6px 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--tekst-suptilan);
+  text-transform: uppercase;
+}
+
+.day-modal__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 10px;
+  background: none;
+  color: var(--tekst);
+  font-size: 0.98rem;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day-modal__item:active {
+  background: var(--akcent-svijetla);
+}
+
+.day-modal__item--danas {
+  background: var(--akcent-svijetla);
+}
+
+.day-modal__item-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.day-modal__item-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-modal__item-naziv {
+  font-weight: 600;
+}
+
+.day-modal__item--danas .day-modal__item-naziv {
+  font-weight: 700;
+}
+
+.day-modal__item-meta {
+  font-size: 0.78rem;
+  color: var(--tekst-suptilan);
+}
+
+.day-modal__item-check {
+  flex-shrink: 0;
+  color: var(--akcent-tekst);
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 /* ---------- Animacija pri promjeni dana (swipe/odabir) ---------- */
