@@ -8,7 +8,7 @@
  * dobili novu verziju umjesto stare iz predmemorije.
  */
 
-const CACHE_NAME = "kalendar-misa-v6";
+const CACHE_NAME = "kalendar-misa-v7";
 
 const DATOTEKE_ZA_PREDMEMORIJU = [
   "./",
