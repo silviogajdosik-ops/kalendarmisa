@@ -53,19 +53,19 @@ Service Worker instalacija (`cache.addAll`) smjela je koristiti preglednikovu HT
 1. **Ikona je samo SVG** (`icons/icon.svg`) - radi na Androidu/Chromeu, ali za savršenu podršku na starijim iOS uređajima trebalo bi generirati i PNG verzije (192x192, 512x512) i dodati ih u `manifest.json`. Nisam to mogao napraviti jer sandbox u toj sesiji nije imao izvršno okruženje (Python/Pillow) za generiranje PNG-a - kod kuće to je lako riješiti.
 2. **Service Worker ne radi preko `file://`** - riješeno za stvarnu upotrebu preko GitHub Pages linka gore; `pokreni.bat` ostaje korisan za lokalni razvoj/testiranje.
 3. **Godina B nije unesena** - podaci idu samo do 22.11.2026. (kraj Godine A). Za nastavak nakon toga (od 29.11.2026., Godina B) treba dodati `data-godina-B.json` po istom obrascu i upisati je u `data-index.json`.
-4. **Reference i tekstovi čitanja - u tijeku** (ažurirano 21.7.2026., backfill krug 4): svih 55 dana ima biblijsku referencu (sastavljeno iz poznatog rasporeda Lekcionara za godinu A, nije provjereno redak-po-redak protiv tiskanog misala - vrijedi provjeriti sitne razlike u podjeli stihova prije stvarnog čitanja u crkvi). Tekst (`tekst` polje) popunjen je iz Šarić (PD) prijevoda za **48 dana**: svi dani od 2025-11-30 do 2026-06-04 (uključujući Cvjetnicu s cijelom Mukom po Mateju i cijelo vazmeno razdoblje - Uskrs, 2.-7. vazmena, Duhovi, Presveto Trojstvo, Tijelovo), te svi dani od 2026-07-26 do 2026-11-22 (kraj godine A). Preostalih **7 "backfill" dana je 2026-06-07 do 2026-07-19** - kronološki u prošlosti u odnosu na danas (2026-07-21), referenca im je već popunjena, samo `tekst` nedostaje. Radi se o nekoliko nedjelja kroz godinu (10.-16.). Nastaviti istim postupkom (dohvati odgovarajuća poglavlja s eBible.org/hrv, izdvoji navedene retke, upiši u `tekst`/`pripjev`), prioritet po dogovoru s korisnikom jer nisu hitni za crkvenu upotrebu unaprijed. "Molitva vjernika" ostaje namjerno prazna (korisnikova odluka).
+4. **Reference i tekstovi čitanja - DOVRŠENO** (ažurirano 21.7.2026., backfill krug 5, završni): svih **55/55 dana** Godine A ima i biblijsku referencu i puni tekst čitanja (`tekst`/`pripjev`/`naslov`), popunjen iz Šarić (PD) prijevoda, od 2025-11-30 do 2026-11-22. Reference su sastavljene iz poznatog rasporeda Lekcionara za godinu A, nisu provjerene redak-po-redak protiv tiskanog misala - vrijedi provjeriti sitne razlike u podjeli stihova prije stvarnog čitanja u crkvi. "Molitva vjernika" ostaje namjerno prazna (korisnikova odluka - nije biblijski tekst nego pastoralno sastavljen, ne generira se automatski).
 5. **Nije testirano na stvarnom mobitelu** - vrijedilo bi provjeriti instalaciju i offline rad na Androidu i iPhoneu.
 6. **Nema automatske validacije JSON-a** - `data-godina-*.json` datoteke pišu se ručno pa vrijedi provjeriti da su i dalje ispravan JSON nakon svakog unosa teksta (npr. `python -m json.tool data-godina-A.json`).
 
 ## Sljedeći koraci (preporuke, ažurirano 21.7.2026.)
 
-Svi dani od danas nadalje (do kraja Godine A, 22.11.2026.) sada imaju tekst čitanja. Redom po prioritetu:
+Glavni posao (tekstovi čitanja za svih 55 dana Godine A) je **završen**. Preostaje:
 
-1. **Popuniti tekstove čitanja za preostalih 7 "backfill" dana** (2026-06-07 do 2026-07-19, kronološki u prošlosti) - glavni preostali posao, nije hitno za crkvenu upotrebu unaprijed. Radi se o par nedjelja kroz godinu (10.-16.). Postupak: dohvatiti odgovarajuća poglavlja Šarić (PD) prijevoda s eBible.org/hrv, izdvojiti retke prema referenci, upisati u `tekst`/`pripjev`. "Molitva vjernika" se i dalje namjerno preskače (ostaje prazna).
-2. **Nakon svakog unosa**: validirati JSON (`python -m json.tool data-godina-A.json`), bump `CACHE_NAME` u `service-worker.js` (sljedeći je v11), commit + push (git ISKLJUČIVO preko Windows PowerShell alata - vidi `GIT-UPUTE-ZA-CLAUDEA.md`).
-3. **Generirati PNG ikone** (192x192 i 512x512) iz `icons/icon.svg` u sandboxu (Python je dostupan) i dodati ih u `manifest.json`.
-4. **Čišćenje**: obrisati `testfile.txt` (brisanje preko PowerShella, ne bash!).
-5. **Testiranje na mobitelu** (korisnik): instalacija i offline rad na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/.
+1. **Generirati PNG ikone** (192x192 i 512x512) iz `icons/icon.svg` u sandboxu (Python je dostupan) i dodati ih u `manifest.json`.
+2. **Čišćenje**: obrisati `testfile.txt` (brisanje preko PowerShella, ne bash!).
+3. **Testiranje na mobitelu** (korisnik): instalacija i offline rad na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/.
+4. **Godina B**: nakon 22.11.2026. treba dodati `data-godina-B.json` po istom obrascu (reference + tekstovi) i upisati je u `data-index.json` - veći budući projekt, nije hitno.
+5. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu, doraditi referenc-polja pojedinačno.
 
 Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash; službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda.
 
