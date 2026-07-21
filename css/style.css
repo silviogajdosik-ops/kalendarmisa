@@ -86,20 +86,20 @@ h1, h2, h3 { margin: 0; }
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
 
 .header-btn {
-  min-width: 32px;
-  height: 32px;
-  padding: 0 7px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
   border: none;
-  border-radius: 16px;
+  border-radius: 22px;
   background: rgba(255,255,255,0.2);
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
@@ -120,20 +120,20 @@ h1, h2, h3 { margin: 0; }
 
 .font-velicina {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
 .font-velicina .header-btn {
-  font-size: 12px;
-  padding: 0 6px;
+  font-size: 13px;
+  padding: 0 9px;
 }
 
 .tema-toggle,
 .wake-toggle {
-  width: 32px;
+  width: 44px;
   padding: 0;
   border-radius: 50%;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .wake-toggle[aria-pressed="true"] {

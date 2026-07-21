@@ -11,4 +11,4 @@
  *   2. promijeni CACHE_NAME u service-worker.js na ISTI broj (npr. "kalendar-misa-1.0.1"),
  *   3. dodaj zapis u PROMJENE.md.
  */
-const APP_VERZIJA = "1.1.0";
+const APP_VERZIJA = "1.1.1";

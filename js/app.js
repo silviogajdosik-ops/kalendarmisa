@@ -466,10 +466,17 @@
     var pocetakY = null;
     var PRAG_UDALJENOSTI = 60; // px, minimalan vodoravni pomak da se prepozna swipe
     var PRAG_OMJERA = 1.5; // vodoravni pomak mora biti barem ovoliko puta veći od okomitog
+    var RUB_MRTVE_ZONE = 24; // px - dodiri koji krenu ovoliko blizu ruba ekrana se ignoriraju,
+    // da se izbjegne sudar s sistemskom gestom "natrag" (edge-swipe) na iOS/Androidu.
 
     els.massOrder.addEventListener("touchstart", function (e) {
       if (e.touches.length !== 1) return;
-      pocetakX = e.touches[0].clientX;
+      var x = e.touches[0].clientX;
+      if (x < RUB_MRTVE_ZONE || x > window.innerWidth - RUB_MRTVE_ZONE) {
+        pocetakX = null; // prepusti dodir sistemskoj gesti, ne pratimo ga
+        return;
+      }
+      pocetakX = x;
       pocetakY = e.touches[0].clientY;
     }, { passive: true });
 

@@ -3,6 +3,13 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.1.1 - 21.7.2026.
+
+Zakrpa nakon pregleda uživo objavljene verzije (Chrome):
+
+- **Veći gumbi u zaglavlju**: A−/A+, Wake Lock i tema toggle povećani sa 32×32 na 44×44 px (preporučeni minimalni dodirni cilj) - lakše pogađanje za starije korisnike i u crkvi gdje je pažnja podijeljena.
+- **Swipe rub-zona**: dodiri koji krenu unutar 24px od lijevog/desnog ruba ekrana se sada ignoriraju, da se swipe za promjenu dana ne sudara sa sistemskom gestom "natrag" na iOS-u/Androidu.
+
 ## 1.1.0 - 21.7.2026.
 
 Nove mogućnosti za korištenje uživo u crkvi:
