@@ -14,7 +14,12 @@ Kalendar misa/
 ├── manifest.json          PWA manifest
 ├── service-worker.js      offline predmemorija (cache-first)
 ├── data-index.json         popis data-godina-*.json datoteka koje app.js učitava i spaja
-├── data-godina-A.json      PROMJENJIVI dio: čitanja po danu za liturgijsku godinu A (ovdje se lijepi tekst)
+├── data-godina-A.json      PROMJENJIVI dio: čitanja po danu za liturgijsku godinu A (potpuno popunjen, 55/55)
+├── data-godina-B.json      KOSTUR za liturgijsku godinu B (55 dana, datumi/nazivi/boje gotovi,
+│                           tekstovi čitanja PRAZNI) - JOŠ NIJE upisan u data-index.json, vidi dolje
+├── generiraj_godinu_b.py   Python skripta koja je generirala kostur data-godina-B.json (algoritamski,
+│                           provjereno protiv gcatholic.org) - referenca za buduće godine (C, pa opet A...)
+├── provjeri.py             validacijska skripta - pokreni prije SVAKOG pusha (vidi odjeljak niže)
 ├── pokreni.bat             pokretanje lokalnog servera na Windowsu (dvoklik)
 ├── README.md                opće upute (hosting, popunjavanje čitanja, verzioniranje)
 ├── PROMJENE.md              changelog - zapis za svaku objavljenu verziju
@@ -23,7 +28,8 @@ Kalendar misa/
 ├── css/style.css
 ├── js/
 │   ├── verzija.js           APP_VERZIJA - broj verzije koji se prikazuje u podnožju appa
-│   ├── app.js               logika: učitavanje, accordion prikaz, date picker, boje, dark tema
+│   ├── app.js               logika: učitavanje, accordion prikaz, date picker, boje, dark tema,
+│   │                         veličina fonta, Wake Lock, gumb "Danas", swipe lijevo/desno
 │   └── fixed-prayers.js     NEPROMJENJIVI dio: stalne molitve (hardkodirano)
 └── icons/                   icon.svg + icon-192.png + icon-512.png
 ```
@@ -38,6 +44,9 @@ Kalendar misa/
 - **Vjerovanje**: toggle dugo (Nicejsko-carigradsko) / kratko (Apostolsko), pamti se u `localStorage`.
 - **Dark tema** (od 20.7.2026.): gumb 🌙/☀ u zaglavlju, sprema izbor u `localStorage` (`temaIzbor`), prvi put prati `prefers-color-scheme` uređaja. CSS varijable pod `:root[data-tema="tamna"]` u `css/style.css`; inline skripta u `<head>` postavlja atribut prije prvog crtanja (bez bljeska krive teme).
 - **Struktura po danu** u `data-godina-*.json`: `id, datum, naziv, vrijeme, boja, bojaNaziv, rang, zapovjedna, godinaCiklusa, citanja{prvo, psalam, drugo, evandelje}, molitvaVjernika[], napomena`. Detalji i primjer su u `README.md`.
+- **Pristupačnost za crkvu** (od 21.7.2026., v1.1.0): podesiva veličina fonta (gumbi A−/A+ u zaglavlju, 4 koraka 15/17/19/21px, pamti se u `localStorage` ključu `fontIndeks`), Wake Lock API da se ekran ne gasi tijekom mise (gumb 🔆/🔅, uredan fallback ako preglednik ne podržava - gumb se sakrije), gumb "Danas" za brzi povratak na zadani dan, swipe lijevo/desno po glavnom sadržaju za prethodni/sljedeći dan.
+- **Kostur Godine B** (21.7.2026.): `data-godina-B.json` sadrži svih 55 dana (29.11.2026. - 21.11.2027.) s ispravnim datumima/nazivima/bojama/rangom, generiran skriptom `generiraj_godinu_b.py` (algoritamski računa pokretne blagdane - Uskrs preko Meeus/Jones/Butcher formule - i samotestira se protiv već poznatih datuma Godine A prije nego što generira Godinu B; svi ključni datumi ručno unakrsno provjereni i protiv gcatholic.org). Polja `citanja.*.referenca/tekst/naslov/pripjev` i `molitvaVjernika` su namjerno PRAZNA - to je sljedeći veći posao (isti postupak kao za Godinu A: dohvat Šarić PD prijevoda s eBible.org). Datoteka **namjerno NIJE** upisana u `data-index.json` niti u `service-worker.js` cache popis dok se ne popuni - tek tada je "objavi" (upiši u oba mjesta + bump verzije, vjerojatno 1.2.0).
+- **provjeri.py** (21.7.2026.): mala skripta koja validira JSON sintaksu i osnovnu strukturu svih `data-godina-*.json` datoteka te provjerava da `APP_VERZIJA` (`js/verzija.js`) i `CACHE_NAME` (`service-worker.js`) imaju isti broj verzije. Pokreni je (`python provjeri.py`) prije SVAKOG pusha - izlazni kod 0 = sve u redu, 1 = ima grešaka (ne pushaj).
 
 ## Git i hosting (od 20.7.2026.)
 
@@ -54,26 +63,28 @@ Service Worker instalacija (`cache.addAll`) smjela je koristiti preglednikovu HT
 
 1. **Ikone - RIJEŠENO** (21.7.2026.): generirane PNG verzije 192x192 i 512x512 (cairosvg u sandboxu) i dodane u `manifest.json` uz SVG; `apple-touch-icon` u `index.html` sada pokazuje na PNG.
 2. **Service Worker ne radi preko `file://`** - riješeno za stvarnu upotrebu preko GitHub Pages linka gore; `pokreni.bat` ostaje korisan za lokalni razvoj/testiranje.
-3. **Godina B nije unesena** - podaci idu samo do 22.11.2026. (kraj Godine A). Za nastavak nakon toga (od 29.11.2026., Godina B) treba dodati `data-godina-B.json` po istom obrascu i upisati je u `data-index.json`.
+3. **Godina B - kostur gotov, tekstovi nedostaju** (ažurirano 21.7.2026.): `data-godina-B.json` postoji sa svih 55 dana (29.11.2026. - 21.11.2027., datumi/nazivi/boje/rang provjereni protiv gcatholic.org), ali `citanja.*.referenca/tekst` polja su prazna i datoteka JOŠ NIJE upisana u `data-index.json` (namjerno - da se ne prikazuju prazni dani u appu prije nego što se popune). Sljedeći korak: popuniti tekstove pa upisati u `data-index.json` + `service-worker.js` cache popis.
 4. **Reference i tekstovi čitanja - DOVRŠENO** (ažurirano 21.7.2026., backfill krug 5, završni): svih **55/55 dana** Godine A ima i biblijsku referencu i puni tekst čitanja (`tekst`/`pripjev`/`naslov`), popunjen iz Šarić (PD) prijevoda, od 2025-11-30 do 2026-11-22. Reference su sastavljene iz poznatog rasporeda Lekcionara za godinu A, nisu provjerene redak-po-redak protiv tiskanog misala - vrijedi provjeriti sitne razlike u podjeli stihova prije stvarnog čitanja u crkvi. "Molitva vjernika" ostaje namjerno prazna (korisnikova odluka - nije biblijski tekst nego pastoralno sastavljen, ne generira se automatski).
 5. **Nije testirano na stvarnom mobitelu** - vrijedilo bi provjeriti instalaciju i offline rad na Androidu i iPhoneu.
 6. **Nema automatske validacije JSON-a** - `data-godina-*.json` datoteke pišu se ručno pa vrijedi provjeriti da su i dalje ispravan JSON nakon svakog unosa teksta (npr. `python -m json.tool data-godina-A.json`).
 
-## Verzioniranje (od 21.7.2026., verzija 1.0.0)
+## Verzioniranje (trenutno na verziji 1.1.0, ažurirano 21.7.2026.)
 
 Aplikacija koristi semantičko verzioniranje **X.Y.Z**, vidljivo korisniku u podnožju appa (da može provjeriti ima li ažurnu verziju). Pravila: Z = ispravak greške (1.0.0 → 1.0.1); Y = nova/promijenjena mogućnost ili veći dodatak podataka, npr. nova liturgijska godina (→ 1.1.0, Z na 0); X = veliki redizajn/prerada (→ 2.0.0, Y i Z na 0). Detalji u `README.md` (odjeljak "Verzioniranje").
 
-**Postupak objave - uvijek sva 3 koraka**: (1) `APP_VERZIJA` u `js/verzija.js`, (2) `CACHE_NAME` u `service-worker.js` na isti broj (`"kalendar-misa-1.0.1"`), (3) zapis u `PROMJENE.md`. Stari brojač cache-a v1-v13 je zamijenjen ovom shemom.
+**Postupak objave - uvijek sva 3 koraka**: (1) `APP_VERZIJA` u `js/verzija.js`, (2) `CACHE_NAME` u `service-worker.js` na isti broj (`"kalendar-misa-1.0.1"`), (3) zapis u `PROMJENE.md`. Prije pusha uvijek pokreni `python provjeri.py` (provjerava upravo ovo dvoje + valjanost svih data-godina-*.json). Stari brojač cache-a v1-v13 je zamijenjen ovom shemom.
+
+- **1.0.0** (21.7.2026.): tekstovi čitanja 55/55, PNG ikone, uvedeno verzioniranje.
+- **1.1.0** (21.7.2026.): veličina fonta (A−/A+), Wake Lock (ekran se ne gasi), gumb "Danas", swipe lijevo/desno; dodana `provjeri.py`.
 
 ## Sljedeći koraci (preporuke, ažurirano 21.7.2026.)
 
-Tekstovi čitanja (55/55), PNG ikone i verzioniranje su **završeni**. Preostaje:
+1. **Popuniti Godinu B**: `data-godina-B.json` već ima svih 55 dana (datumi/nazivi/boje gotovi, provjereni protiv gcatholic.org) - treba popuniti `citanja.*.referenca/tekst/naslov/pripjev` iz Šarić (PD) prijevoda, istim postupkom kao za Godinu A (dohvat s eBible.org/hrv). Kad je popunjeno: upisati `data-godina-B.json` u `data-index.json`, dodati ga u `DATOTEKE_ZA_PREDMEMORIJU` u `service-worker.js`, i objaviti kao verziju 1.2.0 (uz `provjeri.py` prije pusha).
+2. **Testiranje na mobitelu** (korisnik): instalacija, offline rad, novi gumbi (font/Wake Lock/Danas) i swipe gesta na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/ - u podnožju treba pisati "Verzija 1.1.0".
+3. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu (Godina A), doraditi referenc-polja pojedinačno (zakrpa, npr. 1.1.1).
+4. Za buduće liturgijske godine (C, pa opet A...) `generiraj_godinu_b.py` je gotov predložak - algoritam za pokretne blagdane vrijedi za bilo koju godinu, samo treba promijeniti ulazni parametar godine i naziv izlazne datoteke.
 
-1. **Testiranje na mobitelu** (korisnik): instalacija i offline rad na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/ - u podnožju treba pisati "Verzija 1.0.0".
-2. **Godina B**: nakon 22.11.2026. treba dodati `data-godina-B.json` po istom obrascu (reference + tekstovi) i upisati je u `data-index.json` - veći budući projekt, nije hitno. To će biti verzija 1.1.0.
-3. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu, doraditi referenc-polja pojedinačno (zakrpa, npr. 1.0.1).
-
-Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash (čak i `git status` kroz sandbox zna ostaviti neobrisiv `index.lock`); službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda.
+Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash (čak i `git status` kroz sandbox zna ostaviti neobrisiv `index.lock`); službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda; uvijek pokreni `python provjeri.py` prije pusha.
 
 ## Kako nastaviti kod kuće
 
