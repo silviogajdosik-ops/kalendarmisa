@@ -3,6 +3,13 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.2.0 - 21.7.2026.
+
+Godina B (liturgijski ciklus B) sada je potpuna i uključena u aplikaciju:
+
+- Svih 55 dana liturgijske godine B (29.11.2026. - 21.11.2027.) ima biblijske reference i pune tekstove čitanja iz Šarić (public domain) prijevoda.
+- `data-godina-B.json` dodan u `data-index.json` i u service workerovu predmemoriju - aplikacija sad automatski prikazuje ispravnu godinu (A ili B) ovisno o datumu.
+
 ## 1.1.1 - 21.7.2026.
 
 Zakrpa nakon pregleda uživo objavljene verzije (Chrome):

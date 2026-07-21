@@ -1,6 +1,7 @@
 {
   "napomena": "Popis datoteka s podacima po liturgijskim godinama. app.js ih učitava redom i spaja. Kad se doda nova godina (npr. data-godina-B.json), samo je dodajte u ovaj popis.",
   "datoteke": [
-    "data-godina-A.json"
+    "data-godina-A.json",
+    "data-godina-B.json"
   ]
 }

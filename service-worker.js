@@ -9,7 +9,7 @@
  * podnožje aplikacije prikazivati krivu verziju.
  */
 
-const CACHE_NAME = "kalendar-misa-1.1.1";
+const CACHE_NAME = "kalendar-misa-1.2.0";
 
 const DATOTEKE_ZA_PREDMEMORIJU = [
   "./",
@@ -20,6 +20,7 @@ const DATOTEKE_ZA_PREDMEMORIJU = [
   "./js/fixed-prayers.js",
   "./data-index.json",
   "./data-godina-A.json",
+  "./data-godina-B.json",
   "./manifest.json",
   "./icons/icon.svg",
   "./icons/icon-192.png",
