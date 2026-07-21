@@ -14,17 +14,53 @@
     "srpnja", "kolovoza", "rujna", "listopada", "studenoga", "prosinca"
   ];
 
+  // Boje za POZADINE (zaglavlje, aktivni gumbi) - uvijek uz bijeli tekst,
+  // zato moraju biti dovoljno tamne za WCAG AA kontrast (>=4.5:1) s bijelom.
+  // "bijela" (zlatna) liturgijska boja je namjerno potamnjena s izvorne #b6912a
+  // (kontrast s bijelom bio je samo ~2.97:1, ne prolazi AA) na #8a6d16 (~4.9:1).
   var BOJA_HEX = {
     ljubicasta: "#6a3fa0",
-    bijela: "#b6912a",
+    bijela: "#8a6d16",
     crvena: "#b5333a",
     zelena: "#2f7d4f"
+  };
+
+  // Boje za TEKST (naslovi sekcija, pripjev) na podlozi stranice (--pozadina).
+  // Razlikuju se po temi jer se ista boja mora čitati i na bijeloj i na tamnoj
+  // podlozi - u tamnoj temi koriste se svjetlije inačice da kontrast ostane >=4.5:1.
+  var BOJA_HEX_TEKST = {
+    svijetla: {
+      ljubicasta: "#6a3fa0",
+      bijela: "#8a6d16",
+      crvena: "#b5333a",
+      zelena: "#2f7d4f"
+    },
+    tamna: {
+      ljubicasta: "#b699e8",
+      bijela: "#caa04a",
+      crvena: "#e8747a",
+      zelena: "#6fc48f"
+    }
+  };
+
+  var IKONA_MJESEC = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.742 13.045A8.088 8.088 0 0 1 9.955 2.258a9.5 9.5 0 1 0 10.787 10.787z"/></svg>';
+  var IKONA_SUNCE = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>';
+  var IKONA_OKO = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var IKONA_OKO_PREKRIZENO = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>';
+
+  var VRIJEME_LABEL = {
+    dosasce: "Došašće",
+    bozicno: "Božićno vrijeme",
+    korizma: "Korizma",
+    vazmeno: "Vazmeno vrijeme",
+    krozGodinu: "Kroz godinu"
   };
 
   var svi_dani = [];
   var trenutniDan = null;
   var vjerovanjeIzbor = localStorage.getItem("vjerovanjeIzbor") || "dugo";
   var temaIzbor = document.documentElement.getAttribute("data-tema") || "svijetla";
+  var nacinMiseAktivan = localStorage.getItem("nacinMise") === "1";
 
   var FONT_KORACI = [15, 17, 19, 21]; // px: mali, normalan (zadano), velik, najveći
   var FONT_ZADANI_INDEKS = 1;
@@ -42,6 +78,7 @@
     daySelect: document.getElementById("daySelect"),
     danasBtn: document.getElementById("danasBtn"),
     dayTitle: document.getElementById("dayTitle"),
+    dayBadge: document.getElementById("dayBadge"),
     dayDate: document.getElementById("dayDate"),
     dayMeta: document.getElementById("dayMeta"),
     colorDot: document.getElementById("colorDot"),
@@ -51,14 +88,16 @@
     temaToggle: document.getElementById("temaToggle"),
     fontManji: document.getElementById("fontManji"),
     fontVeci: document.getElementById("fontVeci"),
-    wakeLockToggle: document.getElementById("wakeLockToggle")
+    wakeLockToggle: document.getElementById("wakeLockToggle"),
+    expiryBanner: document.getElementById("expiryBanner"),
+    nacinMiseCheckbox: document.getElementById("nacinMiseCheckbox")
   };
 
   // ---------- Tema (svijetla/tamna) ----------
 
   function primijeniIkonuTeme() {
     if (!els.temaToggle) return;
-    els.temaToggle.textContent = temaIzbor === "tamna" ? "☀" : "🌙";
+    els.temaToggle.innerHTML = temaIzbor === "tamna" ? IKONA_SUNCE : IKONA_MJESEC;
     els.temaToggle.setAttribute(
       "aria-label",
       temaIzbor === "tamna" ? "Uključi svijetlu temu" : "Uključi tamnu temu"
@@ -70,6 +109,9 @@
     document.documentElement.setAttribute("data-tema", temaIzbor);
     localStorage.setItem("temaIzbor", temaIzbor);
     primijeniIkonuTeme();
+    // Boja teksta (--akcent-tekst) ovisi o temi (svjetlija nijansa u tamnoj temi
+    // radi WCAG AA kontrasta) - osvježi je za trenutno prikazani dan.
+    if (trenutniDan) postaviBoju(trenutniDan);
   }
 
   // ---------- Veličina fonta ----------
@@ -95,7 +137,8 @@
   function azurirajIkonuWakeLock() {
     if (!els.wakeLockToggle) return;
     var aktivno = zeljenoBudnoStanje === "1";
-    els.wakeLockToggle.textContent = aktivno ? "🔆" : "🔅";
+    els.wakeLockToggle.innerHTML = aktivno ? IKONA_OKO : IKONA_OKO_PREKRIZENO;
+    els.wakeLockToggle.classList.toggle("wake-toggle--iskljuceno", !aktivno);
     els.wakeLockToggle.setAttribute("aria-pressed", aktivno ? "true" : "false");
     els.wakeLockToggle.setAttribute(
       "aria-label",
@@ -163,6 +206,14 @@
     return d.getDate() + ". " + (d.getMonth() + 1) + ". " + d.getFullYear() + ".";
   }
 
+  // Broj cijelih dana od datuma "od" do datuma "do" (oba YYYY-MM-DD). Pozitivno
+  // ako je "do" u budućnosti u odnosu na "od", negativno ako je u prošlosti.
+  function brojDanaIzmedju(odStr, doStr) {
+    var od = parsirajDatum(odStr);
+    var doDatum = parsirajDatum(doStr);
+    return Math.round((doDatum - od) / 86400000);
+  }
+
   function escapeHtml(str) {
     if (!str) return "";
     return String(str)
@@ -215,14 +266,81 @@
     return svi_dani.length ? svi_dani[svi_dani.length - 1] : null;
   }
 
+  // Grupira opcije po liturgijskoj godini (A/B/C...) i liturgijskom vremenu
+  // (Došašće/Božićno/Korizma/Vazmeno/Kroz godinu) preko <optgroup> - bez ovoga
+  // 110+ stavki u ravnom popisu je nepregledno. Skupina se otvara pri prvom
+  // pojavljivanju te kombinacije godina+vrijeme (npr. "Kroz godinu" prije i
+  // poslije korizme spaja se u jednu skupinu, u kronološkom redoslijedu unutra).
   function popuniSelect() {
     els.daySelect.innerHTML = "";
+    var mapaGrupa = {};
     svi_dani.forEach(function (dan) {
+      var kljuc = dan.godinaCiklusa + "|" + dan.vrijeme;
+      var grupa = mapaGrupa[kljuc];
+      if (!grupa) {
+        grupa = document.createElement("optgroup");
+        grupa.label = "Godina " + dan.godinaCiklusa + " - " + (VRIJEME_LABEL[dan.vrijeme] || dan.vrijeme);
+        mapaGrupa[kljuc] = grupa;
+        els.daySelect.appendChild(grupa);
+      }
       var opt = document.createElement("option");
       opt.value = dan.id;
       opt.textContent = kratkiDatum(dan.datum) + " - " + dan.naziv;
-      els.daySelect.appendChild(opt);
+      grupa.appendChild(opt);
     });
+  }
+
+  // Banner na vrhu stranice: crveni ako je zadnji dan u podacima već prošao
+  // (aplikacija bi inače tiho pokazivala zadnji dostupan dan), žuti kao najava
+  // 30 dana prije tog isteka. Poziva se jednom nakon učitavanja podataka jer se
+  // raspon podataka ne mijenja tijekom rada aplikacije.
+  function azurirajBannerIsteka() {
+    if (!els.expiryBanner || !svi_dani.length) return;
+    var zadnji = svi_dani[svi_dani.length - 1];
+    var danas = danasYMD();
+    var zadnjiFormatiran = kratkiDatum(zadnji.datum);
+
+    if (danas > zadnji.datum) {
+      els.expiryBanner.hidden = false;
+      els.expiryBanner.className = "expiry-banner expiry-banner--expired";
+      els.expiryBanner.textContent =
+        "Podaci pokrivaju razdoblje do " + zadnjiFormatiran + " - potrebno je ažuriranje aplikacije.";
+      return;
+    }
+
+    var danaDoIsteka = brojDanaIzmedju(danas, zadnji.datum);
+    if (danaDoIsteka <= 30) {
+      els.expiryBanner.hidden = false;
+      els.expiryBanner.className = "expiry-banner expiry-banner--soon";
+      els.expiryBanner.textContent =
+        "Podaci pokrivaju razdoblje do " + zadnjiFormatiran +
+        " - uskoro će biti potrebno ažuriranje aplikacije (još " + danaDoIsteka + " dana).";
+      return;
+    }
+
+    els.expiryBanner.hidden = true;
+    els.expiryBanner.textContent = "";
+  }
+
+  // Badge "DANAS" / "za N dana" / "prije N dana" u day-info traci - korisnik koji
+  // otvori aplikaciju npr. u srijedu odmah vidi zašto se prikazuje nedjelja.
+  function azurirajOznakuDana(dan) {
+    if (!els.dayBadge) return;
+    var diff = brojDanaIzmedju(danasYMD(), dan.datum);
+    els.dayBadge.classList.remove("day-badge--danas", "day-badge--nadolazece", "day-badge--proslo");
+    els.dayBadge.hidden = false;
+
+    if (diff === 0) {
+      els.dayBadge.textContent = "DANAS";
+      els.dayBadge.classList.add("day-badge--danas");
+    } else if (diff > 0) {
+      els.dayBadge.textContent = diff === 1 ? "sutra" : "za " + diff + " dana";
+      els.dayBadge.classList.add("day-badge--nadolazece");
+    } else {
+      var proslo = -diff;
+      els.dayBadge.textContent = proslo === 1 ? "jučer" : "prije " + proslo + " dana";
+      els.dayBadge.classList.add("day-badge--proslo");
+    }
   }
 
   // ---------- Renderiranje ----------
@@ -231,6 +349,11 @@
     var hex = BOJA_HEX[dan.boja] || BOJA_HEX.zelena;
     document.documentElement.style.setProperty("--akcent", hex);
     document.documentElement.style.setProperty("--akcent-svijetla", hex + "1a");
+
+    var tablicaTeksta = BOJA_HEX_TEKST[temaIzbor] || BOJA_HEX_TEKST.svijetla;
+    var hexTekst = tablicaTeksta[dan.boja] || tablicaTeksta.zelena;
+    document.documentElement.style.setProperty("--akcent-tekst", hexTekst);
+
     els.themeColorMeta.setAttribute("content", hex);
   }
 
@@ -378,11 +501,32 @@
       "</div></details>";
   }
 
-  function prikaziDan(dan) {
+  // Omotava sadržaj sekcije u <details class="section"> uz kontrolnu traku
+  // "Otvori sve / Zatvori sve" (data-section-toggle) - vidi inicijalizirajKontroleSekcija().
+  function sekcijaWrapper(id, naslov, otvorena, sadrzajHtml) {
+    return '<details class="section" data-section-id="' + id + '"' + (otvorena ? " open" : "") + ">" +
+      "<summary>" + naslov + "</summary>" +
+      '<div class="section__body">' +
+      '<div class="section-controls"><button type="button" class="section-controls__btn" data-section-toggle="' + id + '">Otvori sve</button></div>' +
+      sadrzajHtml +
+      "</div></details>";
+  }
+
+  // Otvara sve <details class="item"> unutar zadane sekcije i ažurira njezin
+  // "Otvori sve/Zatvori sve" gumb - koristi ga i ručni klik i "Način mise".
+  function rasiriSveStavke(sekcijaEl) {
+    if (!sekcijaEl) return;
+    sekcijaEl.querySelectorAll("details.item").forEach(function (d) { d.open = true; });
+    var btn = sekcijaEl.querySelector("[data-section-toggle]");
+    if (btn) btn.textContent = "Zatvori sve";
+  }
+
+  function prikaziDan(dan, vrstaAnimacije) {
     trenutniDan = dan;
     postaviBoju(dan);
 
     els.dayTitle.textContent = dan.naziv;
+    azurirajOznakuDana(dan);
     els.dayDate.textContent = formatDatumHR(dan.datum);
     var metaDijelovi = ["Godina " + dan.godinaCiklusa, dan.bojaNaziv];
     if (dan.zapovjedna) metaDijelovi.push("Zapovjedna svetkovina");
@@ -390,10 +534,28 @@
     els.colorDot.style.background = BOJA_HEX[dan.boja] || "#fff";
 
     els.massOrder.innerHTML = "" +
-      '<details class="section" open><summary>Uvodni obredi</summary><div class="section__body">' + sekcijaUvodniObredi(dan) + "</div></details>" +
-      '<details class="section"><summary>Služba riječi</summary><div class="section__body">' + sekcijaSluzbaRijeci(dan) + "</div></details>" +
-      '<details class="section"><summary>Euharistijska služba</summary><div class="section__body">' + sekcijaEuharistija() + "</div></details>" +
-      '<details class="section"><summary>Završni obredi</summary><div class="section__body">' + sekcijaZavrsniObredi() + "</div></details>";
+      sekcijaWrapper("uvodni", "Uvodni obredi", true, sekcijaUvodniObredi(dan)) +
+      sekcijaWrapper("rijec", "Služba riječi", false, sekcijaSluzbaRijeci(dan)) +
+      sekcijaWrapper("euharistija", "Euharistijska služba", false, sekcijaEuharistija()) +
+      sekcijaWrapper("zavrsni", "Završni obredi", false, sekcijaZavrsniObredi());
+
+    // "Način mise": sekcija koja je otvorena po zadanome (Uvodni obredi) odmah
+    // dobiva sve svoje stavke raširene, bez čekanja na ručni klik/toggle.
+    if (nacinMiseAktivan) {
+      rasiriSveStavke(els.massOrder.querySelector("details.section[open]"));
+    }
+
+    // Skrolaj na vrh sadržaja i primijeni suptilnu animaciju samo kad je ovo
+    // stvarna promjena dana (swipe/odabir/gumb "Danas"), ne kod prvog učitavanja.
+    if (vrstaAnimacije) {
+      var reduciranoKretanje = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, left: 0, behavior: reduciranoKretanje ? "auto" : "smooth" });
+
+      var animKlase = ["mass-order--anim-next", "mass-order--anim-prev", "mass-order--anim-fade"];
+      els.massOrder.classList.remove.apply(els.massOrder.classList, animKlase);
+      void els.massOrder.offsetWidth; // forsiraj reflow da se animacija ponovno pokrene
+      els.massOrder.classList.add("mass-order--anim-" + vrstaAnimacije);
+    }
 
     if (dan.napomena) {
       var p = document.createElement("p");
@@ -430,14 +592,14 @@
 
   function odaberiDanPoId(id) {
     var dan = svi_dani.find(function (d) { return d.id === id; });
-    if (dan) prikaziDan(dan);
+    if (dan) prikaziDan(dan, "fade");
   }
 
   function idiNaDanasnjiDan() {
     var zadani = odaberiZadaniDan();
     if (zadani) {
       els.daySelect.value = zadani.id;
-      prikaziDan(zadani);
+      prikaziDan(zadani, "fade");
     }
   }
 
@@ -458,7 +620,7 @@
     if (novi < 0 || novi >= svi_dani.length) return; // već smo na prvom/zadnjem danu
     var dan = svi_dani[novi];
     els.daySelect.value = dan.id;
-    prikaziDan(dan);
+    prikaziDan(dan, smjer > 0 ? "next" : "prev");
   }
 
   function inicijalizirajSwipe() {
@@ -498,6 +660,48 @@
 
   function azurirajOfflineOznaku() {
     els.offlineBadge.hidden = navigator.onLine;
+  }
+
+  // ---------- Otvori sve / Zatvori sve (po sekciji) + "Način mise" ----------
+
+  // Delegacija klika na "Otvori sve"/"Zatvori sve" gumb bilo koje sekcije.
+  // massOrder.innerHTML se mijenja pri svakoj promjeni dana, ali sam element
+  // #massOrder ostaje isti, pa je jedan listener ovdje dovoljan za sve buduće
+  // prikaze (ne treba ga ponovno vezati u prikaziDan()).
+  function inicijalizirajKontroleSekcija() {
+    els.massOrder.addEventListener("click", function (e) {
+      var btn = e.target.closest && e.target.closest("[data-section-toggle]");
+      if (!btn) return;
+      var sekcijaEl = btn.closest("details.section");
+      if (!sekcijaEl) return;
+      var otvoriti = btn.textContent.trim() === "Otvori sve";
+      sekcijaEl.querySelectorAll("details.item").forEach(function (d) { d.open = otvoriti; });
+      btn.textContent = otvoriti ? "Zatvori sve" : "Otvori sve";
+    });
+  }
+
+  // "Način mise": kad je uključen, svaka sekcija koju korisnik otvori u crkvi
+  // odmah dobiva sve svoje stavke raširene (bez otvaranja stavku-po-stavku).
+  // <details> event "toggle" ne bubbla u nekim preglednicima, zato se listener
+  // veže s capture=true na predak - to i dalje radi za delegaciju jer capture
+  // faza prolazi kroz sve potomke bez obzira na bubbling potomka.
+  function inicijalizirajNacinMiseListener() {
+    els.massOrder.addEventListener("toggle", function (e) {
+      if (!nacinMiseAktivan) return;
+      var el = e.target;
+      if (el && el.matches && el.matches("details.section") && el.open) {
+        rasiriSveStavke(el);
+      }
+    }, true);
+  }
+
+  function postaviNacinMise(aktivno) {
+    nacinMiseAktivan = aktivno;
+    localStorage.setItem("nacinMise", aktivno ? "1" : "0");
+    if (els.nacinMiseCheckbox) els.nacinMiseCheckbox.checked = aktivno;
+    if (aktivno) {
+      rasiriSveStavke(els.massOrder.querySelector("details.section[open]"));
+    }
   }
 
   // ---------- Inicijalizacija ----------
@@ -548,9 +752,19 @@
     }
 
     inicijalizirajSwipe();
+    inicijalizirajKontroleSekcija();
+    inicijalizirajNacinMiseListener();
+
+    if (els.nacinMiseCheckbox) {
+      els.nacinMiseCheckbox.checked = nacinMiseAktivan;
+      els.nacinMiseCheckbox.addEventListener("change", function () {
+        postaviNacinMise(els.nacinMiseCheckbox.checked);
+      });
+    }
 
     ucitajPodatke().then(function () {
       popuniSelect();
+      azurirajBannerIsteka();
       var zadani = odaberiZadaniDan();
       if (zadani) {
         els.daySelect.value = zadani.id;

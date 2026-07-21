@@ -1,0 +1,1099 @@
+{
+  "meta": {
+    "opis": "Podaci za PWA 'Kalendar misa' - popis nedjelja i zapovjednih svetkovina za liturgijsku godinu C prema liturgijskom kalendaru Hrvatske biskupske konferencije. OVO JE KOSTUR - polja referenca/tekst/pripjev/naslov u 'citanja' i 'molitvaVjernika' su namjerno prazna i tek ih treba popuniti.",
+    "liturgijskaGodina": "C",
+    "razdoblje": {
+      "od": "2027-11-28",
+      "do": "2028-11-26"
+    },
+    "napomenaAutorskaPrava": "Tekstovi čitanja (polja 'tekst') trebaju se popuniti iz javno dostupnog (public domain) prijevoda Biblije Ivana Šarića (1942., izvor: eBible.org, https://ebible.org/hrv/copyright.htm). To NIJE službeni liturgijski prijevod Hrvatske biskupske konferencije.",
+    "zadnjeAzuriranje": "2026-07-21",
+    "napomenaKostur": "Ova datoteka je generirana skriptom generiraj-godinu.py kao KOSTUR (samo datumi/nazivi/boje/rang) - referenca i tekst polja su prazna i namjerno NISU još popunjena. Datoteka JOŠ NIJE upisana u data-index.json pa je aplikacija još ne učitava/prikazuje - to je sljedeći korak nakon što se popune tekstovi.",
+    "napomenaProvjere": "Ključni pokretni datumi (Uskrs 16.4.2028., Duhovi 4.6.2028., Presveto Trojstvo 11.6.2028., Tijelovo 15.6.2028., Krštenje Gospodinovo 9.1.2028., Pepelnica 1.3.2028., Cvjetnica 9.4.2028., 1. nedjelja došašća 28.11.2027., Isus Krist Kralj 26.11.2028.) i redni brojevi 'nedjelja kroz godinu' provjereni su 21.7.2026. protiv liturgijskog kalendara Hrvatske biskupske konferencije na gcatholic.org/calendar/2028/HR-hr i gcatholic.org/calendar/2027/HR-hr - potpuno se podudaraju."
+  },
+  "dani": [
+    {
+      "id": "2027-11-28",
+      "datum": "2027-11-28",
+      "naziv": "1. nedjelja došašća",
+      "vrijeme": "dosasce",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2027-12-05",
+      "datum": "2027-12-05",
+      "naziv": "2. nedjelja došašća",
+      "vrijeme": "dosasce",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2027-12-12",
+      "datum": "2027-12-12",
+      "naziv": "3. nedjelja došašća (Gaudete)",
+      "vrijeme": "dosasce",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta (dopuštena ružičasta)",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2027-12-19",
+      "datum": "2027-12-19",
+      "naziv": "4. nedjelja došašća",
+      "vrijeme": "dosasce",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2027-12-25",
+      "datum": "2027-12-25",
+      "naziv": "Božić - Rođenje Gospodinovo",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2027-12-26",
+      "datum": "2027-12-26",
+      "naziv": "Sveta Obitelj Isusa, Marije i Josipa",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "blagdan",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-01-02",
+      "datum": "2028-01-02",
+      "naziv": "2. nedjelja po Božiću",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-01-09",
+      "datum": "2028-01-09",
+      "naziv": "Krštenje Gospodinovo",
+      "vrijeme": "bozicno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "blagdan",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-01-16",
+      "datum": "2028-01-16",
+      "naziv": "2. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-01-23",
+      "datum": "2028-01-23",
+      "naziv": "3. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-01-30",
+      "datum": "2028-01-30",
+      "naziv": "4. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-02-06",
+      "datum": "2028-02-06",
+      "naziv": "5. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-02-13",
+      "datum": "2028-02-13",
+      "naziv": "6. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-02-20",
+      "datum": "2028-02-20",
+      "naziv": "7. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-02-27",
+      "datum": "2028-02-27",
+      "naziv": "8. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-03-05",
+      "datum": "2028-03-05",
+      "naziv": "1. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-03-12",
+      "datum": "2028-03-12",
+      "naziv": "2. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-03-19",
+      "datum": "2028-03-19",
+      "naziv": "3. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-03-26",
+      "datum": "2028-03-26",
+      "naziv": "4. korizmena nedjelja (Laetare)",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta (dopuštena ružičasta)",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-04-02",
+      "datum": "2028-04-02",
+      "naziv": "5. korizmena nedjelja",
+      "vrijeme": "korizma",
+      "boja": "ljubicasta",
+      "bojaNaziv": "Ljubičasta",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-04-09",
+      "datum": "2028-04-09",
+      "naziv": "Cvjetnica - Nedjelja Muke Gospodnje",
+      "vrijeme": "korizma",
+      "boja": "crvena",
+      "bojaNaziv": "Crvena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-04-16",
+      "datum": "2028-04-16",
+      "naziv": "Uskrs - Nedjelja Uskrsnuća Gospodinova",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-04-23",
+      "datum": "2028-04-23",
+      "naziv": "2. vazmena nedjelja (Božje milosrđe)",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-04-30",
+      "datum": "2028-04-30",
+      "naziv": "3. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-05-07",
+      "datum": "2028-05-07",
+      "naziv": "4. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-05-14",
+      "datum": "2028-05-14",
+      "naziv": "5. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-05-21",
+      "datum": "2028-05-21",
+      "naziv": "6. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-05-28",
+      "datum": "2028-05-28",
+      "naziv": "7. vazmena nedjelja",
+      "vrijeme": "vazmeno",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-06-04",
+      "datum": "2028-06-04",
+      "naziv": "Pedesetnica - Duhovi",
+      "vrijeme": "vazmeno",
+      "boja": "crvena",
+      "bojaNaziv": "Crvena",
+      "rang": "svetkovina",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-06-11",
+      "datum": "2028-06-11",
+      "naziv": "Presveto Trojstvo",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-06-15",
+      "datum": "2028-06-15",
+      "naziv": "Tijelovo - Presveto Tijelo i Krv Kristova",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-06-18",
+      "datum": "2028-06-18",
+      "naziv": "11. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-06-25",
+      "datum": "2028-06-25",
+      "naziv": "12. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-07-02",
+      "datum": "2028-07-02",
+      "naziv": "13. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-07-09",
+      "datum": "2028-07-09",
+      "naziv": "14. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-07-16",
+      "datum": "2028-07-16",
+      "naziv": "15. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-07-23",
+      "datum": "2028-07-23",
+      "naziv": "16. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-07-30",
+      "datum": "2028-07-30",
+      "naziv": "17. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-08-06",
+      "datum": "2028-08-06",
+      "naziv": "18. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-08-13",
+      "datum": "2028-08-13",
+      "naziv": "19. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-08-15",
+      "datum": "2028-08-15",
+      "naziv": "Velika Gospa - Uznesenje Blažene Djevice Marije",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-08-20",
+      "datum": "2028-08-20",
+      "naziv": "20. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-08-27",
+      "datum": "2028-08-27",
+      "naziv": "21. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-09-03",
+      "datum": "2028-09-03",
+      "naziv": "22. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-09-10",
+      "datum": "2028-09-10",
+      "naziv": "23. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-09-17",
+      "datum": "2028-09-17",
+      "naziv": "24. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-09-24",
+      "datum": "2028-09-24",
+      "naziv": "25. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-10-01",
+      "datum": "2028-10-01",
+      "naziv": "26. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-10-08",
+      "datum": "2028-10-08",
+      "naziv": "27. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-10-15",
+      "datum": "2028-10-15",
+      "naziv": "28. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-10-22",
+      "datum": "2028-10-22",
+      "naziv": "29. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-10-29",
+      "datum": "2028-10-29",
+      "naziv": "30. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-11-01",
+      "datum": "2028-11-01",
+      "naziv": "Svi Sveti",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "svetkovina",
+      "zapovjedna": true,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-11-05",
+      "datum": "2028-11-05",
+      "naziv": "31. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-11-12",
+      "datum": "2028-11-12",
+      "naziv": "32. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-11-19",
+      "datum": "2028-11-19",
+      "naziv": "33. nedjelja kroz godinu",
+      "vrijeme": "krozGodinu",
+      "boja": "zelena",
+      "bojaNaziv": "Zelena",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    },
+    {
+      "id": "2028-11-26",
+      "datum": "2028-11-26",
+      "naziv": "Isus Krist Kralj svega stvorenja",
+      "vrijeme": "krozGodinu",
+      "boja": "bijela",
+      "bojaNaziv": "Bijela",
+      "rang": "nedjelja",
+      "zapovjedna": false,
+      "godinaCiklusa": "C",
+      "citanja": {
+        "prvo": { "referenca": "", "naslov": "", "tekst": "" },
+        "psalam": { "referenca": "", "pripjev": "", "tekst": "" },
+        "drugo": { "referenca": "", "naslov": "", "tekst": "" },
+        "evandelje": { "referenca": "", "naslov": "", "tekst": "" }
+      },
+      "molitvaVjernika": [],
+      "napomena": ""
+    }
+  ]
+}

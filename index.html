@@ -41,6 +41,8 @@
 </head>
 <body>
 
+<div id="expiryBanner" class="expiry-banner" hidden role="alert"></div>
+
 <header class="app-header">
   <div class="app-header__top">
     <h1>Kalendar misa</h1>
@@ -49,8 +51,8 @@
         <button type="button" id="fontManji" class="header-btn" aria-label="Smanji veličinu fonta">A−</button>
         <button type="button" id="fontVeci" class="header-btn" aria-label="Povećaj veličinu fonta">A+</button>
       </div>
-      <button type="button" id="wakeLockToggle" class="header-btn wake-toggle" aria-label="Zadrži ekran uključenim" aria-pressed="false" hidden>🔆</button>
-      <button type="button" id="temaToggle" class="header-btn tema-toggle" aria-label="Promijeni temu">🌙</button>
+      <button type="button" id="wakeLockToggle" class="header-btn wake-toggle" aria-label="Zadrži ekran uključenim" aria-pressed="false" hidden><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button>
+      <button type="button" id="temaToggle" class="header-btn tema-toggle" aria-label="Promijeni temu"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.742 13.045A8.088 8.088 0 0 1 9.955 2.258a9.5 9.5 0 1 0 10.787 10.787z"/></svg></button>
       <span id="offlineBadge" class="offline-badge" hidden>Offline</span>
     </div>
   </div>
@@ -66,12 +68,22 @@
   <div class="day-info" id="dayInfo">
     <span class="day-info__color-dot" id="colorDot" aria-hidden="true"></span>
     <div class="day-info__text">
-      <div class="day-info__title" id="dayTitle">-</div>
+      <div class="day-info__title-row">
+        <div class="day-info__title" id="dayTitle">-</div>
+        <span class="day-badge" id="dayBadge" hidden></span>
+      </div>
       <div class="day-info__date" id="dayDate">-</div>
       <div class="day-info__meta" id="dayMeta">-</div>
     </div>
   </div>
 </header>
+
+<div class="nacin-mise-traka">
+  <label class="nacin-mise-label">
+    <input type="checkbox" id="nacinMiseCheckbox">
+    <span>Način mise - sve stavke otvorene</span>
+  </label>
+</div>
 
 <main id="massOrder" class="mass-order" aria-live="polite">
   <p class="loading-msg" id="loadingMsg">Učitavanje...</p>
