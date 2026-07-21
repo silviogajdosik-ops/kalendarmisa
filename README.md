@@ -11,9 +11,11 @@ Kalendar misa/
 ├── data-godina-A.json    - PROMJENJIVI dijelovi (čitanja) za liturgijsku godinu A - ovdje lijepite tekstove
 ├── css/style.css
 ├── js/
+│   ├── verzija.js         - broj verzije aplikacije (jedino mjesto gdje se mijenja, uz CACHE_NAME)
 │   ├── app.js             - logika aplikacije (učitavanje, prikaz, accordion, tema)
 │   └── fixed-prayers.js   - NEPROMJENJIVE molitve (Ispovijedam se, Slava, Vjerovanje, Svet, Oče naš, Jaganjče Božji)
-├── icons/icon.svg
+├── icons/                 - icon.svg + icon-192.png + icon-512.png
+├── PROMJENE.md            - povijest promjena po verzijama (changelog)
 └── README.md
 ```
 
@@ -64,10 +66,24 @@ Service Worker (koji omogućuje offline rad) **ne radi ako datoteku samo otvorit
 2. **Objava online (preporučeno za stvarno korištenje):** postavite cijelu mapu na besplatan hosting kao što je GitHub Pages, Netlify ili Vercel (samo "drag & drop" mape). Dobijete javni link koji otvorite na mobitelu.
 3. Kad stranicu otvorite putem `http://` ili `https://`, preglednik će ponuditi "Dodaj na početni zaslon" / "Instaliraj aplikaciju" - nakon toga radi i bez interneta.
 
-## Napomena o ikoni
+## Ikone
 
-Ikona (`icons/icon.svg`) je u SVG formatu. Radi na Androidu/Chromeu bez problema. Za savršenu podršku na starijim iOS uređajima možete SVG pretvoriti u PNG (192x192 i 512x512) besplatnim alatom poput realfavicongenerator.net i dodati ih u `manifest.json`.
+U `icons/` su SVG ikona i PNG verzije (192x192, 512x512) generirane iz nje - sve tri su navedene u `manifest.json`, čime je pokrivena i instalacija na iOS-u.
 
-## Ažuriranje sadržaja nakon instalacije
+## Verzioniranje
 
-Ako promijenite bilo koju `data-godina-*.json` datoteku (dodate tekstove) nakon što je netko već instalirao aplikaciju, povećajte broj verzije u `service-worker.js` (`CACHE_NAME = "kalendar-misa-v3"` itd.) kako bi svi dobili novu verziju umjesto stare iz predmemorije.
+Aplikacija koristi semantičko verzioniranje **X.Y.Z** (npr. 1.0.0). Broj je vidljiv u podnožju aplikacije, pa korisnik uvijek može provjeriti ima li najnoviju verziju.
+
+Kada se povećava koji broj:
+
+- **Z (zakrpa)**, npr. 1.0.0 → 1.0.1: ispravak greške, sitna korekcija teksta ili stila, bez novih mogućnosti.
+- **Y (mogućnost)**, npr. 1.0.1 → 1.1.0: nova ili promijenjena mogućnost, ili veći dodatak podataka (npr. nova liturgijska godina). Z se resetira na 0.
+- **X (velika izmjena)**, npr. 1.1.0 → 2.0.0: veliki redizajn ili prerada aplikacije. Y i Z se resetiraju na 0.
+
+Postupak objave nove verzije (sva 3 koraka, uvijek):
+
+1. Promijeni `APP_VERZIJA` u `js/verzija.js`.
+2. Promijeni `CACHE_NAME` u `service-worker.js` na **isti** broj (npr. `"kalendar-misa-1.0.1"`) - to tjera instalirane aplikacije da preuzmu novu verziju umjesto stare iz predmemorije.
+3. Dodaj zapis na vrh `PROMJENE.md` (verzija, datum, što je promijenjeno).
+
+Zatim commit i push na GitHub - GitHub Pages automatski poslužuje novu verziju, a instalirane aplikacije se same osvježe pri sljedećem otvaranju s internetom.

@@ -333,6 +333,12 @@ details.item > summary::-webkit-details-marker { display: none; }
   padding: 14px 20px 24px;
 }
 
+.app-verzija {
+  margin-top: 8px;
+  font-size: 0.68rem;
+  opacity: 0.75;
+}
+
 @media (min-width: 600px) {
   :root { font-size: 18px; }
 }

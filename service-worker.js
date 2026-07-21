@@ -3,23 +3,27 @@
  * Omogućuje 100% offline rad aplikacije "Kalendar misa".
  * Strategija: cache-first, uz pozadinsko osvježavanje kad je mreža dostupna.
  *
- * VAŽNO: kad promijenite bilo koju datoteku (npr. dodate tekstove u data.json),
- * povećajte broj u CACHE_NAME (npr. "kalendar-misa-v2") kako bi korisnici
- * dobili novu verziju umjesto stare iz predmemorije.
+ * VAŽNO: kad promijenite bilo koju datoteku, povećajte broj verzije prema
+ * shemi opisanoj u js/verzija.js (X.Y.Z) NA OBA MJESTA: u js/verzija.js
+ * (APP_VERZIJA) i ovdje u CACHE_NAME - brojevi MORAJU biti isti, inače će
+ * podnožje aplikacije prikazivati krivu verziju.
  */
 
-const CACHE_NAME = "kalendar-misa-v13";
+const CACHE_NAME = "kalendar-misa-1.0.0";
 
 const DATOTEKE_ZA_PREDMEMORIJU = [
   "./",
   "./index.html",
   "./css/style.css",
+  "./js/verzija.js",
   "./js/app.js",
   "./js/fixed-prayers.js",
   "./data-index.json",
   "./data-godina-A.json",
   "./manifest.json",
-  "./icons/icon.svg"
+  "./icons/icon.svg",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
 
 self.addEventListener("install", function (event) {

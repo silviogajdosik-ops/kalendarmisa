@@ -16,14 +16,16 @@ Kalendar misa/
 ├── data-index.json         popis data-godina-*.json datoteka koje app.js učitava i spaja
 ├── data-godina-A.json      PROMJENJIVI dio: čitanja po danu za liturgijsku godinu A (ovdje se lijepi tekst)
 ├── pokreni.bat             pokretanje lokalnog servera na Windowsu (dvoklik)
-├── README.md                opće upute (hosting, popunjavanje čitanja)
+├── README.md                opće upute (hosting, popunjavanje čitanja, verzioniranje)
+├── PROMJENE.md              changelog - zapis za svaku objavljenu verziju
 ├── NASTAVAK-PROJEKTA.md     ova datoteka
 ├── GIT-UPUTE-ZA-CLAUDEA.md  generičke upute za git/GitHub (reusable za buduće projekte)
 ├── css/style.css
 ├── js/
+│   ├── verzija.js           APP_VERZIJA - broj verzije koji se prikazuje u podnožju appa
 │   ├── app.js               logika: učitavanje, accordion prikaz, date picker, boje, dark tema
 │   └── fixed-prayers.js     NEPROMJENJIVI dio: stalne molitve (hardkodirano)
-└── icons/icon.svg
+└── icons/                   icon.svg + icon-192.png + icon-512.png
 ```
 
 ## Ključne odluke (da se ne ponavljaju pitanja)
@@ -50,24 +52,28 @@ Service Worker instalacija (`cache.addAll`) smjela je koristiti preglednikovu HT
 
 ## Poznata ograničenja / stvari koje NISU riješene
 
-1. **Ikona je samo SVG** (`icons/icon.svg`) - radi na Androidu/Chromeu, ali za savršenu podršku na starijim iOS uređajima trebalo bi generirati i PNG verzije (192x192, 512x512) i dodati ih u `manifest.json`. Nisam to mogao napraviti jer sandbox u toj sesiji nije imao izvršno okruženje (Python/Pillow) za generiranje PNG-a - kod kuće to je lako riješiti.
+1. **Ikone - RIJEŠENO** (21.7.2026.): generirane PNG verzije 192x192 i 512x512 (cairosvg u sandboxu) i dodane u `manifest.json` uz SVG; `apple-touch-icon` u `index.html` sada pokazuje na PNG.
 2. **Service Worker ne radi preko `file://`** - riješeno za stvarnu upotrebu preko GitHub Pages linka gore; `pokreni.bat` ostaje korisan za lokalni razvoj/testiranje.
 3. **Godina B nije unesena** - podaci idu samo do 22.11.2026. (kraj Godine A). Za nastavak nakon toga (od 29.11.2026., Godina B) treba dodati `data-godina-B.json` po istom obrascu i upisati je u `data-index.json`.
 4. **Reference i tekstovi čitanja - DOVRŠENO** (ažurirano 21.7.2026., backfill krug 5, završni): svih **55/55 dana** Godine A ima i biblijsku referencu i puni tekst čitanja (`tekst`/`pripjev`/`naslov`), popunjen iz Šarić (PD) prijevoda, od 2025-11-30 do 2026-11-22. Reference su sastavljene iz poznatog rasporeda Lekcionara za godinu A, nisu provjerene redak-po-redak protiv tiskanog misala - vrijedi provjeriti sitne razlike u podjeli stihova prije stvarnog čitanja u crkvi. "Molitva vjernika" ostaje namjerno prazna (korisnikova odluka - nije biblijski tekst nego pastoralno sastavljen, ne generira se automatski).
 5. **Nije testirano na stvarnom mobitelu** - vrijedilo bi provjeriti instalaciju i offline rad na Androidu i iPhoneu.
 6. **Nema automatske validacije JSON-a** - `data-godina-*.json` datoteke pišu se ručno pa vrijedi provjeriti da su i dalje ispravan JSON nakon svakog unosa teksta (npr. `python -m json.tool data-godina-A.json`).
 
+## Verzioniranje (od 21.7.2026., verzija 1.0.0)
+
+Aplikacija koristi semantičko verzioniranje **X.Y.Z**, vidljivo korisniku u podnožju appa (da može provjeriti ima li ažurnu verziju). Pravila: Z = ispravak greške (1.0.0 → 1.0.1); Y = nova/promijenjena mogućnost ili veći dodatak podataka, npr. nova liturgijska godina (→ 1.1.0, Z na 0); X = veliki redizajn/prerada (→ 2.0.0, Y i Z na 0). Detalji u `README.md` (odjeljak "Verzioniranje").
+
+**Postupak objave - uvijek sva 3 koraka**: (1) `APP_VERZIJA` u `js/verzija.js`, (2) `CACHE_NAME` u `service-worker.js` na isti broj (`"kalendar-misa-1.0.1"`), (3) zapis u `PROMJENE.md`. Stari brojač cache-a v1-v13 je zamijenjen ovom shemom.
+
 ## Sljedeći koraci (preporuke, ažurirano 21.7.2026.)
 
-Glavni posao (tekstovi čitanja za svih 55 dana Godine A) je **završen**. Preostaje:
+Tekstovi čitanja (55/55), PNG ikone i verzioniranje su **završeni**. Preostaje:
 
-1. **Generirati PNG ikone** (192x192 i 512x512) iz `icons/icon.svg` u sandboxu (Python je dostupan) i dodati ih u `manifest.json`.
-2. **Čišćenje**: obrisati `testfile.txt` (brisanje preko PowerShella, ne bash!).
-3. **Testiranje na mobitelu** (korisnik): instalacija i offline rad na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/.
-4. **Godina B**: nakon 22.11.2026. treba dodati `data-godina-B.json` po istom obrascu (reference + tekstovi) i upisati je u `data-index.json` - veći budući projekt, nije hitno.
-5. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu, doraditi referenc-polja pojedinačno.
+1. **Testiranje na mobitelu** (korisnik): instalacija i offline rad na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/ - u podnožju treba pisati "Verzija 1.0.0".
+2. **Godina B**: nakon 22.11.2026. treba dodati `data-godina-B.json` po istom obrascu (reference + tekstovi) i upisati je u `data-index.json` - veći budući projekt, nije hitno. To će biti verzija 1.1.0.
+3. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu, doraditi referenc-polja pojedinačno (zakrpa, npr. 1.0.1).
 
-Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash; službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda.
+Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash (čak i `git status` kroz sandbox zna ostaviti neobrisiv `index.lock`); službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda.
 
 ## Kako nastaviti kod kuće
 
@@ -81,10 +87,4 @@ Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__
 
 ## Testiranje promjena
 
-Nakon svake izmjene `data.json` (ili bilo koje druge datoteke), poveća se broj verzije u `service-worker.js`:
-
-```js
-const CACHE_NAME = "kalendar-misa-v2"; // bio v1
-```
-
-Inače će korisnici koji su već instalirali aplikaciju i dalje vidjeti staru (predmemoriranu) verziju.
+Nakon svake izmjene bilo koje datoteke, objavi novu verziju po postupku iz odjeljka "Verzioniranje" gore (verzija.js + CACHE_NAME + PROMJENE.md). Inače će korisnici koji su već instalirali aplikaciju i dalje vidjeti staru (predmemoriranu) verziju.

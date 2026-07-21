@@ -393,6 +393,15 @@
 
   document.addEventListener("DOMContentLoaded", init);
 
+  // ---------- Prikaz verzije aplikacije u podnožju ----------
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var el = document.getElementById("appVerzija");
+    if (el && typeof APP_VERZIJA !== "undefined") {
+      el.textContent = "Verzija " + APP_VERZIJA;
+    }
+  });
+
   // ---------- Service Worker registracija ----------
 
   if ("serviceWorker" in navigator) {
