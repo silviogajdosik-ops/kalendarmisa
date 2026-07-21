@@ -9,7 +9,7 @@
  * podnožje aplikacije prikazivati krivu verziju.
  */
 
-const CACHE_NAME = "kalendar-misa-1.0.0";
+const CACHE_NAME = "kalendar-misa-1.1.0";
 
 const DATOTEKE_ZA_PREDMEMORIJU = [
   "./",

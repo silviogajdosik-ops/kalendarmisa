@@ -26,8 +26,21 @@
   var vjerovanjeIzbor = localStorage.getItem("vjerovanjeIzbor") || "dugo";
   var temaIzbor = document.documentElement.getAttribute("data-tema") || "svijetla";
 
+  var FONT_KORACI = [15, 17, 19, 21]; // px: mali, normalan (zadano), velik, najveći
+  var FONT_ZADANI_INDEKS = 1;
+  var fontIndeks = parseInt(localStorage.getItem("fontIndeks"), 10);
+  if (isNaN(fontIndeks) || fontIndeks < 0 || fontIndeks >= FONT_KORACI.length) {
+    fontIndeks = FONT_ZADANI_INDEKS;
+  }
+
+  var WAKE_LOCK_PODRZAN = "wakeLock" in navigator;
+  var zeljenoBudnoStanje = localStorage.getItem("budnoZeljeno");
+  if (zeljenoBudnoStanje === null) zeljenoBudnoStanje = "1"; // zadano: ekran ostaje budan
+  var trenutniWakeLock = null;
+
   var els = {
     daySelect: document.getElementById("daySelect"),
+    danasBtn: document.getElementById("danasBtn"),
     dayTitle: document.getElementById("dayTitle"),
     dayDate: document.getElementById("dayDate"),
     dayMeta: document.getElementById("dayMeta"),
@@ -35,7 +48,10 @@
     massOrder: document.getElementById("massOrder"),
     offlineBadge: document.getElementById("offlineBadge"),
     themeColorMeta: document.getElementById("themeColorMeta"),
-    temaToggle: document.getElementById("temaToggle")
+    temaToggle: document.getElementById("temaToggle"),
+    fontManji: document.getElementById("fontManji"),
+    fontVeci: document.getElementById("fontVeci"),
+    wakeLockToggle: document.getElementById("wakeLockToggle")
   };
 
   // ---------- Tema (svijetla/tamna) ----------
@@ -54,6 +70,70 @@
     document.documentElement.setAttribute("data-tema", temaIzbor);
     localStorage.setItem("temaIzbor", temaIzbor);
     primijeniIkonuTeme();
+  }
+
+  // ---------- Veličina fonta ----------
+
+  function azurirajGumbeFonta() {
+    if (els.fontManji) els.fontManji.disabled = fontIndeks === 0;
+    if (els.fontVeci) els.fontVeci.disabled = fontIndeks === FONT_KORACI.length - 1;
+  }
+
+  function primijeniVelicinuFonta() {
+    document.documentElement.style.fontSize = FONT_KORACI[fontIndeks] + "px";
+    azurirajGumbeFonta();
+  }
+
+  function postaviVelicinuFonta(noviIndeks) {
+    fontIndeks = Math.max(0, Math.min(FONT_KORACI.length - 1, noviIndeks));
+    localStorage.setItem("fontIndeks", String(fontIndeks));
+    primijeniVelicinuFonta();
+  }
+
+  // ---------- Wake Lock (ekran se ne gasi tijekom mise) ----------
+
+  function azurirajIkonuWakeLock() {
+    if (!els.wakeLockToggle) return;
+    var aktivno = zeljenoBudnoStanje === "1";
+    els.wakeLockToggle.textContent = aktivno ? "🔆" : "🔅";
+    els.wakeLockToggle.setAttribute("aria-pressed", aktivno ? "true" : "false");
+    els.wakeLockToggle.setAttribute(
+      "aria-label",
+      aktivno ? "Isključi držanje ekrana budnim" : "Uključi držanje ekrana budnim"
+    );
+  }
+
+  function zatraziWakeLock() {
+    if (!WAKE_LOCK_PODRZAN || zeljenoBudnoStanje !== "1") return;
+    navigator.wakeLock.request("screen").then(function (lock) {
+      trenutniWakeLock = lock;
+      lock.addEventListener("release", function () {
+        trenutniWakeLock = null;
+      });
+    }).catch(function (err) {
+      // Uredan fallback: ako zahtjev ne uspije (npr. preglednik odbije jer
+      // stranica nije vidljiva), samo zabilježi u konzolu - aplikacija
+      // normalno radi dalje i bez Wake Locka.
+      console.warn("Wake Lock zahtjev nije uspio:", err);
+    });
+  }
+
+  function otpustiWakeLock() {
+    if (trenutniWakeLock) {
+      trenutniWakeLock.release().catch(function () {});
+      trenutniWakeLock = null;
+    }
+  }
+
+  function postaviWakeLockIzbor(ukljuceno) {
+    zeljenoBudnoStanje = ukljuceno ? "1" : "0";
+    localStorage.setItem("budnoZeljeno", zeljenoBudnoStanje);
+    azurirajIkonuWakeLock();
+    if (ukljuceno) {
+      zatraziWakeLock();
+    } else {
+      otpustiWakeLock();
+    }
   }
 
   // ---------- Pomoćne funkcije ----------
@@ -353,6 +433,60 @@
     if (dan) prikaziDan(dan);
   }
 
+  function idiNaDanasnjiDan() {
+    var zadani = odaberiZadaniDan();
+    if (zadani) {
+      els.daySelect.value = zadani.id;
+      prikaziDan(zadani);
+    }
+  }
+
+  // ---------- Swipe lijevo/desno (prethodni/sljedeći dan) ----------
+
+  function indeksTrenutnogDana() {
+    if (!trenutniDan) return -1;
+    for (var i = 0; i < svi_dani.length; i++) {
+      if (svi_dani[i].id === trenutniDan.id) return i;
+    }
+    return -1;
+  }
+
+  function idiNaSusjedniDan(smjer) {
+    var i = indeksTrenutnogDana();
+    if (i === -1) return;
+    var novi = i + smjer;
+    if (novi < 0 || novi >= svi_dani.length) return; // već smo na prvom/zadnjem danu
+    var dan = svi_dani[novi];
+    els.daySelect.value = dan.id;
+    prikaziDan(dan);
+  }
+
+  function inicijalizirajSwipe() {
+    var pocetakX = null;
+    var pocetakY = null;
+    var PRAG_UDALJENOSTI = 60; // px, minimalan vodoravni pomak da se prepozna swipe
+    var PRAG_OMJERA = 1.5; // vodoravni pomak mora biti barem ovoliko puta veći od okomitog
+
+    els.massOrder.addEventListener("touchstart", function (e) {
+      if (e.touches.length !== 1) return;
+      pocetakX = e.touches[0].clientX;
+      pocetakY = e.touches[0].clientY;
+    }, { passive: true });
+
+    els.massOrder.addEventListener("touchend", function (e) {
+      if (pocetakX === null) return;
+      var dodir = e.changedTouches[0];
+      var dx = dodir.clientX - pocetakX;
+      var dy = dodir.clientY - pocetakY;
+      pocetakX = null;
+      pocetakY = null;
+
+      if (Math.abs(dx) >= PRAG_UDALJENOSTI && Math.abs(dx) >= Math.abs(dy) * PRAG_OMJERA) {
+        idiNaSusjedniDan(dx < 0 ? 1 : -1); // lijevo = sljedeći dan, desno = prethodni dan
+      }
+    }, { passive: true });
+  }
+
   // ---------- Offline indikator ----------
 
   function azurirajOfflineOznaku() {
@@ -368,6 +502,45 @@
         postaviTemu(temaIzbor === "tamna" ? "svijetla" : "tamna");
       });
     }
+
+    // Veličina fonta - gumbi A- / A+. Ne zovemo primijeniVelicinuFonta() ovdje
+    // (osim ako korisnik već ima spremljeni izbor) da ne pregazimo CSS media-query
+    // zadanu responzivnu veličinu za nove korisnike bez spremljene postavke.
+    azurirajGumbeFonta();
+    if (localStorage.getItem("fontIndeks") !== null) {
+      primijeniVelicinuFonta();
+    }
+    if (els.fontManji) {
+      els.fontManji.addEventListener("click", function () { postaviVelicinuFonta(fontIndeks - 1); });
+    }
+    if (els.fontVeci) {
+      els.fontVeci.addEventListener("click", function () { postaviVelicinuFonta(fontIndeks + 1); });
+    }
+
+    // Wake Lock - drži ekran budnim tijekom mise, uz uredan fallback.
+    if (els.wakeLockToggle) {
+      if (!WAKE_LOCK_PODRZAN) {
+        els.wakeLockToggle.hidden = true;
+      } else {
+        els.wakeLockToggle.hidden = false;
+        azurirajIkonuWakeLock();
+        els.wakeLockToggle.addEventListener("click", function () {
+          postaviWakeLockIzbor(zeljenoBudnoStanje !== "1");
+        });
+        zatraziWakeLock();
+        document.addEventListener("visibilitychange", function () {
+          if (document.visibilityState === "visible") {
+            zatraziWakeLock();
+          }
+        });
+      }
+    }
+
+    if (els.danasBtn) {
+      els.danasBtn.addEventListener("click", idiNaDanasnjiDan);
+    }
+
+    inicijalizirajSwipe();
 
     ucitajPodatke().then(function () {
       popuniSelect();

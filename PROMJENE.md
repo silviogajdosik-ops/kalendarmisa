@@ -3,6 +3,15 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.1.0 - 21.7.2026.
+
+Nove mogućnosti za korištenje uživo u crkvi:
+
+- **Podesiva veličina fonta**: gumbi A− / A+ u zaglavlju, 4 koraka (15/17/19/21 px), izbor se pamti u `localStorage` (`fontIndeks`) i primjenjuje bez bljeska pri sljedećem otvaranju.
+- **Wake Lock (ekran se ne gasi)**: dok je aplikacija otvorena, ekran ostaje uključen (Wake Lock API); gumb 🔆/🔅 u zaglavlju za ručno isključivanje; ako preglednik ne podržava Wake Lock, gumb se jednostavno sakrije (uredan fallback); ponovno se traži nakon povratka u aplikaciju (`visibilitychange`).
+- **Gumb "Danas"**: uz padajući izbornik, brzi povratak na prvi nadolazeći dan nakon ručnog listanja.
+- **Swipe lijevo/desno**: dodirom prstom po glavnom sadržaju prelazi se na prethodni/sljedeći dan (uz postojeći izbornik, ne umjesto njega).
+
 ## 1.0.0 - 21.7.2026.
 
 Prva potpuna verzija:

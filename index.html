@@ -22,6 +22,21 @@
     document.documentElement.setAttribute("data-tema", t);
   } catch (e) {}
 })();
+
+// Postavi veličinu fonta prije prvog crtanja - ALI samo ako korisnik već ima
+// spremljeni izbor (inače prepuštamo CSS media-query zadanoj responzivnoj veličini).
+(function () {
+  try {
+    var spremljeno = localStorage.getItem("fontIndeks");
+    if (spremljeno !== null) {
+      var koraci = [15, 17, 19, 21];
+      var i = parseInt(spremljeno, 10);
+      if (!isNaN(i) && i >= 0 && i < koraci.length) {
+        document.documentElement.style.fontSize = koraci[i] + "px";
+      }
+    }
+  } catch (e) {}
+})();
 </script>
 </head>
 <body>
@@ -30,14 +45,22 @@
   <div class="app-header__top">
     <h1>Kalendar misa</h1>
     <div class="header-actions">
-      <button type="button" id="temaToggle" class="tema-toggle" aria-label="Promijeni temu">🌙</button>
+      <div class="font-velicina" role="group" aria-label="Veličina fonta">
+        <button type="button" id="fontManji" class="header-btn" aria-label="Smanji veličinu fonta">A−</button>
+        <button type="button" id="fontVeci" class="header-btn" aria-label="Povećaj veličinu fonta">A+</button>
+      </div>
+      <button type="button" id="wakeLockToggle" class="header-btn wake-toggle" aria-label="Zadrži ekran uključenim" aria-pressed="false" hidden>🔆</button>
+      <button type="button" id="temaToggle" class="header-btn tema-toggle" aria-label="Promijeni temu">🌙</button>
       <span id="offlineBadge" class="offline-badge" hidden>Offline</span>
     </div>
   </div>
 
   <div class="day-picker">
     <label for="daySelect">Odaberi dan</label>
-    <select id="daySelect" aria-label="Odaberi nedjelju ili svetkovinu"></select>
+    <div class="day-picker__row">
+      <select id="daySelect" aria-label="Odaberi nedjelju ili svetkovinu"></select>
+      <button type="button" id="danasBtn" class="danas-btn">Danas</button>
+    </div>
   </div>
 
   <div class="day-info" id="dayInfo">

@@ -86,18 +86,21 @@ h1, h2, h3 { margin: 0; }
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
-.tema-toggle {
-  width: 32px;
+.header-btn {
+  min-width: 32px;
   height: 32px;
-  padding: 0;
+  padding: 0 7px;
   border: none;
-  border-radius: 50%;
+  border-radius: 16px;
   background: rgba(255,255,255,0.2);
   color: #fff;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
   display: flex;
@@ -106,8 +109,35 @@ h1, h2, h3 { margin: 0; }
   -webkit-tap-highlight-color: transparent;
 }
 
-.tema-toggle:active {
+.header-btn:active {
   background: rgba(255,255,255,0.32);
+}
+
+.header-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.font-velicina {
+  display: flex;
+  gap: 4px;
+}
+
+.font-velicina .header-btn {
+  font-size: 12px;
+  padding: 0 6px;
+}
+
+.tema-toggle,
+.wake-toggle {
+  width: 32px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 15px;
+}
+
+.wake-toggle[aria-pressed="true"] {
+  background: rgba(255,255,255,0.4);
 }
 
 .day-picker {
@@ -122,8 +152,16 @@ h1, h2, h3 { margin: 0; }
   opacity: 0.9;
 }
 
+.day-picker__row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
 .day-picker select {
+  flex: 1;
   width: 100%;
+  min-width: 0;
   padding: 12px 14px;
   font-size: 1rem;
   border-radius: var(--radijus);
@@ -136,6 +174,24 @@ h1, h2, h3 { margin: 0; }
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 20px;
+}
+
+.danas-btn {
+  flex-shrink: 0;
+  padding: 0 16px;
+  border-radius: var(--radijus);
+  border: none;
+  background: rgba(255,255,255,0.95);
+  color: #222;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.danas-btn:active {
+  background: #fff;
 }
 
 .day-info {
