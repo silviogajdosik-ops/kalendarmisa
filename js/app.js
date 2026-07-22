@@ -672,7 +672,10 @@
   // počinju sklopljeni - "zadano se vidi samo od danas nadalje").
   function izgradiPopisDanaZaIzbornik() {
     els.dayModalList.innerHTML = "";
-    if (!svi_dani.length) return;
+    if (!svi_dani.length) {
+      els.dayModalList.innerHTML = '<p class="day-modal__empty">Nema dostupnih dana za prikaz.</p>';
+      return;
+    }
 
     var zadaniDan = odaberiZadaniDan();
     var indeksZadanog = svi_dani.findIndex(function (d) { return d.id === zadaniDan.id; });
@@ -695,7 +698,12 @@
       toggle.setAttribute("aria-expanded", "false");
       toggle.addEventListener("click", function () {
         var otvaraSe = prosliSpremnik.hidden;
+        // Sadržaj se ubacuje IZNAD trenutne scroll pozicije, pa bez korekcije
+        // scrollTop-a stavke koje korisnik gleda "skoče" gore/dolje na ekranu.
+        var visinaPrije = prosliSpremnik.hidden ? 0 : prosliSpremnik.offsetHeight;
         prosliSpremnik.hidden = !otvaraSe;
+        var visinaPoslije = prosliSpremnik.hidden ? 0 : prosliSpremnik.offsetHeight;
+        els.dayModalList.scrollTop += (visinaPoslije - visinaPrije);
         toggle.setAttribute("aria-expanded", otvaraSe ? "true" : "false");
         toggle.textContent = otvaraSe
           ? "Sakrij prošle dane"
@@ -933,10 +941,14 @@
       if (zadani) {
         prikaziDan(zadani);
       } else {
-        els.massOrder.innerHTML = '<p class="loading-msg">Nema dostupnih datuma u data.json.</p>';
+        els.massOrder.innerHTML =
+          '<p class="loading-msg">Trenutno nema dostupnih dana za prikaz. ' +
+          "Pokušajte ponovno pokrenuti aplikaciju ili provjerite je li instalirana najnovija verzija.</p>";
       }
     }).catch(function (err) {
-      els.massOrder.innerHTML = '<p class="loading-msg">Greška pri učitavanju data.json: ' + escapeHtml(err.message) + "</p>";
+      els.massOrder.innerHTML =
+        '<p class="loading-msg">Nismo uspjeli učitati podatke. Provjerite internetsku vezu i pokušajte ponovno.' +
+        '<br><span class="loading-msg__detalj">(' + escapeHtml(err.message) + ")</span></p>";
     });
 
     window.addEventListener("online", azurirajOfflineOznaku);

@@ -106,7 +106,17 @@
 </div>
 
 <main id="massOrder" class="mass-order" aria-live="polite">
-  <p class="loading-msg" id="loadingMsg">Učitavanje...</p>
+  <div class="skeleton-card" aria-hidden="true">
+    <div class="skeleton-line skeleton-line--title"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line skeleton-line--short"></div>
+  </div>
+  <div class="skeleton-card" aria-hidden="true">
+    <div class="skeleton-line skeleton-line--title"></div>
+    <div class="skeleton-line skeleton-line--short"></div>
+  </div>
+  <p class="loading-msg sr-only" id="loadingMsg">Učitavanje...</p>
 </main>
 
 <footer class="app-footer">

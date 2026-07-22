@@ -89,6 +89,16 @@
   flex-shrink: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -351,6 +361,66 @@ h1, h2, h3 { margin: 0; }
   text-align: center;
   color: var(--tekst-suptilan);
   padding: 40px 0;
+  line-height: 1.6;
+}
+
+.loading-msg__detalj {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Skeleton/shimmer stanje učitavanja ---------- */
+
+.skeleton-card {
+  background: var(--pozadina);
+  border: 1px solid var(--rub);
+  border-radius: var(--radijus);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, var(--rub) 25%, var(--pozadina-app) 50%, var(--rub) 75%);
+  background-size: 200% 100%;
+  animation: skeletonPomak 1.4s ease-in-out infinite;
+}
+
+.skeleton-line:last-child { margin-bottom: 0; }
+
+.skeleton-line--title {
+  width: 45%;
+  height: 18px;
+}
+
+.skeleton-line--short {
+  width: 60%;
+}
+
+@keyframes skeletonPomak {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+    background: var(--rub);
+  }
 }
 
 details.section {
@@ -632,7 +702,15 @@ body.modal-otvoren {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
   padding: 4px var(--razmak) calc(env(safe-area-inset-bottom, 0) + 16px);
+}
+
+.day-modal__empty {
+  text-align: center;
+  color: var(--tekst-suptilan);
+  padding: 40px 16px;
+  line-height: 1.6;
 }
 
 .day-modal__past-toggle {
@@ -741,14 +819,28 @@ body.modal-otvoren {
   to   { opacity: 1; }
 }
 
-.mass-order--anim-next { animation: klizanjeSDesna .22s ease; }
-.mass-order--anim-prev { animation: klizanjeSLijeva .22s ease; }
+.mass-order--anim-next { animation: klizanjeSDesna .2s ease; }
+.mass-order--anim-prev { animation: klizanjeSLijeva .2s ease; }
 .mass-order--anim-fade { animation: postupnoPojavljivanje .18s ease; }
+
+/* ---------- Suptilna animacija otvaranja sekcije/stavke (accordion) ---------- */
+
+@keyframes sadrzajOtvaranje {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+details.section[open] > .section__body,
+details.item[open] > .item__body {
+  animation: sadrzajOtvaranje .18s ease;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .mass-order--anim-next,
   .mass-order--anim-prev,
-  .mass-order--anim-fade {
+  .mass-order--anim-fade,
+  details.section[open] > .section__body,
+  details.item[open] > .item__body {
     animation: none;
   }
 }

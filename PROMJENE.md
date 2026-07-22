@@ -3,6 +3,15 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.6.0 - 23.7.2026.
+
+Drugi dio "Refactoring i UI/UX roadmape" (bez novih funkcionalnosti) - ostatak Prioriteta 2 (UX poboljšanja):
+
+- **Poboljšan scroll**: dodano globalno glatko skrolanje (`scroll-behavior: smooth`, isključeno uz `prefers-reduced-motion`); skrolanje unutar izbornika dana namjerno ostaje trenutno (bez sudara s vlastitom animacijom otvaranja panela); ispravljen skok prikaza kad se otvore/sakriju "prošli dani" u izborniku - vidljivi dani sada ostaju na istom mjestu na ekranu (scroll pozicija se automatski korigira).
+- **Suptilne animacije**: otvaranje sekcija i pojedinih stavki (čitanja, molitve) sada ima blagi fade+slide (180ms); animacija pri promjeni dana skraćena s 220ms na točno 200ms.
+- **Loading stanje (skeleton/shimmer)**: umjesto praznog teksta "Učitavanje...", pri prvom učitavanju sada se prikazuje skeleton s dvije zamišljene kartice i shimmer efektom (isti radius/border kao prave kartice, radi u obje teme); tekst i dalje ostaje dostupan čitačima ekrana.
+- **Prijateljska prazna stanja**: izbornik dana više ne ostaje prazan panel ako nema dostupnih dana (prikazuje poruku); poruke o nedostupnim podacima i grešci učitavanja preformulirane jasnije i prijateljskije (tehnički detalj greške sad je manji, sekundarni tekst).
+
 ## 1.5.0 - 22.7.2026.
 
 Prvi dio "Refactoring i UI/UX roadmape" (bez novih funkcionalnosti) - Prioritet 1 (Vizualno poliranje) u cijelosti + prva stavka Prioriteta 2:
