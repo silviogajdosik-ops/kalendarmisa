@@ -3,6 +3,15 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.7.0 - 23.7.2026.
+
+Treći dio "Refactoring i UI/UX roadmape" (bez novih funkcionalnosti) - Prioritet 3 (Konzistentnost):
+
+- **Standardizirani gumbi**: svi gumbi u zaglavlju i traci za odabir dana (A−/A+, tema, Wake Lock, ◀/▶, "Danas", day-info traka) sada dijele isti "pill/krug" oblik (potpuno zaobljeni rubovi umjesto miješanih 12px/22px radijusa) i glatku tranziciju pri hover/active stanju; gumbi unutar sadržaja (Vjerovanje toggle, "Otvori/Zatvori sve", stavke izbornika dana, X za zatvaranje) usklađeni na isti radijus kartica (var(--radijus)); dodano dosljedno stanje fokusa (tipkovnica) na svim gumbima kroz cijelu aplikaciju.
+- **Konzistentne ikone**: ikona mjeseca (tema) prepravljena iz ispunjenog oblika u obrisnu (stroke) ikonu iste debljine linije kao sve ostale ikone (sunce, oko, strelice, X, padajuća strelica) - sve ikone sada dijele isti vizualni stil i debljinu crte (stroke-width 2).
+- **Provjera tamne teme**: pojačan kontrast rubova kartica u tamnoj temi (jedva vidljivi rub `#38363c` zamijenjen svjetlijim `#47434c`) - kartice se sada jasnije razaznaju od pozadine; potvrđeno da su liturgijske "svijetle" boje (pozadine za prazna stanja, značke) već automatski prilagođene tamnoj temi (alfa-prozirnost umjesto fiksne pastelne boje) i da su boje bannera isteka već imale zasebne tamne varijante.
+- **Fokus na čitanje**: kad je jedna stavka (čitanje, molitva) ručno otvorena dok su susjedne zatvorene, naslovi zatvorenih susjednih stavki se suptilno prigušuju (55% neprozirnosti, vraća se na 100% pri hoveru/fokusu) - otvoreni tekst time ostaje vizualno najvažniji element na ekranu. Efekt se ne aktivira u "Način mise" (kad su sve stavke otvorene odjednom).
+
 ## 1.6.0 - 23.7.2026.
 
 Drugi dio "Refactoring i UI/UX roadmape" (bez novih funkcionalnosti) - ostatak Prioriteta 2 (UX poboljšanja):

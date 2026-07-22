@@ -29,10 +29,25 @@
   --tekst-suptilan: #b3b0aa;
   --pozadina: #201f23;
   --pozadina-app: #131215;
-  --rub: #38363c;
+  --rub: #47434c;
 }
 
 * { box-sizing: border-box; }
+
+/* ---------- Dosljedno stanje fokusa (tipkovnica) na svim gumbima ---------- */
+
+button:focus-visible,
+.day-info:focus-visible,
+.day-modal__item:focus-visible,
+.day-modal__past-toggle:focus-visible {
+  outline: 2px solid var(--akcent-tekst);
+  outline-offset: 2px;
+}
+
+.app-header button:focus-visible,
+.app-header .day-info:focus-visible {
+  outline-color: #fff;
+}
 
 /* ---------- Banner isteka podataka ---------- */
 
@@ -172,6 +187,7 @@ h1, h2, h3 { margin: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color .15s ease, opacity .15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -235,6 +251,7 @@ h1, h2, h3 { margin: 0; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color .15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -247,7 +264,7 @@ h1, h2, h3 { margin: 0; }
   min-width: 0;
   height: 44px;
   padding: 0 16px;
-  border-radius: var(--radijus);
+  border-radius: 999px;
   border: none;
   background: rgba(255,255,255,0.95);
   color: #222;
@@ -255,6 +272,7 @@ h1, h2, h3 { margin: 0; }
   font-size: 0.85rem;
   cursor: pointer;
   white-space: nowrap;
+  transition: background-color .15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -270,14 +288,15 @@ h1, h2, h3 { margin: 0; }
   margin: 0;
   background: rgba(255,255,255,0.12);
   border: none;
-  border-radius: var(--radijus);
-  padding: 10px 12px;
+  border-radius: 999px;
+  padding: 10px 16px;
   font: inherit;
   color: inherit;
   text-align: left;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
+  transition: background-color .15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -484,7 +503,12 @@ details.section[open] > summary::after {
   border-radius: 999px;
   padding: 6px 13px;
   cursor: pointer;
+  transition: background-color .15s ease;
   -webkit-tap-highlight-color: transparent;
+}
+
+.section-controls__btn:active {
+  background: var(--rub);
 }
 
 /* Sub-items (readings, prayers) as nested details */
@@ -509,6 +533,20 @@ details.item > summary {
 }
 
 details.item > summary::-webkit-details-marker { display: none; }
+
+/* Fokus na čitanje: kad je jedna stavka ručno otvorena dok su susjedne zatvorene
+   (pregledavanje stavku-po-stavku, izvan "Način mise" kad su sve otvorene),
+   naslovi zatvorenih susjednih stavki se suptilno prigušuju da otvoreni tekst
+   ostane vizualno najvažniji element na ekranu. */
+.section__body:has(> details.item[open]) > details.item:not([open]) > summary {
+  opacity: 0.55;
+  transition: opacity .15s ease;
+}
+
+.section__body:has(> details.item[open]) > details.item:not([open]) > summary:hover,
+.section__body:has(> details.item[open]) > details.item:not([open]) > summary:focus-visible {
+  opacity: 1;
+}
 
 .item__ref {
   font-weight: 400;
@@ -558,12 +596,13 @@ details.item > summary::-webkit-details-marker { display: none; }
 .credo-toggle button {
   flex: 1;
   padding: 8px 10px;
-  border-radius: 8px;
+  border-radius: var(--radijus);
   border: 1px solid var(--rub);
   background: var(--pozadina);
   font-size: 0.85rem;
   color: var(--tekst);
   cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 
 .credo-toggle button.active {
@@ -695,7 +734,12 @@ body.modal-otvoren {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color .15s ease;
   -webkit-tap-highlight-color: transparent;
+}
+
+.day-modal__close:active {
+  background: var(--rub);
 }
 
 .day-modal__list {
@@ -721,6 +765,7 @@ body.modal-otvoren {
   padding: 12px 10px;
   margin-top: 4px;
   border: none;
+  border-radius: var(--radijus);
   border-bottom: 1px solid var(--rub);
   background: none;
   color: var(--tekst-suptilan);
@@ -728,7 +773,12 @@ body.modal-otvoren {
   font-size: 0.92rem;
   text-align: left;
   cursor: pointer;
+  transition: background-color .15s ease;
   -webkit-tap-highlight-color: transparent;
+}
+
+.day-modal__past-toggle:active {
+  background: var(--akcent-svijetla);
 }
 
 .day-modal__month {
@@ -751,12 +801,13 @@ body.modal-otvoren {
   min-height: 48px;
   padding: 8px 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radijus);
   background: none;
   color: var(--tekst);
   font-size: 0.98rem;
   text-align: left;
   cursor: pointer;
+  transition: background-color .15s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
