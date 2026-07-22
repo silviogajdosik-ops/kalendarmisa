@@ -93,7 +93,21 @@ Nativni `<select>` (110+ ravnih stavki, nepregledan čak i s optgroup grupiranje
   - Animacija otvaranja/zatvaranja (`transform: translateY` + `opacity`) poštuje `prefers-reduced-motion` (isključena ako korisnik traži manje pokreta).
 - **Sve staro i dalje radi**: swipe, gumb "Danas", banner isteka, badge "DANAS"/"za N dana" - nijedna od tih funkcija nije dirana, samo je uklonjen `<select>` i `popuniSelect()`.
 
-## Verzioniranje (trenutno na verziji 1.4.0, ažurirano 21.7.2026.)
+## Refactoring i UI/UX roadmap (u tijeku, od 22.7.2026.)
+
+Korisnik je zadao veliki popis od 18 poboljšanja kvalitete/UX-a/refaktoringa, BEZ novih funkcionalnosti, podijeljen u 4 prioriteta (Vizualno poliranje, UX poboljšanja, Konzistentnost, Refactoring). Puni popis stavki treba tražiti u povijesti razgovora (nije ponovljen ovdje jer je predugačak) - u nastavku je samo status i konvencija rada.
+
+**Radni proces (korisnikov izričit zahtjev)**: svaka stavka se radi POJEDINAČNO - napravi se izmjena, pokaže rezultat (lokalno, preko `python -m http.server` + Chrome, BEZ pusha), pričeka se korisnikova potvrda, tek onda ide sljedeća stavka. Ne raditi više stavki odjednom bez potvrde.
+
+**Git/objavljivanje (korisnikova odluka, 22.7.2026.)**: korisnik uglavnom testira na mobitelu, ne na računalu, pa lokalni preview nije dovoljan za njega - zato se version bump + push radi **po završenom Prioritetu** (ne po svakoj sitnoj stavci, ne tek na samom kraju). Kad se potvrde sve stavke jednog Prioriteta, ide standardni postupak objave (verzija.js + CACHE_NAME + PROMJENE.md + provjeri.py + git push + test na živoj GitHub Pages domeni).
+
+**Status**:
+- **Prioritet 1 (Vizualno poliranje) - DOVRŠENO, objavljeno u v1.5.0**: tipografija (line-height, razmak, hijerarhija naslova, max-width 65ch za tekst čitanja, kontrast `--tekst-suptilan`), više razmaka/paddinga (kartice, sekcije, gumbi), dosljedan dizajn kartica (isti radius/border/shadow na `details.section` i "empty state" okviru), liturgijske boje kao diskretan akcent (lijevi rub kartice `border-left: 4px solid var(--akcent)`, uz postojeće obojane naslove/značke).
+- **Prioritet 2 (UX poboljšanja) - u tijeku**: stavka 5 (manje klikova) gotova i uključena u v1.5.0 - sekcija "Služba riječi" (čitanja) sada je otvorena po zadanome umjesto "Uvodni obredi" (`js/app.js`, poziv `sekcijaWrapper("rijec", ..., true, ...)` i `sekcijaWrapper("uvodni", ..., false, ...)` u `prikaziDan()`). Preostaje: poboljšati scroll, animacije, loading stanja (skeleton), empty states.
+- **Prioritet 3 (Konzistentnost) - nije počelo**: standardizirati gumbe, ikone, provjeriti dark mode, fokus na čitanje.
+- **Prioritet 4 (Refactoring) - nije počelo**: razbiti `app.js` u module, razdvojiti CSS u više datoteka, dizajn sustav (CSS varijable za spacing/radius/shadow), ukloniti duplicirani kod, dokumentirati strukturu u README-u.
+
+## Verzioniranje (trenutno na verziji 1.5.0, ažurirano 22.7.2026.)
 
 Aplikacija koristi semantičko verzioniranje **X.Y.Z**, vidljivo korisniku u podnožju appa (da može provjeriti ima li ažurnu verziju). Pravila: Z = ispravak greške (1.0.0 → 1.0.1); Y = nova/promijenjena mogućnost ili veći dodatak podataka, npr. nova liturgijska godina (→ 1.1.0, Z na 0); X = veliki redizajn/prerada (→ 2.0.0, Y i Z na 0). Detalji u `README.md` (odjeljak "Verzioniranje").
 
@@ -105,12 +119,14 @@ Aplikacija koristi semantičko verzioniranje **X.Y.Z**, vidljivo korisniku u pod
 - **1.2.0** (21.7.2026.): Godina B potpuno popunjena (55/55 dana, reference + tekstovi) i uključena u aplikaciju (`data-index.json` + `service-worker.js` cache) - app sad automatski prikazuje ispravnu godinu (A ili B) po datumu.
 - **1.3.0** (21.7.2026.): UX poboljšanja - banner isteka podataka, badge "DANAS"/"za N dana", scroll-na-vrh + animacija pri promjeni dana, optgroup grupiranje u day-selectu, "Otvori sve/Zatvori sve" po sekciji + "Način mise", SVG ikone umjesto emoji, WCAG AA kontrast liturgijskih boja (nova `--akcent-tekst` varijabla po temi), generalizirani generator `generiraj-godinu.py` + kostur Godine C (`data-godina-C.json`, još nije uključen u app).
 - **1.4.0** (21.7.2026.): nativni `<select>` (čak i s optgroup grupiranjem iz 1.3.0 i dalje nepregledan) potpuno uklonjen - zamijenjen prev/next gumbima uz "Danas" i modalom (bottom-sheet) koji se otvara dodirom na day-info traku, grupiran po mjesecima, s prošlim danima sklopljenim po zadanome. Detalji u odjeljku "Novi izbornik dana - verzija 1.4.0" gore.
+- **1.5.0** (22.7.2026.): prvi dio refactoring/UI-UX roadmape (bez novih funkcionalnosti) - Prioritet 1 (Vizualno poliranje) u cijelosti + stavka 5 Prioriteta 2 (manje klikova - "Služba riječi" otvorena po zadanome). Detalji u odjeljku "Refactoring i UI/UX roadmap" gore i u `PROMJENE.md`.
 
-## Sljedeći koraci (preporuke, ažurirano 21.7.2026.)
+## Sljedeći koraci (preporuke, ažurirano 22.7.2026.)
 
-1. **Testiranje na mobitelu** (korisnik): instalacija, offline rad, novi izbornik dana iz 1.4.0 (prev/next gumbi, dodir na day-info, bottom-sheet, "Prikaži prošle dane", scroll na danas) te sve UX novosti iz 1.3.0 (banner isteka, badge, scroll+animacija, "Otvori sve"/"Način mise", SVG ikone) na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/ - u podnožju treba pisati "Verzija 1.4.0". Posebno provjeriti dodir izvan panela na uskom mobilnom ekranu (tanki trak pozadine na vrhu bottom-sheeta) i fokus-trap ako se koristi vanjska tipkovnica.
-2. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu (Godina A ili B), doraditi referenc-polja pojedinačno (zakrpa).
-3. **Godina C - sljedeći korak**: kostur `data-godina-C.json` je gotov i datumski provjeren (vidi gore) - preostaje popuniti reference i tekstove čitanja (Šarić prijevod, isti postupak kao za Godinu B) i tek onda dodati datoteku u `data-index.json` + `service-worker.js` cache popis (uz bump verzije).
+1. **Nastaviti roadmap** (vidi "Refactoring i UI/UX roadmap" gore): Prioritet 2 preostale stavke (scroll, animacije, loading stanja, empty states), pa Prioritet 3 (konzistentnost gumba/ikona/dark mode/fokus na čitanje), pa Prioritet 4 (refactoring app.js/CSS-a). Raditi stavku-po-stavku uz potvrdu, version bump/push tek kad se završi cijeli Prioritet.
+2. **Testiranje na mobitelu** (korisnik): instalacija, offline rad, novi izbornik dana iz 1.4.0 (prev/next gumbi, dodir na day-info, bottom-sheet, "Prikaži prošle dane", scroll na danas), UX novosti iz 1.3.0 (banner isteka, badge, scroll+animacija, "Otvori sve"/"Način mise", SVG ikone) te vizualno poliranje iz 1.5.0 (tipografija, razmak, kartice, liturgijski akcent, "Služba riječi" otvorena po zadanome) na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/ - u podnožju treba pisati "Verzija 1.5.0".
+3. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu (Godina A ili B), doraditi referenc-polja pojedinačno (zakrpa).
+4. **Godina C - sljedeći korak**: kostur `data-godina-C.json` je gotov i datumski provjeren (vidi gore) - preostaje popuniti reference i tekstove čitanja (Šarić prijevod, isti postupak kao za Godinu B) i tek onda dodati datoteku u `data-index.json` + `service-worker.js` cache popis (uz bump verzije).
 
 Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash (čak i `git status` kroz sandbox zna ostaviti neobrisiv `index.lock`); službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda; uvijek pokreni `python provjeri.py` prije pusha.
 
