@@ -25,11 +25,12 @@ Kalendar misa/
 ├── PROMJENE.md              changelog - zapis za svaku objavljenu verziju
 ├── NASTAVAK-PROJEKTA.md     ova datoteka
 ├── GIT-UPUTE-ZA-CLAUDEA.md  generičke upute za git/GitHub (reusable za buduće projekte)
-├── css/style.css
+├── css/                      6 datoteka (variables/layout/typography/buttons/cards/utilities.css) - vidi README.md
 ├── js/
 │   ├── verzija.js           APP_VERZIJA - broj verzije koji se prikazuje u podnožju appa
-│   ├── app.js               logika: učitavanje, accordion prikaz, date picker, boje, dark tema,
-│   │                         veličina fonta, Wake Lock, gumb "Danas", swipe lijevo/desno
+│   ├── app.js               ulazna točka (ES modul) - dohvat DOM elemenata, prikaziDan(), init(), wiring
+│   ├── modules/              calendar/theme/readings/storage/navigation/ui/service-worker-client.js
+│   │                         (razbijeno iz app.js u v1.8.0 - vidi README.md "CSS organizacija" i "Struktura projekta")
 │   └── fixed-prayers.js     NEPROMJENJIVI dio: stalne molitve (hardkodirano)
 └── icons/                   icon.svg + icon-192.png + icon-512.png
 ```
@@ -97,17 +98,17 @@ Nativni `<select>` (110+ ravnih stavki, nepregledan čak i s optgroup grupiranje
 
 Korisnik je zadao veliki popis od 18 poboljšanja kvalitete/UX-a/refaktoringa, BEZ novih funkcionalnosti, podijeljen u 4 prioriteta (Vizualno poliranje, UX poboljšanja, Konzistentnost, Refactoring). Puni popis stavki treba tražiti u povijesti razgovora (nije ponovljen ovdje jer je predugačak) - u nastavku je samo status i konvencija rada.
 
-**Radni proces (korisnikov izričit zahtjev)**: svaka stavka se radi POJEDINAČNO - napravi se izmjena, pokaže rezultat (lokalno, preko `python -m http.server` + Chrome, BEZ pusha), pričeka se korisnikova potvrda, tek onda ide sljedeća stavka. Ne raditi više stavki odjednom bez potvrde.
+**Radni proces**: izvorno se svaka stavka radila POJEDINAČNO uz korisnikovu potvrdu (lokalni preview, bez pusha, pa tek onda dalje). Od noći 22.-23.7.2026. korisnik je dao izričitu uputu da se cijela preostala roadmapa (Prioritet 3 + 4) odradi autonomno, bez daljnjih pitanja, jer je otišao spavati - taj cijeli ostatak (P3.10-P3.13, P4.14-P4.18) odrađen je u jednom potezu bez međupotvrda.
 
 **Git/objavljivanje (korisnikova odluka, 22.7.2026.)**: korisnik uglavnom testira na mobitelu, ne na računalu, pa lokalni preview nije dovoljan za njega - zato se version bump + push radi **po završenom Prioritetu** (ne po svakoj sitnoj stavci, ne tek na samom kraju). Kad se potvrde sve stavke jednog Prioriteta, ide standardni postupak objave (verzija.js + CACHE_NAME + PROMJENE.md + provjeri.py + git push + test na živoj GitHub Pages domeni).
 
-**Status**:
-- **Prioritet 1 (Vizualno poliranje) - DOVRŠENO, objavljeno u v1.5.0**: tipografija (line-height, razmak, hijerarhija naslova, max-width 65ch za tekst čitanja, kontrast `--tekst-suptilan`), više razmaka/paddinga (kartice, sekcije, gumbi), dosljedan dizajn kartica (isti radius/border/shadow na `details.section` i "empty state" okviru), liturgijske boje kao diskretan akcent (lijevi rub kartice `border-left: 4px solid var(--akcent)`, uz postojeće obojane naslove/značke).
-- **Prioritet 2 (UX poboljšanja) - DOVRŠENO, objavljeno u v1.5.0 (stavka 5) i v1.6.0 (stavke 6-9)**: manje klikova (sekcija "Služba riječi" otvorena po zadanome umjesto "Uvodni obredi" - `js/app.js`, `sekcijaWrapper("rijec", ..., true, ...)` u `prikaziDan()`); poboljšan scroll (globalni `scroll-behavior: smooth`, isključen na `.day-modal__list` da se ne sudara s animacijom otvaranja panela, ispravljen skok scrolla kod "Prikaži prošle dane" u izborniku - `els.dayModalList.scrollTop` korekcija u `app.js`); suptilne animacije (fade+slide 180ms na otvaranju `details.section`/`details.item`, dan-animacije skraćene na 200ms); skeleton/shimmer loading stanje (`.skeleton-card`/`.skeleton-line` u `index.html`/`style.css`, zamjenjuje "Učitavanje..." tekst, koji ostaje dostupan čitačima ekrana preko `.sr-only`); prijateljska prazna stanja (izbornik dana, poruke o nedostupnim podacima/grešci učitavanja).
-- **Prioritet 3 (Konzistentnost) - nije počelo**: standardizirati gumbe, ikone, provjeriti dark mode, fokus na čitanje.
-- **Prioritet 4 (Refactoring) - nije počelo**: razbiti `app.js` u module, razdvojiti CSS u više datoteka, dizajn sustav (CSS varijable za spacing/radius/shadow), ukloniti duplicirani kod, dokumentirati strukturu u README-u.
+**Status - CIJELA ROADMAPA (svih 18 stavki) DOVRŠENA I OBJAVLJENA**:
+- **Prioritet 1 (Vizualno poliranje) - v1.5.0**: tipografija (line-height, razmak, hijerarhija naslova, max-width 65ch za tekst čitanja, kontrast `--tekst-suptilan`), više razmaka/paddinga (kartice, sekcije, gumbi), dosljedan dizajn kartica (isti radius/border/shadow na `details.section` i "empty state" okviru), liturgijske boje kao diskretan akcent (lijevi rub kartice `border-left: 4px solid var(--akcent)`, uz postojeće obojane naslove/značke).
+- **Prioritet 2 (UX poboljšanja) - v1.5.0 (stavka 5) i v1.6.0 (stavke 6-9)**: manje klikova (sekcija "Služba riječi" otvorena po zadanome umjesto "Uvodni obredi"); poboljšan scroll (globalni `scroll-behavior: smooth`, isključen na `.day-modal__list`, ispravljen skok scrolla kod "Prikaži prošle dane"); suptilne animacije (fade+slide 180ms na otvaranju, dan-animacije 200ms); skeleton/shimmer loading stanje; prijateljska prazna stanja.
+- **Prioritet 3 (Konzistentnost) - v1.7.0**: standardizirani gumbi (svi dijele pill/krug oblik ili `var(--radijus)`, dosljedan fokus-outline), konzistentan set ikona (ikona mjeseca prepravljena iz ispunjene u obrisnu, sve ikone iste debljine crte), dark mode provjera (pojačan kontrast rubova kartica `#38363c`→`#47434c`, potvrđeno da su liturgijske boje i banner isteka već imali zasebne tamne varijante), fokus na čitanje (CSS `:has()` prigušuje naslove zatvorenih susjednih stavki na 55% kad je jedna ručno otvorena).
+- **Prioritet 4 (Refactoring) - v1.8.0**: `app.js` (~990 redaka) razbijen u 7 ES modula (`js/modules/calendar.js`, `theme.js`, `readings.js`, `storage.js`, `navigation.js`, `ui.js`, `service-worker-client.js`) + `app.js` kao tanka ulazna točka (`type="module"` u `index.html`); CSS razdvojen u 6 datoteka (`variables/layout/typography/buttons/cards/utilities.css`, provjereno diffom da nijedno pravilo nije izgubljeno/promijenjeno); dizajn sustav (`--radijus-pill`, `--tranzicija-brza`, `--tranzicija-tema`, `--sjena-kartica` u `variables.css`); uklonjen dupliciran kod (`BOJA_HEX_TEKST.svijetla` je sad referenca na `BOJA_HEX`, 9 ponavljajućih HTML predložaka zamijenjeno funkcijom `fiksnaStavka()`); `README.md` ažuriran (nova struktura, CSS organizacija, kako dodati molitvu). Modularni prijelaz testiran ručno (Chrome, lokalni server + živa GitHub Pages domena) na svim interakcijama prije objave - 0 regresija.
 
-## Verzioniranje (trenutno na verziji 1.6.0, ažurirano 23.7.2026.)
+## Verzioniranje (trenutno na verziji 1.8.0, ažurirano 23.7.2026.)
 
 Aplikacija koristi semantičko verzioniranje **X.Y.Z**, vidljivo korisniku u podnožju appa (da može provjeriti ima li ažurnu verziju). Pravila: Z = ispravak greške (1.0.0 → 1.0.1); Y = nova/promijenjena mogućnost ili veći dodatak podataka, npr. nova liturgijska godina (→ 1.1.0, Z na 0); X = veliki redizajn/prerada (→ 2.0.0, Y i Z na 0). Detalji u `README.md` (odjeljak "Verzioniranje").
 
@@ -121,13 +122,16 @@ Aplikacija koristi semantičko verzioniranje **X.Y.Z**, vidljivo korisniku u pod
 - **1.4.0** (21.7.2026.): nativni `<select>` (čak i s optgroup grupiranjem iz 1.3.0 i dalje nepregledan) potpuno uklonjen - zamijenjen prev/next gumbima uz "Danas" i modalom (bottom-sheet) koji se otvara dodirom na day-info traku, grupiran po mjesecima, s prošlim danima sklopljenim po zadanome. Detalji u odjeljku "Novi izbornik dana - verzija 1.4.0" gore.
 - **1.5.0** (22.7.2026.): prvi dio refactoring/UI-UX roadmape (bez novih funkcionalnosti) - Prioritet 1 (Vizualno poliranje) u cijelosti + stavka 5 Prioriteta 2 (manje klikova - "Služba riječi" otvorena po zadanome). Detalji u odjeljku "Refactoring i UI/UX roadmap" gore i u `PROMJENE.md`.
 - **1.6.0** (23.7.2026.): drugi dio roadmape - ostatak Prioriteta 2 (poboljšan scroll, suptilne animacije 150-200ms, skeleton/shimmer loading stanje, prijateljska prazna stanja). Prioritet 2 time u cijelosti dovršen. Detalji u odjeljku "Refactoring i UI/UX roadmap" gore i u `PROMJENE.md`.
+- **1.7.0** (23.7.2026.): treći dio roadmape - Prioritet 3 (Konzistentnost) u cijelosti: standardizirani gumbi, konzistentne ikone, dark mode provjera, fokus na čitanje. Detalji u `PROMJENE.md`.
+- **1.8.0** (23.7.2026.): četvrti i posljednji dio roadmape - Prioritet 4 (Refactoring) u cijelosti: `app.js` razbijen u 7 ES modula, CSS u 6 datoteka, dizajn sustav (CSS varijable), uklonjen dupliciran kod, README ažuriran. Nema vidljivih promjena za korisnika - isključivo unutarnja organizacija koda. Detalji u `PROMJENE.md`. **Cijela 18-stavčana roadmapa je ovime dovršena.**
 
-## Sljedeći koraci (preporuke, ažurirano 23.7.2026.)
+## Sljedeći koraci (preporuke, ažurirano 23.7.2026., nakon v1.8.0)
 
-1. **Nastaviti roadmap** (vidi "Refactoring i UI/UX roadmap" gore): Prioritet 3 (konzistentnost gumba/ikona/dark mode/fokus na čitanje), pa Prioritet 4 (refactoring app.js/CSS-a). Raditi stavku-po-stavku uz potvrdu, version bump/push tek kad se završi cijeli Prioritet.
-2. **Testiranje na mobitelu** (korisnik): instalacija, offline rad, novi izbornik dana iz 1.4.0 (prev/next gumbi, dodir na day-info, bottom-sheet, "Prikaži prošle dane", scroll na danas), UX novosti iz 1.3.0 (banner isteka, badge, scroll+animacija, "Otvori sve"/"Način mise", SVG ikone) te cijeli Prioritet 1+2 roadmape iz 1.5.0/1.6.0 (tipografija, razmak, kartice, liturgijski akcent, manje klikova, scroll, animacije, skeleton loading, prazna stanja) na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/ - u podnožju treba pisati "Verzija 1.6.0".
+1. **Roadmapa je gotova** - nema više planiranih refactoring/UX stavki. Sljedeći rad na projektu vjerojatno će biti nove funkcionalnosti, popunjavanje Godine C, ili sitne korekcije koje korisnik zatraži.
+2. **Testiranje na mobitelu** (korisnik): korisno bi bilo da korisnik napravi jedan prolaz kroz cijelu aplikaciju na Androidu/iPhoneu preko https://silviogajdosik-ops.github.io/kalendarmisa/ - instalacija, offline rad, izbornik dana, tema, veličina fonta, Wake Lock, swipe, "Način mise" - u podnožju treba pisati "Verzija 1.8.0". Modularni JS prijelaz (v1.8.0) je testiran u desktop Chromeu (lokalno i na živoj domeni), ali stvarni mobilni test još nije potvrđen.
 3. Ako se naknadno uoče sitne razlike u podjeli stihova nasuprot tiskanom misalu (Godina A ili B), doraditi referenc-polja pojedinačno (zakrpa).
 4. **Godina C - sljedeći korak**: kostur `data-godina-C.json` je gotov i datumski provjeren (vidi gore) - preostaje popuniti reference i tekstove čitanja (Šarić prijevod, isti postupak kao za Godinu B) i tek onda dodati datoteku u `data-index.json` + `service-worker.js` cache popis (uz bump verzije).
+5. **Ako se dodaje nova funkcionalnost ili modul**: novi kod treba ići u odgovarajući postojeći modul u `js/modules/` (ili novi modul po istom obrascu) umjesto natrag u jednu veliku datoteku - vidi `README.md` "Struktura projekta" i "CSS organizacija".
 
 Kritična pravila: git i brisanje datoteka u ovoj mapi rade se samo preko `mcp__Windows-MCP__PowerShell`, nikad kroz sandbox bash (čak i `git status` kroz sandbox zna ostaviti neobrisiv `index.lock`); službeni HBK prijevod se NE smije preuzimati - tekstovi isključivo iz Šarić (public domain) prijevoda; uvijek pokreni `python provjeri.py` prije pusha.
 
