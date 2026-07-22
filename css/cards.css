@@ -1,0 +1,278 @@
+/**
+ * cards.css - Kartice i panel-komponente: banner isteka, traka "Način mise",
+ * značke, skeleton učitavanja, kartice reda mise (sekcije/stavke) i sadržaj
+ * izbornika dana (redovi popisa dana). Svi dijele isti radius/border/sjenu
+ * po dizajn sustavu iz variables.css - vidi PROMJENE.md v1.3.0-1.7.0.
+ */
+
+/* ---------- Banner isteka podataka ---------- */
+
+.expiry-banner {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.expiry-banner--expired {
+  background: #f4c7c7;
+  color: #5c1a1a;
+}
+
+.expiry-banner--soon {
+  background: #ffe4a3;
+  color: #5c4300;
+}
+
+:root[data-tema="tamna"] .expiry-banner--expired {
+  background: #4a1f1f;
+  color: #f7caca;
+}
+
+:root[data-tema="tamna"] .expiry-banner--soon {
+  background: #4a3a12;
+  color: #ffe4a3;
+}
+
+/* ---------- Traka "Način mise" ---------- */
+
+.nacin-mise-traka {
+  background: var(--pozadina);
+  border-bottom: 1px solid var(--rub);
+  padding: 8px var(--razmak);
+}
+
+.nacin-mise-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--tekst-suptilan);
+  cursor: pointer;
+  min-height: 28px;
+}
+
+.nacin-mise-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--akcent);
+  flex-shrink: 0;
+}
+
+/* ---------- Značke ---------- */
+
+.offline-badge {
+  background: rgba(0,0,0,0.25);
+  padding: 3px 10px;
+  border-radius: var(--radijus-pill);
+  font-size: 0.75rem;
+}
+
+.day-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: var(--radijus-pill);
+  background: #fff;
+  color: var(--akcent);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.day-badge--proslo {
+  background: rgba(255,255,255,0.55);
+}
+
+/* ---------- Skeleton/shimmer stanje učitavanja ---------- */
+
+.skeleton-card {
+  background: var(--pozadina);
+  border: 1px solid var(--rub);
+  border-radius: var(--radijus);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: var(--radijus-pill);
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, var(--rub) 25%, var(--pozadina-app) 50%, var(--rub) 75%);
+  background-size: 200% 100%;
+  animation: skeletonPomak 1.4s ease-in-out infinite;
+}
+
+.skeleton-line:last-child { margin-bottom: 0; }
+
+.skeleton-line--title {
+  width: 45%;
+  height: 18px;
+}
+
+.skeleton-line--short {
+  width: 60%;
+}
+
+@keyframes skeletonPomak {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+    background: var(--rub);
+  }
+}
+
+/* ---------- Kartice reda mise (sekcije i stavke) ---------- */
+
+details.section {
+  background: var(--pozadina);
+  border: 1px solid var(--rub);
+  border-left: 4px solid var(--akcent);
+  border-radius: var(--radijus);
+  box-shadow: var(--sjena-kartica);
+  margin-bottom: 18px;
+  overflow: hidden;
+  transition: border-color var(--tranzicija-tema);
+}
+
+details.section > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 20px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--akcent-tekst);
+  -webkit-tap-highlight-color: transparent;
+}
+
+details.section > summary::-webkit-details-marker { display: none; }
+
+details.section > summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--tekst-suptilan);
+  transition: transform .2s ease;
+}
+
+details.section[open] > summary::after {
+  content: "\2212";
+}
+
+.section__body {
+  padding: 0 20px 20px 20px;
+}
+
+details.item {
+  border-top: 1px solid var(--rub);
+  padding: 16px 0;
+}
+
+details.item:first-child { border-top: none; }
+
+details.item > summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--tekst);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+details.item > summary::-webkit-details-marker { display: none; }
+
+/* Fokus na čitanje: kad je jedna stavka ručno otvorena dok su susjedne zatvorene
+   (pregledavanje stavku-po-stavku, izvan "Način mise" kad su sve otvorene),
+   naslovi zatvorenih susjednih stavki se suptilno prigušuju da otvoreni tekst
+   ostane vizualno najvažniji element na ekranu. */
+.section__body:has(> details.item[open]) > details.item:not([open]) > summary {
+  opacity: 0.55;
+  transition: opacity var(--tranzicija-brza);
+}
+
+.section__body:has(> details.item[open]) > details.item:not([open]) > summary:hover,
+.section__body:has(> details.item[open]) > details.item:not([open]) > summary:focus-visible {
+  opacity: 1;
+}
+
+/* ---------- Izbornik dana - popis dana ---------- */
+
+.day-modal__grabber {
+  width: 40px;
+  height: 4px;
+  border-radius: var(--radijus-pill);
+  background: var(--rub);
+  margin: 10px auto 0;
+  flex-shrink: 0;
+}
+
+.day-modal__empty {
+  text-align: center;
+  color: var(--tekst-suptilan);
+  padding: 40px 16px;
+  line-height: 1.6;
+}
+
+.day-modal__month {
+  position: sticky;
+  top: 0;
+  background: var(--pozadina-app);
+  padding: 14px 6px 6px;
+}
+
+.day-modal__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: var(--radijus);
+  background: none;
+  color: var(--tekst);
+  font-size: 0.98rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--tranzicija-brza);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day-modal__item:active {
+  background: var(--akcent-svijetla);
+}
+
+.day-modal__item--danas {
+  background: var(--akcent-svijetla);
+}
+
+.day-modal__item-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.day-modal__item-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-modal__item-check {
+  flex-shrink: 0;
+  color: var(--akcent-tekst);
+  font-weight: 700;
+  font-size: 1.1rem;
+}

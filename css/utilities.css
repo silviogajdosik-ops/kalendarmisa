@@ -1,0 +1,60 @@
+/**
+ * utilities.css - Pomoćne klase i animacije koje se ne vežu uz jednu
+ * komponentu: sr-only (dostupnost), animacije pri promjeni dana i pri
+ * otvaranju sekcije/stavke. Sve poštuju prefers-reduced-motion.
+ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Animacija pri promjeni dana (swipe/odabir) ---------- */
+
+@keyframes klizanjeSDesna {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes klizanjeSLijeva {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes postupnoPojavljivanje {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.mass-order--anim-next { animation: klizanjeSDesna .2s ease; }
+.mass-order--anim-prev { animation: klizanjeSLijeva .2s ease; }
+.mass-order--anim-fade { animation: postupnoPojavljivanje .18s ease; }
+
+/* ---------- Suptilna animacija otvaranja sekcije/stavke (accordion) ---------- */
+
+@keyframes sadrzajOtvaranje {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+details.section[open] > .section__body,
+details.item[open] > .item__body {
+  animation: sadrzajOtvaranje .18s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mass-order--anim-next,
+  .mass-order--anim-prev,
+  .mass-order--anim-fade,
+  details.section[open] > .section__body,
+  details.item[open] > .item__body {
+    animation: none;
+  }
+}

@@ -3,6 +3,16 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.8.0 - 23.7.2026.
+
+Četvrti i posljednji dio "Refactoring i UI/UX roadmape" (bez novih funkcionalnosti) - Prioritet 4 (Refactoring). Ova verzija ne mijenja ništa vidljivo - cilj je isključivo lakše buduće održavanje:
+
+- **`app.js` razbijen u module**: nekadašnja jedna datoteka od ~990 redaka sada je 7 ES modula u `js/modules/` (`calendar.js` - datumi i učitavanje podataka, `theme.js` - tema i liturgijske boje, `readings.js` - gradnja HTML-a čitanja/molitava, `storage.js` - sav pristup `localStorage`-u, `navigation.js` - izbornik dana i swipe, `ui.js` - ikone/veličina fonta/Wake Lock/harmonika, `service-worker-client.js` - registracija service workera) + `js/app.js` kao tanka ulazna točka koja ih povezuje s DOM-om. `index.html` sada učitava `js/app.js` kao `type="module"`. Ponašanje je 100% identično prijašnjem - promjena je isključivo unutarnja organizacija koda, testirana ručno na svim interakcijama (promjena dana, swipe, izbornik dana, tema, veličina fonta, Wake Lock, Vjerovanje, Način mise, Otvori/Zatvori sve) prije objave.
+- **CSS organiziran u 6 datoteka** (`variables.css`, `layout.css`, `typography.css`, `buttons.css`, `cards.css`, `utilities.css`) umjesto jedne `style.css` od ~900 redaka - provjereno da je svako CSS pravilo premješteno bez izmjene (usporedba svih deklaracija prije/poslije, 0 razlika).
+- **Dizajn sustav (CSS varijable)**: dodane varijable `--radijus-pill`, `--tranzicija-brza`, `--tranzicija-tema`, `--sjena-kartica` u `variables.css` - "magic number" vrijednosti (border-radius, transition, box-shadow) diljem `style.css`-a zamijenjene referencama na te varijable.
+- **Uklonjen dupliciran kod**: tablica boja teksta za svijetlu temu (`BOJA_HEX_TEKST.svijetla`) više nije zasebna kopija nego izravna referenca na `BOJA_HEX`; 9 gotovo identičnih HTML predložaka za "jednostavne" stalne molitve zamijenjeno jednom pomoćnom funkcijom (`fiksnaStavka`).
+- **Dokumentacija strukture projekta**: `README.md` ažuriran s novom strukturom direktorija (6 CSS + 7 JS modula), objašnjenjem CSS organizacije, i uputama kako dodati novu stalnu molitvu (`fiksnaStavka` uzorak).
+
 ## 1.7.0 - 23.7.2026.
 
 Treći dio "Refactoring i UI/UX roadmape" (bez novih funkcionalnosti) - Prioritet 3 (Konzistentnost):

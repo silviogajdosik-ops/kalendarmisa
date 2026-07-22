@@ -4,22 +4,45 @@
 
 ```
 Kalendar misa/
-├── index.html          - glavna stranica
-├── manifest.json        - PWA manifest (instalacija na mobitel)
-├── service-worker.js    - omogućuje 100% offline rad
-├── data-index.json       - popis datoteka s podacima po liturgijskim godinama
-├── data-godina-A.json    - PROMJENJIVI dijelovi (čitanja) za liturgijsku godinu A - ovdje lijepite tekstove
-├── css/style.css
+├── index.html              - glavna stranica (učitava svih 6 CSS datoteka + JS)
+├── manifest.json            - PWA manifest (instalacija na mobitel)
+├── service-worker.js        - omogućuje 100% offline rad (cache-first)
+├── data-index.json           - popis datoteka s podacima po liturgijskim godinama
+├── data-godina-A.json         - PROMJENJIVI dijelovi (čitanja) za liturgijsku godinu A - ovdje lijepite tekstove
+├── data-godina-B.json         - liturgijska godina B (isti obrazac)
+├── data-godina-C.json         - kostur liturgijske godine C (datumi/boje gotovi, tekstovi čekaju popunu)
+├── generiraj-godinu.py        - generira kostur nove liturgijske godine (datumi, boje, rang) - vidi niže
+├── provjeri.py                - validacija prije svakog pusha (JSON + broj verzije) - pokreni prije push-a
+├── css/
+│   ├── variables.css          - JEDINA datoteka s CSS varijablama (boje, razmaci, radijusi, sjene, tranzicije)
+│   ├── layout.css              - struktura stranice, pozicioniranje (zaglavlje, glavni sadržaj, modal)
+│   ├── typography.css          - sav tekst: naslovi, tekst čitanja/molitava, sitni tekst
+│   ├── buttons.css              - svi klikabilni gumbi i njihova stanja (hover/active/fokus)
+│   ├── cards.css                 - kartice/paneli: banner, značke, skeleton, sekcije/stavke, popis dana
+│   └── utilities.css              - sr-only, animacije pri promjeni dana i otvaranju sekcije/stavke
 ├── js/
-│   ├── verzija.js         - broj verzije aplikacije (jedino mjesto gdje se mijenja, uz CACHE_NAME)
-│   ├── app.js             - logika aplikacije (učitavanje, prikaz, accordion, tema)
-│   └── fixed-prayers.js   - NEPROMJENJIVE molitve (Ispovijedam se, Slava, Vjerovanje, Svet, Oče naš, Jaganjče Božji)
-├── icons/                 - icon.svg + icon-192.png + icon-512.png
-├── PROMJENE.md            - povijest promjena po verzijama (changelog)
-└── README.md
+│   ├── verzija.js              - broj verzije aplikacije (jedino mjesto gdje se mijenja, uz CACHE_NAME)
+│   ├── app.js                  - logika aplikacije (učitavanje, prikaz, accordion, tema, izbornik dana)
+│   └── fixed-prayers.js        - NEPROMJENJIVE molitve (Ispovijedam se, Slava, Vjerovanje, Svet, Oče naš, Jaganjče Božji...)
+├── icons/                      - icon.svg + icon-192.png + icon-512.png
+├── PROMJENE.md                 - povijest promjena po verzijama (changelog)
+├── NASTAVAK-PROJEKTA.md        - radni dnevnik projekta (kontekst za nastavak rada u novoj Cowork sesiji)
+└── README.md                   - ova datoteka
 ```
 
 Podaci su razdvojeni po liturgijskim godinama (A/B/C) radi lakšeg ručnog uređivanja i manjih datoteka. Kad se doda nova godina (npr. `data-godina-B.json`), dovoljno ju je dodati u popis `datoteke` unutar `data-index.json` - aplikacija ih automatski učita i spoji.
+
+### CSS organizacija
+
+Stilovi su podijeljeni u 6 datoteka po vrsti pravila (ne po komponenti) - `index.html` ih učitava tim redoslijedom preko 6 `<link>` oznaka, a `service-worker.js` ih sve navodi u popisu za predmemoriju. Redoslijed učitavanja je bitan samo zato što `variables.css` mora biti prvi (sve ostale datoteke koriste `var(--ime)`); unutar ostalih 5 datoteka redoslijed ne utječe na izgled jer nijedno pravilo ne postavlja isto CSS svojstvo za isti selektor u dvije datoteke.
+
+Kod razvrstavanja pravila po datotekama korištena su dva vodilja: (1) svojstvo boje/razmaka/radijusa uvijek dolazi iz `variables.css`, nikad kao "magic number"; (2) kad jedna cjelina (npr. gumb ili kartica) ima i izgled i tekstualna svojstva, cijeli selektor ide u datoteku njegove GLAVNE namjene (npr. `.header-btn` je u cijelosti u `buttons.css` iako sadrži i `font-size`) - iznimka je `.day-modal__month` gdje su pozicioniranje (u `cards.css`) i tekstualni izgled (u `typography.css`) namjerno razdvojeni jer su podjednako važna oba aspekta.
+
+Ako dodajete novi stil: prvo provjerite postoji li već odgovarajuća varijabla u `variables.css` (boja, razmak, radijus, sjena, tranzicija) prije nego upišete novu "magic number" vrijednost.
+
+### Kako dodati novu stalnu molitvu
+
+`js/fixed-prayers.js` sadrži nepromjenjive molitve kao objekt `STALNE_MOLITVE` (svaka stavka ima `naslov` i `tekst`, neke i `varijante`/`odgovor`). Za jednostavnu molitvu (samo naslov + tekst, bez posebnog sadržaja) `js/app.js` ima pomoćnu funkciju `fiksnaStavka(molitva, otvorenaLiPoZadanome)` koja gradi cijelu `<details class="item">` stavku - iskoristite je umjesto ručnog pisanja HTML-a (vidi `sekcijaUvodniObredi`/`sekcijaEuharistija`/`sekcijaZavrsniObredi` za primjere). Za molitve s dodatnim sadržajem (napomena, popis varijanti i sl.) pogledajte kako je to riješeno za "Oče naš" (`m.oceNas` + `m.embolizam`) ili "Otpust" (`m.otpust.varijante`).
 
 ## Kako popuniti čitanja
 

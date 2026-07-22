@@ -1,0 +1,156 @@
+/**
+ * layout.css - Struktura stranice i pozicioniranje: reset, glavni spremnici,
+ * zaglavlje (kostur), izbornik dana (bottom-sheet pozicioniranje).
+ * Boje/tipografija/gumbi su namjerno izostavljeni odavde - vidi variables.css,
+ * typography.css, buttons.css, cards.css.
+ */
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--pozadina-app);
+  color: var(--tekst);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+body {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Zaglavlje (kostur) ---------- */
+
+.app-header {
+  background: var(--akcent);
+  color: #fff;
+  padding: calc(var(--razmak) * 0.9) var(--razmak);
+  padding-top: calc(env(safe-area-inset-top, 0) + 14px);
+  transition: background-color .3s ease;
+}
+
+.app-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.day-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.day-picker__row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ---------- Glavni sadržaj ---------- */
+
+.mass-order {
+  flex: 1;
+  padding: var(--razmak);
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---------- Izbornik dana (modal / bottom-sheet) - pozicioniranje ---------- */
+
+body.modal-otvoren {
+  overflow: hidden;
+}
+
+.day-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.day-modal-backdrop[hidden] {
+  display: none;
+}
+
+.day-modal-backdrop.otvoren {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.day-modal {
+  width: 100%;
+  max-width: 720px;
+  height: 90vh;
+  height: 90dvh;
+  max-height: 90vh;
+  background: var(--pozadina-app);
+  border-radius: 18px 18px 0 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform .28s ease;
+  box-shadow: 0 -6px 28px rgba(0,0,0,0.3);
+}
+
+.day-modal-backdrop.otvoren .day-modal {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day-modal-backdrop,
+  .day-modal {
+    transition: none;
+  }
+}
+
+.day-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px var(--razmak) 14px;
+  border-bottom: 1px solid var(--rub);
+  flex-shrink: 0;
+}
+
+.day-modal__list {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+  padding: 4px var(--razmak) calc(env(safe-area-inset-bottom, 0) + 16px);
+}

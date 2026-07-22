@@ -1,0 +1,138 @@
+/**
+ * typography.css - Sva pravila koja upravljaju tekstom: hijerarhija naslova,
+ * tekst čitanja/molitava, sitni tekst (day-info, footer, modal naslovi).
+ */
+
+h1, h2, h3 { margin: 0; }
+
+.app-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+@media (min-width: 600px) {
+  :root { font-size: 18px; }
+}
+
+.day-info__title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.day-info__date {
+  font-size: 0.9rem;
+  opacity: 1;
+  text-transform: capitalize;
+}
+
+.day-info__meta {
+  font-size: 0.78rem;
+  opacity: 0.95;
+  margin-top: 2px;
+}
+
+.loading-msg {
+  text-align: center;
+  color: var(--tekst-suptilan);
+  padding: 40px 0;
+  line-height: 1.6;
+}
+
+.loading-msg__detalj {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+/* ---------- Tekst čitanja i molitava ---------- */
+
+.item__ref {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--tekst-suptilan);
+  white-space: nowrap;
+}
+
+.item__body {
+  margin-top: 14px;
+  white-space: pre-line;
+  color: var(--tekst);
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+.item__body.empty {
+  color: var(--tekst-suptilan);
+  font-style: italic;
+  background: var(--akcent-svijetla);
+  padding: 12px 14px;
+  border-radius: var(--radijus);
+  font-size: 0.92rem;
+}
+
+.pripjev {
+  font-weight: 600;
+  color: var(--akcent-tekst);
+  margin-bottom: 6px;
+}
+
+.napomena-liturgijska {
+  font-size: 0.82rem;
+  color: var(--tekst-suptilan);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.molitva-lista {
+  margin: 0;
+  padding-left: 18px;
+  max-width: 65ch;
+}
+
+.molitva-lista li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* ---------- Izbornik dana - tekst ---------- */
+
+.day-modal__header h2 {
+  font-size: 1.1rem;
+  color: var(--tekst);
+}
+
+.day-modal__month {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--tekst-suptilan);
+  text-transform: uppercase;
+}
+
+.day-modal__item-naziv {
+  font-weight: 600;
+}
+
+.day-modal__item--danas .day-modal__item-naziv {
+  font-weight: 700;
+}
+
+.day-modal__item-meta {
+  font-size: 0.78rem;
+  color: var(--tekst-suptilan);
+}
+
+/* ---------- Podnožje ---------- */
+
+.app-footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--tekst-suptilan);
+  padding: 14px 20px 24px;
+}
+
+.app-verzija {
+  margin-top: 8px;
+  font-size: 0.68rem;
+  opacity: 0.75;
+}

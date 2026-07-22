@@ -1,0 +1,46 @@
+/**
+ * variables.css - Dizajn sustav: boje, razmaci, radijusi, sjene, tranzicije.
+ * Ovo je JEDINA datoteka koja definira CSS varijable (custom properties) -
+ * sve ostale CSS datoteke ih samo koriste preko var(--ime). Mora se učitati
+ * PRIJE svih ostalih CSS datoteka (redoslijed <link> u index.html).
+ */
+
+:root {
+  --boja-ljubicasta: #6a3fa0;
+  --boja-ljubicasta-svijetla: #efe7f8;
+  --boja-bijela: #b6912a;
+  --boja-bijela-svijetla: #faf6e8;
+  --boja-crvena: #b5333a;
+  --boja-crvena-svijetla: #fbe9ea;
+  --boja-zelena: #2f7d4f;
+  --boja-zelena-svijetla: #e8f4ec;
+
+  --akcent: var(--boja-zelena);
+  --akcent-svijetla: var(--boja-zelena-svijetla);
+  --akcent-tekst: var(--akcent);
+
+  --tekst: #222222;
+  --tekst-suptilan: #4a4a4a;
+  --pozadina: #ffffff;
+  --pozadina-app: #f4f3f1;
+  --rub: #e0ddd6;
+
+  --radijus: 12px;
+  --radijus-pill: 999px;
+  --razmak: 18px;
+
+  --tranzicija-brza: .15s ease;
+  --tranzicija-tema: .3s ease;
+  --sjena-kartica: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+
+  font-size: 17px;
+}
+
+:root[data-tema="tamna"] {
+  --tekst: #e9e7e4;
+  --tekst-suptilan: #b3b0aa;
+  --pozadina: #201f23;
+  --pozadina-app: #131215;
+  --rub: #47434c;
+  --sjena-kartica: 0 1px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.18);
+}
