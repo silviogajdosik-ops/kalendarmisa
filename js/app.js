@@ -517,13 +517,14 @@
     els.colorDot.style.background = BOJA_HEX[dan.boja] || "#fff";
 
     els.massOrder.innerHTML = "" +
-      sekcijaWrapper("uvodni", "Uvodni obredi", true, sekcijaUvodniObredi(dan)) +
-      sekcijaWrapper("rijec", "Služba riječi", false, sekcijaSluzbaRijeci(dan)) +
+      sekcijaWrapper("uvodni", "Uvodni obredi", false, sekcijaUvodniObredi(dan)) +
+      sekcijaWrapper("rijec", "Služba riječi", true, sekcijaSluzbaRijeci(dan)) +
       sekcijaWrapper("euharistija", "Euharistijska služba", false, sekcijaEuharistija()) +
       sekcijaWrapper("zavrsni", "Završni obredi", false, sekcijaZavrsniObredi());
 
-    // "Način mise": sekcija koja je otvorena po zadanome (Uvodni obredi) odmah
-    // dobiva sve svoje stavke raširene, bez čekanja na ručni klik/toggle.
+    // "Način mise": sekcija koja je otvorena po zadanome (Služba riječi - najčešće
+    // potreban sadržaj tijekom mise) odmah dobiva sve svoje stavke raširene,
+    // bez čekanja na ručni klik/toggle.
     if (nacinMiseAktivan) {
       rasiriSveStavke(els.massOrder.querySelector("details.section[open]"));
     }

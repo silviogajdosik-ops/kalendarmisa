@@ -3,6 +3,16 @@
 Svaka objavljena verzija dobiva ovdje svoj zapis, najnovija na vrhu.
 Pravila verzioniranja su opisana u `README.md` (odjeljak "Verzioniranje") i u `js/verzija.js`.
 
+## 1.5.0 - 22.7.2026.
+
+Prvi dio "Refactoring i UI/UX roadmape" (bez novih funkcionalnosti) - Prioritet 1 (Vizualno poliranje) u cijelosti + prva stavka Prioriteta 2:
+
+- **Tipografija**: veći line-height (1.5 → 1.6 općenito, 1.75 za tekst čitanja), veći razmak iznad tijela stavke i između odlomaka, jasnija hijerarhija naslova sekcija (1.05rem → 1.15rem), tekst čitanja i molitva vjernika ograničeni na ~65 znakova širine radi lakšeg čitanja, pojačan kontrast sekundarnog teksta (`--tekst-suptilan`) u obje teme i uklonjena nepotrebna prozirnost datuma/meta teksta u zaglavlju dana.
+- **Više zraka**: veći padding kartica i zaglavlja, veći razmak između sekcija (12px → 18px), veći razmak između stavki (molitve, čitanja) i gumba.
+- **Dosljedan dizajn kartica**: sve kartice sekcija sada dijele isti radius, border i suptilnu sjenu (prilagođenu po temi); okvir za prazan sadržaj ("nema teksta") usklađen na isti radius kao ostale kartice.
+- **Liturgijske boje kao diskretni akcent**: svaka kartica sekcije sada ima lijevi rub obojan bojom liturgijskog dana (uz postojeće obojane naslove sekcija i značke) - app dobiva vizualni identitet bez bojanja cijele pozadine.
+- **Manje klikova do čitanja**: sekcija "Služba riječi" (čitanja) sada je otvorena po zadanome umjesto "Uvodni obredi" - danas čitanje je odmah vidljivo bez ijednog klika.
+
 ## 1.4.0 - 21.7.2026.
 
 Reorganiziran odabir dana - stari `<select>` sa 110+ ravnih stavki (nepregledan čak i s optgroup grupiranjem iz 1.3.0) zamijenjen je novim dizajnom:

@@ -13,20 +13,20 @@
   --akcent-tekst: var(--akcent);
 
   --tekst: #222222;
-  --tekst-suptilan: #5a5a5a;
+  --tekst-suptilan: #4a4a4a;
   --pozadina: #ffffff;
   --pozadina-app: #f4f3f1;
   --rub: #e0ddd6;
 
   --radijus: 12px;
-  --razmak: 16px;
+  --razmak: 18px;
 
   font-size: 17px;
 }
 
 :root[data-tema="tamna"] {
   --tekst: #e9e7e4;
-  --tekst-suptilan: #a5a29d;
+  --tekst-suptilan: #b3b0aa;
   --pozadina: #201f23;
   --pozadina-app: #131215;
   --rub: #38363c;
@@ -95,7 +95,7 @@ html, body {
   background: var(--pozadina-app);
   color: var(--tekst);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-text-size-adjust: 100%;
   transition: background-color .2s ease, color .2s ease;
 }
@@ -114,8 +114,8 @@ h1, h2, h3 { margin: 0; }
 .app-header {
   background: var(--akcent);
   color: #fff;
-  padding: calc(var(--razmak) * 0.75) var(--razmak);
-  padding-top: calc(env(safe-area-inset-top, 0) + 12px);
+  padding: calc(var(--razmak) * 0.9) var(--razmak);
+  padding-top: calc(env(safe-area-inset-top, 0) + 14px);
   transition: background-color .3s ease;
 }
 
@@ -123,7 +123,7 @@ h1, h2, h3 { margin: 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .app-header h1 {
@@ -142,7 +142,7 @@ h1, h2, h3 { margin: 0; }
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
@@ -203,13 +203,13 @@ h1, h2, h3 { margin: 0; }
 .day-picker {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 .day-picker__row {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -327,13 +327,13 @@ h1, h2, h3 { margin: 0; }
 
 .day-info__date {
   font-size: 0.9rem;
-  opacity: 0.95;
+  opacity: 1;
   text-transform: capitalize;
 }
 
 .day-info__meta {
   font-size: 0.78rem;
-  opacity: 0.85;
+  opacity: 0.95;
   margin-top: 2px;
 }
 
@@ -356,16 +356,23 @@ h1, h2, h3 { margin: 0; }
 details.section {
   background: var(--pozadina);
   border: 1px solid var(--rub);
+  border-left: 4px solid var(--akcent);
   border-radius: var(--radijus);
-  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  margin-bottom: 18px;
   overflow: hidden;
+  transition: border-color .3s ease;
+}
+
+:root[data-tema="tamna"] details.section {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.18);
 }
 
 details.section > summary {
   list-style: none;
   cursor: pointer;
-  padding: 16px;
-  font-size: 1.05rem;
+  padding: 18px 20px;
+  font-size: 1.15rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -389,13 +396,13 @@ details.section[open] > summary::after {
 }
 
 .section__body {
-  padding: 0 16px 16px 16px;
+  padding: 0 20px 20px 20px;
 }
 
 .section-controls {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .section-controls__btn {
@@ -414,7 +421,7 @@ details.section[open] > summary::after {
 
 details.item {
   border-top: 1px solid var(--rub);
-  padding: 10px 0;
+  padding: 16px 0;
 }
 
 details.item:first-child { border-top: none; }
@@ -441,17 +448,19 @@ details.item > summary::-webkit-details-marker { display: none; }
 }
 
 .item__body {
-  margin-top: 10px;
+  margin-top: 14px;
   white-space: pre-line;
   color: var(--tekst);
+  line-height: 1.75;
+  max-width: 65ch;
 }
 
 .item__body.empty {
   color: var(--tekst-suptilan);
   font-style: italic;
   background: var(--akcent-svijetla);
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 12px 14px;
+  border-radius: var(--radijus);
   font-size: 0.92rem;
 }
 
@@ -472,8 +481,8 @@ details.item > summary::-webkit-details-marker { display: none; }
 
 .credo-toggle {
   display: flex;
-  gap: 6px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .credo-toggle button {
@@ -499,10 +508,12 @@ details.item > summary::-webkit-details-marker { display: none; }
 .molitva-lista {
   margin: 0;
   padding-left: 18px;
+  max-width: 65ch;
 }
 
 .molitva-lista li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.6;
 }
 
 /* Footer */
